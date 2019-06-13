@@ -1,24 +1,36 @@
+import java.util.ArrayList;
 import java.util.Optional;
 
-public class StudentProcessor extends StudentDaoImpl {
+public interface StudentProcessor {
 
-    public Student getByNumber(String number) {
-
-        for (Student student: studentData) {
-            if(student.getNumber() == number)
-                return student;
+    public StudentDao studentDao = new StudentDao() {
+        @Override
+        public Optional<Student> get(int id) {
+            return Optional.empty();
         }
 
-        return null;
-    }
-
-    public Student getByFirstName(String fName) {
-
-        for (Student student: studentData) {
-            if(student.getFirstName() == fName)
-                return student;
+        @Override
+        public ArrayList<Student> getAll() {
+            return null;
         }
 
-        return null;
-    }
+        @Override
+        public void save(Student student) {
+
+        }
+
+        @Override
+        public void update(Student student, String[] params) {
+
+        }
+
+        @Override
+        public void delete(Student student) {
+
+        }
+    };
+
+    public Student getByNumber(String number);
+
+    public  Student getByFirstName(String fName);
 }

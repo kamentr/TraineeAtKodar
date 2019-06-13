@@ -6,7 +6,7 @@ public class MainUI {
 
     private Scanner scanner = new Scanner(System.in);
     private ArrayList<Student> studentData = StudentData.studentData;
-    private StudentProcessor studentProcessor = new StudentProcessor();
+    private StudentProcessorImpl studentProcessorImpl = new StudentProcessorImpl();
     private StudentDaoImpl studentDao = new StudentDaoImpl();
 
     public MainUI(){
@@ -74,7 +74,7 @@ public class MainUI {
         System.out.println("Write number: ");
         String num = scanner.nextLine();
 
-        studentDao.delete(studentProcessor.getByNumber(num));
+        studentDao.delete(studentProcessorImpl.getByNumber(num));
         PrintMenu();
     }
 
