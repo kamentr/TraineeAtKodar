@@ -4,6 +4,10 @@ public class Student {
     private String lastName;
     private String number;
 
+    public Student() {
+
+    }
+
     public Student(int ID, String firstName, String lastName, String number) {
         this.ID = ID;
         this.firstName = firstName;
