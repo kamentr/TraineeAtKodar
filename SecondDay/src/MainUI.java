@@ -81,7 +81,7 @@ public class MainUI {
     private void getStudentById() {
         System.out.print("Write id: ");
         int id = Integer.parseInt(scanner.nextLine());
-        Optional<Student> s = studentDao.get(id);
+        Student s = studentDao.get(id);
         System.out.println(s);
 
         PrintMenu();

@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public interface Dao<T> {
 
-    Optional<T> get(int id);
+
+    T get(int id);
 
     ArrayList<T> getAll();
 

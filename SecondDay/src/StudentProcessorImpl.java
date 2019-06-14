@@ -2,22 +2,25 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
 
-public class StudentProcessorImpl implements StudentProcessor {
+public class StudentProcessorImpl extends StudentDaoImpl implements StudentProcessor {
 
-    private StudentDao studentDao = new StudentDao() {
-        public Optional<Student> get(int id) {
 
-            return Optional.ofNullable(StudentData.studentData.get((int) id));
+    private StudentDaoImpl studentDaoImpl = new StudentDaoImpl() {
+
+
+        public Student get(int id) {
+
+            return studentData.get(id);
         }
 
         @Override
         public ArrayList<Student> getAll() {
-            return StudentData.studentData;
+            return studentData;
         }
 
         @Override
         public void save(Student student) {
-            StudentData.studentData.add(student);
+            studentData.add(student);
         }
 
         @Override
@@ -30,16 +33,16 @@ public class StudentProcessorImpl implements StudentProcessor {
 
         @Override
         public void delete(Student student) {
-            //if (studentData.contains(student))
-            StudentData.studentData.remove(student);
+            if (studentData.contains(student))
+                studentData.remove(student);
         }
     };
 
     public Student getByNumber(String number) {
 
-        for (Student student: StudentData.studentData) {
-            if(student.getNumber() == number)
-                return student;
+        for (int i = 0; i < studentData.size(); i++) {
+            if (studentData.get(i).getNumber() == number)
+                return studentData.get(i);
         }
 
         return null;
@@ -48,10 +51,17 @@ public class StudentProcessorImpl implements StudentProcessor {
 
     public Student getByFirstName(String fName) {
 
-        for (Student student: StudentData.studentData) {
-            if(student.getFirstName() == fName)
+        for (Student student : StudentData.studentData) {
+            if (student.getFirstName() == fName)
                 return student;
         }
+
+        return null;
+    }
+
+    @Override
+    public ArrayList<Student> getStudentsByTeacher() {
+
 
         return null;
     }
