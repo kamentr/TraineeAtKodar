@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public interface Dao<T> {
 
 
+
     T get(int id);
 
     ArrayList<T> getAll();

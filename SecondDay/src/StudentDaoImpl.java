@@ -4,13 +4,15 @@ public class StudentDaoImpl implements StudentDao {
 
     public ArrayList<Student> studentData;
 
-    public ArrayList<Student> getStudentData() {
-        return studentData;
-    }
 
     public StudentDaoImpl(){
         this.studentData = StudentData.studentData;
     }
+
+    public ArrayList<Student> getStudentData() {
+        return studentData;
+    }
+
     @Override
     public Student get(int id) {
         return studentData.get(id);

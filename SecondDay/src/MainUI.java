@@ -5,9 +5,8 @@ import java.util.Scanner;
 public class MainUI {
 
     private Scanner scanner = new Scanner(System.in);
-    private ArrayList<Student> studentData = StudentData.studentData;
     private StudentProcessorImpl studentProcessorImpl = new StudentProcessorImpl();
-    private StudentDaoImpl studentDao = new StudentDaoImpl();
+    private ArrayList<Student> studentData = studentProcessorImpl.getAllStudents();
 
     public MainUI(){
         PrintMenu();
@@ -74,14 +73,14 @@ public class MainUI {
         System.out.println("Write number: ");
         String num = scanner.nextLine();
 
-        studentDao.delete(studentProcessorImpl.getByNumber(num));
+        studentData.remove(studentProcessorImpl.getByNumber(num));
         PrintMenu();
     }
 
     private void getStudentById() {
         System.out.print("Write id: ");
-        int id = Integer.parseInt(scanner.nextLine());
-        Student s = studentDao.get(id);
+        int id = Integer.parseInt(scanner.next());
+        Student s = studentData.get(id + 1);
         System.out.println(s);
 
         PrintMenu();

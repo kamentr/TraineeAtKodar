@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.Optional;
 
-public interface StudentProcessor{
+public interface StudentProcessor {
 
-    public StudentDaoImpl studentDao = new StudentDaoImpl() {
+    public TeacherDao teacherDao = new TeacherDaoImlp();
+    public StudentDao studentDao = new StudentDaoImpl() {
+
         @Override
         public Student get(int id) {
             return studentDao.get(id);
@@ -12,7 +14,6 @@ public interface StudentProcessor{
         @Override
         public ArrayList<Student> getAll() {
             return studentDao.getAll();
-
         }
 
         @Override
@@ -35,6 +36,6 @@ public interface StudentProcessor{
 
     public Student getByFirstName(String fName);
 
-    public ArrayList<Student> getStudentsByTeacher();
+    public ArrayList<Student> getStudentsByTeacher(Teacher teacher);
 
 }

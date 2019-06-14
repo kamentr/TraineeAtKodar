@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
 
-public class StudentProcessorImpl extends StudentDaoImpl implements StudentProcessor {
+public class StudentProcessorImpl implements StudentProcessor {
 
-
+    private ArrayList<Student> studentData;
     private StudentDaoImpl studentDaoImpl = new StudentDaoImpl() {
 
 
@@ -38,6 +38,15 @@ public class StudentProcessorImpl extends StudentDaoImpl implements StudentProce
         }
     };
 
+
+    public ArrayList<Student> getAllStudents() {
+        return studentDaoImpl.getAll();
+    }
+
+    public StudentProcessorImpl() {
+        this.studentData = studentDaoImpl.studentData;
+    }
+
     public Student getByNumber(String number) {
 
         for (int i = 0; i < studentData.size(); i++) {
@@ -60,10 +69,9 @@ public class StudentProcessorImpl extends StudentDaoImpl implements StudentProce
     }
 
     @Override
-    public ArrayList<Student> getStudentsByTeacher() {
+    public ArrayList<Student> getStudentsByTeacher(Teacher teacher) {
 
-
-        return null;
+        return teacher.getStudents() != null ? teacher.getStudents() : null;
     }
 
 }
