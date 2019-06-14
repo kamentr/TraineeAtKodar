@@ -20,17 +20,31 @@ public class TeacherDaoImlp implements TeacherDao {
     }
 
     @Override
-    public void update(Teacher teacher, String[] params) {
-        if(teacherData.contains(teacher)){
-            teacher.setfName(params[0]);
-            teacher.setlName(params[1]);
+    public void update(Teacher teacher) {
+
+        for(Teacher t: getAll()){
+            if(t.getlName() == teacher.getlName() && t.getfName() == teacher.getfName()){
+                t = teacher;
+            }
         }
+
     }
 
     @Override
     public void delete(Teacher teacher) {
-        if(teacherData.contains(teacher)){
-            teacherData.remove(teacher);
+        for(Teacher t: getAll()){
+            if(t.getlName() == teacher.getlName() && t.getfName() == teacher.getfName()){
+                getAll().remove(t);
+            }
+        }
+    }
+
+    @Override
+    public void delete(int id) {
+        for(Teacher t: getAll()){
+            if(t.getId() == id){
+                getAll().remove(t);
+            }
         }
     }
 }

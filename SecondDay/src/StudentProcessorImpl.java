@@ -1,77 +1,72 @@
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.List;
 
 public class StudentProcessorImpl implements StudentProcessor {
 
-    private ArrayList<Student> studentData;
-    private StudentDaoImpl studentDaoImpl = new StudentDaoImpl() {
+    private StudentDao studentDao = new StudentDaoImpl();
+    private TeacherDao teacherDao = new TeacherDaoImlp();
 
-
-        public Student get(int id) {
-
-            return studentData.get(id);
-        }
-
-        @Override
-        public ArrayList<Student> getAll() {
-            return studentData;
-        }
-
-        @Override
-        public void save(Student student) {
-            studentData.add(student);
-        }
-
-        @Override
-        public void update(Student student, String[] params) {
-            student.setID(Objects.requireNonNull(Integer.parseInt(params[0]), "Id cannot be null"));
-            student.setFirstName(Objects.requireNonNull(params[1], "Name cannot be null"));
-            student.setLastName(Objects.requireNonNull(params[2], "Name cannot be null"));
-            student.setNumber(Objects.requireNonNull(params[3], "Name cannot be null"));
-        }
-
-        @Override
-        public void delete(Student student) {
-            if (studentData.contains(student))
-                studentData.remove(student);
-        }
-    };
-
-
-    public ArrayList<Student> getAllStudents() {
-        return studentDaoImpl.getAll();
+    @Override
+    public Student get(int id) {
+        return studentDao.get(id);
     }
 
-    public StudentProcessorImpl() {
-        this.studentData = studentDaoImpl.studentData;
+    @Override
+    public List<Student> getAll() {
+        return studentDao.getAll();
     }
 
-    public Student getByNumber(String number) {
-
-        for (int i = 0; i < studentData.size(); i++) {
-            if (studentData.get(i).getNumber() == number)
-                return studentData.get(i);
-        }
-
-        return null;
+    @Override
+    public void save(Student t) {
+        studentDao.save(t);
     }
 
+    @Override
+    public void update(Student t) {
+        studentDao.update(t);
+    }
 
-    public Student getByFirstName(String fName) {
+    @Override
+    public void delete(Student t) {
+        studentDao.delete(t);
+    }
 
-        for (Student student : StudentData.studentData) {
-            if (student.getFirstName() == fName)
+    @Override
+    public void delete(int id) {
+        studentDao.delete(id);
+    }
+
+    @Override
+    public Student getByNumber(String facNumber) {
+        int num = Integer.parseInt(facNumber);
+        for(Student student:studentDao.getAll()){
+            if(student.getfacNumber().equals(facNumber)){
                 return student;
+            }
         }
 
         return null;
     }
 
     @Override
-    public ArrayList<Student> getStudentsByTeacher(Teacher teacher) {
-
-        return teacher.getStudents() != null ? teacher.getStudents() : null;
+    public List<Student> getByFirstName(String fName) {
+        List<Student> students = new ArrayList<>();
+        String name = fName;
+        for(Student student : studentDao.getAll()){
+            if(student.getFirstName().equals(fName)){
+                students.add(student);
+            }
+        }
+        return students;
     }
 
+    @Override
+    public List<Student> getStudentsByTeacher(Teacher teacher) {
+        for(Teacher t : teacherDao.getAll()){
+            if(t.getfName().equals(teacher.getfName()) && t.getlName().equals(teacher.getlName())){
+                return t.getStudents();
+            }
+        }
+        return null;
+    }
 }

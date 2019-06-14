@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Teacher {
 
+    private int id;
     private String fName;
     private String lName;
-
     private ArrayList<Student> students;
 
     public Teacher(String fName, String lName, ArrayList<Student> students) {
@@ -13,10 +13,19 @@ public class Teacher {
         this.students = students;
     }
 
-    public Teacher(String fName, String lName) {
-        this.fName = fName;
-        this.lName = lName;
-        students = new ArrayList<>();
+    public Teacher(String fName, String lName, int id) {
+        setId(id);
+        setfName(fName);
+        setlName(lName);
+        setStudents(students);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setfName(String fName) {
@@ -41,5 +50,14 @@ public class Teacher {
 
     public ArrayList<Student> getStudents() {
         return students;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "fName='" + fName + '\'' +
+                ", lName='" + lName + '\'' +
+                ", students=" + students +
+                '}';
     }
 }

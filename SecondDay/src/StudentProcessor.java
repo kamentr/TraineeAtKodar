@@ -1,41 +1,23 @@
-import java.util.ArrayList;
-import java.util.Optional;
+import java.util.List;
 
 public interface StudentProcessor {
 
-    public TeacherDao teacherDao = new TeacherDaoImlp();
-    public StudentDao studentDao = new StudentDaoImpl() {
+    Student get(int id);
 
-        @Override
-        public Student get(int id) {
-            return studentDao.get(id);
-        }
+    List<Student> getAll();
 
-        @Override
-        public ArrayList<Student> getAll() {
-            return studentDao.getAll();
-        }
+    void save(Student t);
 
-        @Override
-        public void save(Student student) {
-            studentDao.save(student);
-        }
+    void update(Student t);
 
-        @Override
-        public void update(Student student, String[] params) {
-            studentDao.update(student, params);
-        }
+    void delete(Student t);
 
-        @Override
-        public void delete(Student student) {
-            studentDao.delete(student);
-        }
-    };
+    void delete(int id);
 
     public Student getByNumber(String number);
 
-    public Student getByFirstName(String fName);
+    public List<Student> getByFirstName(String fName);
 
-    public ArrayList<Student> getStudentsByTeacher(Teacher teacher);
+    public List<Student> getStudentsByTeacher(Teacher teacher);
 
 }

@@ -1,18 +1,16 @@
-import java.util.Optional;
-import java.util.ArrayList;
-
+import java.util.List;
 
 public interface Dao<T> {
 
-
-
     T get(int id);
 
-    ArrayList<T> getAll();
+    List<T> getAll();
 
     void save(T t);
 
-    void update(T t, String[] params);
+    void update(T t);
 
     void delete(T t);
+
+    void delete(int id);
 }

@@ -2,25 +2,25 @@ public class Student {
     private int ID;
     private String firstName;
     private String lastName;
-    private String number;
+    private String facNumber;
 
     public Student() {
 
     }
 
-    public Student(int ID, String firstName, String lastName, String number) {
-        this.ID = ID;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.number = number;
+    public Student(int id, String firstName, String lastName, String facNumber) {
+        setID(id);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setfacNumber(facNumber);
     }
 
     public void setID(int ID) {
         this.ID = ID;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setfacNumber(String facNumber) {
+        this.facNumber = facNumber;
     }
 
     public int getID() {
@@ -43,8 +43,8 @@ public class Student {
         return lastName;
     }
 
-    public String getNumber() {
-        return number;
+    public String getfacNumber() {
+        return facNumber;
     }
 
     @Override
@@ -53,7 +53,7 @@ public class Student {
                 "ID=" + ID +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", number='" + number + '\'' +
+                ", facNumber='" + facNumber + '\'' +
                 '}';
     }
 }
