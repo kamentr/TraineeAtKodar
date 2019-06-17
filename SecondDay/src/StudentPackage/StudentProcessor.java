@@ -1,3 +1,5 @@
+package StudentPackage;
+
 import java.util.List;
 
 public interface StudentProcessor {

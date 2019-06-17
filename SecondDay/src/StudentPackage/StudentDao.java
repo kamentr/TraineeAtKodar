@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package StudentPackage;
 
 public interface StudentDao extends Dao<Student> {
 

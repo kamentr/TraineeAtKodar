@@ -1,3 +1,7 @@
+package TeacherPackage;
+
+import StudentPackage.Student;
+
 import java.util.ArrayList;
 
 public class Teacher {
@@ -54,7 +58,7 @@ public class Teacher {
 
     @Override
     public String toString() {
-        return "Teacher{" +
+        return "TeacherPackage.Teacher{" +
                 "fName='" + fName + '\'' +
                 ", lName='" + lName + '\'' +
                 ", students=" + students +

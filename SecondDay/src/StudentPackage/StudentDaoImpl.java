@@ -1,8 +1,10 @@
+package StudentPackage;
+
 import java.util.*;
 
 public class StudentDaoImpl implements StudentDao {
 
-//todo inner list impl
+
 
     private List<Student> getStudentData() {
         return StudentData.studentData;
@@ -26,7 +28,6 @@ public class StudentDaoImpl implements StudentDao {
     @Override
     public void update(Student student) {
             Student student1 = get(student.getID());
-            //todo
     }
 
     @Override

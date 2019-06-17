@@ -1,6 +1,11 @@
-import java.util.ArrayList;
+import StudentPackage.Student;
+import StudentPackage.StudentProcessor;
+import StudentPackage.StudentProcessorImpl;
+import TeacherPackage.Teacher;
+import TeacherPackage.TeacherDao;
+import TeacherPackage.TeacherDaoImlp;
+
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class MainUI {
@@ -20,12 +25,12 @@ public class MainUI {
     }
 
     private void PrintMenu() {
-        System.out.println("--------Student Manager--------");
+        System.out.println("--------StudentPackage.Student Manager--------");
         System.out.println("1. Print list of students");
         System.out.println("2. Add new student");
         System.out.println("3. Get student by ID");
         System.out.println("4. Remove a student by number");
-        System.out.println("5. Get all students by teacher"); //todo
+        System.out.println("5. Get all students by teacher");
         System.out.println("6. Get all students by first name"); //todo
 
         String input = scanner.next();
