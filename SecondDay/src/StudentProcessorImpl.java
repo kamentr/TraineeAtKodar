@@ -3,7 +3,8 @@ import java.util.List;
 
 public class StudentProcessorImpl implements StudentProcessor {
 
-    private StudentDao studentDao = new StudentDaoImpl();
+    //private StudentDao studentDao = new StudentDaoImpl();
+    private StudentDao studentDao = new StudentDaoInnerListImpl();
     private TeacherDao teacherDao = new TeacherDaoImlp();
 
     @Override
@@ -51,7 +52,7 @@ public class StudentProcessorImpl implements StudentProcessor {
     @Override
     public List<Student> getByFirstName(String fName) {
         List<Student> students = new ArrayList<>();
-        String name = fName;
+
         for(Student student : studentDao.getAll()){
             if(student.getFirstName().equals(fName)){
                 students.add(student);
