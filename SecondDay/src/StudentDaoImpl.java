@@ -1,9 +1,6 @@
-package StudentPackage;
-
 import java.util.*;
 
 public class StudentDaoImpl implements StudentDao {
-
 
 
     private List<Student> getStudentData() {

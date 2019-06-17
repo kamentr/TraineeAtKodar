@@ -1,16 +1,18 @@
-package StudentPackage;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentProcessorImpl implements StudentProcessor {
 
-    //private StudentPackage.StudentDao studentDao = new StudentPackage.StudentDaoImpl();
-    private StudentDao studentDao = new StudentDaoInnerListImpl();
-    private TeacherDao teacherDao = new TeacherDaoImlp();
+    //private StudentDao studentDao = new StudentDaoImpl();
+    //private StudentDao studentDao = new StudentDaoInnerListImpl();
+    private StudentDao studentDao = new StudentDaoMapImpl();
 
+    //private TeacherDao teacherDao = new TeacherDaoImlp();
+
+    private TeacherDao teacherDao = new TeacherDaoMapImpl();
     @Override
     public Student get(int id) {
+
         return studentDao.get(id);
     }
 

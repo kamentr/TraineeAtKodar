@@ -1,10 +1,11 @@
-package TeacherPackage;
-
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class TeacherDaoImlp implements TeacherDao {
 
-    protected ArrayList<Teacher> teacherData = TeacherData.teacherData;
+    protected List<Teacher> teacherData = TeacherData.teacherData;
+
 
     @Override
     public Teacher get(int id) {
@@ -12,7 +13,7 @@ public class TeacherDaoImlp implements TeacherDao {
     }
 
     @Override
-    public ArrayList<Teacher> getAll() {
+    public List<Teacher> getAll() {
         return teacherData;
     }
 
@@ -25,7 +26,7 @@ public class TeacherDaoImlp implements TeacherDao {
     public void update(Teacher teacher) {
 
         for(Teacher t: getAll()){
-            if(t.getlName() == teacher.getlName() && t.getfName() == teacher.getfName()){
+            if(Objects.equals(t.getlName(), teacher.getlName()) && Objects.equals(t.getfName(), teacher.getfName())){
                 t = teacher;
             }
         }
@@ -35,7 +36,7 @@ public class TeacherDaoImlp implements TeacherDao {
     @Override
     public void delete(Teacher teacher) {
         for(Teacher t: getAll()){
-            if(t.getlName() == teacher.getlName() && t.getfName() == teacher.getfName()){
+            if(Objects.equals(t.getlName(), teacher.getlName()) && Objects.equals(t.getfName(), teacher.getfName())){
                 getAll().remove(t);
             }
         }

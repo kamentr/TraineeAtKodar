@@ -1,12 +1,10 @@
-package StudentPackage;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class StudentDaoInnerListImpl implements StudentDao {
 
-    private ArrayList<Student> studentData = new ArrayList<Student>(
+    private List<Student> studentData = new ArrayList<>(
 
             Arrays.asList(
                     new Student(1, "Kamen", "Traikov", "1801321018"),

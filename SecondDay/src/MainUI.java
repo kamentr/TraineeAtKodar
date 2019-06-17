@@ -1,31 +1,25 @@
-import StudentPackage.Student;
-import StudentPackage.StudentProcessor;
-import StudentPackage.StudentProcessorImpl;
-import TeacherPackage.Teacher;
-import TeacherPackage.TeacherDao;
-import TeacherPackage.TeacherDaoImlp;
-
 import java.util.List;
 import java.util.Scanner;
 
-public class MainUI {
+class MainUI {
 
     private Scanner scanner = new Scanner(System.in);
+
     private StudentProcessor studentProcessorImpl = new StudentProcessorImpl();
     private TeacherDao teacherDao = new TeacherDaoImlp();
     private List<Student> studentData = studentProcessorImpl.getAll();
 
-    public MainUI() {
+    MainUI() {
         PrintMenu();
     }
 
     private void printStudents(List<Student> studentData) {
-        studentData.forEach(s -> System.out.println(s));
+        studentData.forEach(System.out::println);
         PrintMenu();
     }
 
     private void PrintMenu() {
-        System.out.println("--------StudentPackage.Student Manager--------");
+        System.out.println("--------Student Manager--------");
         System.out.println("1. Print list of students");
         System.out.println("2. Add new student");
         System.out.println("3. Get student by ID");

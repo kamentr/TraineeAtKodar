@@ -1,17 +1,15 @@
-package TeacherPackage;
-
-import StudentPackage.Student;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Teacher {
 
     private int id;
     private String fName;
     private String lName;
-    private ArrayList<Student> students;
+    private List<Student> students;
 
-    public Teacher(String fName, String lName, ArrayList<Student> students) {
+    public Teacher(String fName, String lName, List<Student> students) {
         this.fName = fName;
         this.lName = lName;
         this.students = students;
@@ -40,7 +38,7 @@ public class Teacher {
         this.lName = lName;
     }
 
-    public void setStudents(ArrayList<Student> students) {
+    public void setStudents(List<Student> students) {
         this.students = students;
     }
 
@@ -52,13 +50,13 @@ public class Teacher {
         return lName;
     }
 
-    public ArrayList<Student> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 
     @Override
     public String toString() {
-        return "TeacherPackage.Teacher{" +
+        return "Teacher{" +
                 "fName='" + fName + '\'' +
                 ", lName='" + lName + '\'' +
                 ", students=" + students +

@@ -1,11 +1,10 @@
-package StudentPackage;
-
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class StudentData {
 
-    public static ArrayList<Student> studentData = new ArrayList<Student>(
+    public static List<Student> studentData = new ArrayList<>(
 
             Arrays.asList(
                     new Student(1, "Kamen", "Traikov", "1801321018"),

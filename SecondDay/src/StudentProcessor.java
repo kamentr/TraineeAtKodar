@@ -1,5 +1,3 @@
-package StudentPackage;
-
 import java.util.List;
 
 public interface StudentProcessor {
@@ -16,10 +14,10 @@ public interface StudentProcessor {
 
     void delete(int id);
 
-    public Student getByNumber(String number);
+    Student getByNumber(String number);
 
-    public List<Student> getByFirstName(String fName);
+    List<Student> getByFirstName(String fName);
 
-    public List<Student> getStudentsByTeacher(Teacher teacher);
+    List<Student> getStudentsByTeacher(Teacher teacher);
 
 }
