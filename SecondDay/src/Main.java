@@ -15,6 +15,9 @@ public class Main {
 
         studentTeacherRelations.deleteRelation(studentTeacher);
 
+        for (Relation r :  studentTeacherRelations.getAll()) {
+            System.out.println("Student: " + r.getKey() + " <-> Teacher: " + r.getValue());
+        }
         System.out.println();
         //MainUI mainUI = new MainUI();
     }

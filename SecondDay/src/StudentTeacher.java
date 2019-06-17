@@ -1,7 +1,10 @@
+import javax.security.auth.Subject;
+
 public class StudentTeacher implements Relation<Integer, Integer>{
 
     private Integer studentId;
     private Integer teacherId;
+
 
     public StudentTeacher(int studentId, int teacherId) {
         this.studentId = studentId;

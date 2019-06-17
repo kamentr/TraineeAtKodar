@@ -19,7 +19,6 @@ public class StudentTeacherRelations implements RelationController {
     }
 
 
-
     @Override
     public void addRelation(Relation relation) {
         if(!relations.contains(relation)){
@@ -31,5 +30,6 @@ public class StudentTeacherRelations implements RelationController {
     public void deleteRelation(Relation relation) {
         relations.remove(relation);
     }
+
 
 }
