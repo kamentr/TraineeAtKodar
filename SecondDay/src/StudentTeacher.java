@@ -1,29 +1,20 @@
-import java.util.Map;
+public class StudentTeacher implements Relation<Integer, Integer>{
 
-public class StudentTeacher {
-
-    private Integer studetnId;
+    private Integer studentId;
     private Integer teacherId;
 
-    public StudentTeacher(int studetnId, int teacherId) {
-        this.studetnId = studetnId;
+    public StudentTeacher(int studentId, int teacherId) {
+        this.studentId = studentId;
         this.teacherId = teacherId;
     }
 
-    public Integer getStudetnId() {
-        return studetnId;
+    @Override
+    public Integer getKey() {
+        return studentId;
     }
 
-    public void setStudetnId(Integer studetnId) {
-        this.studetnId = studetnId;
-    }
-
-    public Integer getTeacherId() {
+    @Override
+    public Integer getValue() {
         return teacherId;
     }
-
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
-    }
-
 }

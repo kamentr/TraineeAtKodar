@@ -1,23 +1,35 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentTeacherRelations implements Relation {
+public class StudentTeacherRelations implements RelationController {
 
-    private List<StudentTeacher> relations = new ArrayList<>();
+    private List<Relation<Integer, Integer>> relations = new ArrayList<>();
 
-    @Override
-    public void addRelation(Object studentId, Object teacherId) {
-        if(!relations.contains(new StudentTeacher((Integer) studentId, (Integer)teacherId)))
-        relations.add(new StudentTeacher((Integer) studentId, (Integer)teacherId));
+    public List<Relation<Integer,Integer>> getAll(){
+        return relations;
     }
 
-    @Override
-    public void deleteRelation(Object studentId, Object teacherId) {
-        relations.remove(new StudentTeacher((Integer) studentId, (Integer)teacherId));
+    public void addRelation(int studentId, int teacherId) {
+        if(!relations.contains(new StudentTeacher(studentId, teacherId)))
+        relations.add(new StudentTeacher(studentId, teacherId));
     }
 
+    public void deleteRelation(int studentId, int teacherId) {
+        relations.remove(new StudentTeacher(studentId, teacherId));
+    }
+
+
+
     @Override
+    public void addRelation(Relation relation) {
+        if(!relations.contains(relation)){
+            relations.add(relation);
+        }
+
+    }
+
     public void deleteRelation(Relation relation) {
         relations.remove(relation);
     }
+
 }

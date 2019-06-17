@@ -1,9 +1,4 @@
-interface Relation {
-
-     void addRelation(Object objOne, Object objTwo);
-
-     void deleteRelation(Object objOne, Object objTwo);
-
-     void deleteRelation(Relation relation);
-
+interface Relation<K, V> {
+     K getKey();
+     V getValue();
 }

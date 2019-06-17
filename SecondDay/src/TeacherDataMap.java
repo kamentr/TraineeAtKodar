@@ -12,7 +12,6 @@ public class TeacherDataMap {
                     new Teacher("Kiril", "Traikov", 3),
                     new Teacher("Tihomir", "Ivanov", 4)
             )
-
     );
 
     static Map<Integer, Teacher> teacherMap = new HashMap<>();
