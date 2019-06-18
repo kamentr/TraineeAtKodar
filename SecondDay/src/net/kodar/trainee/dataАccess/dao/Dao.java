@@ -1,4 +1,4 @@
-package net.kodar.trainee.contracts;
+package net.kodar.trainee.dataАccess.dao;
 
 import java.util.List;
 

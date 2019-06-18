@@ -1,4 +1,4 @@
-package net.kodar.trainee.entities;
+package net.kodar.trainee.data.entities;
 
 import java.util.List;
 
@@ -56,7 +56,7 @@ public class Teacher {
 
     @Override
     public String toString() {
-        return "net.kodar.trainee.entities.Teacher{" +
+        return "net.kodar.trainee.data.entities.Teacher{" +
                 "fName='" + fName + '\'' +
                 ", lName='" + lName + '\'' +
                 ", students=" + students +

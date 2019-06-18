@@ -1,15 +1,15 @@
-package net.kodar.trainee;
-
-import net.kodar.trainee.business.StudentProcessorImpl;
-import net.kodar.trainee.contracts.StudentProcessor;
-import net.kodar.trainee.contracts.TeacherDao;
-import net.kodar.trainee.entities.Student;
-import net.kodar.trainee.entities.Teacher;
+package net.kodar.trainee.presentation;
+import net.kodar.trainee.business.student.StudentProcessor;
+import net.kodar.trainee.business.student.StudentProcessorImpl;
+import net.kodar.trainee.data.entities.Student;
+import net.kodar.trainee.data.entities.Teacher;
+import net.kodar.trainee.dataАccess.dao.teacher.TeacherDao;
+import net.kodar.trainee.dataАccess.dao.teacher.TeacherDaoImlp;
 
 import java.util.List;
 import java.util.Scanner;
 
-class MainUI {
+public class MainUI {
 
     private Scanner scanner = new Scanner(System.in);
 
@@ -17,7 +17,7 @@ class MainUI {
     private TeacherDao teacherDao = new TeacherDaoImlp();
     private List<Student> studentData = studentProcessorImpl.getAll();
 
-    MainUI() {
+    public MainUI() {
         PrintMenu();
     }
 

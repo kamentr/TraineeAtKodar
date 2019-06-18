@@ -1,4 +1,4 @@
-package net.kodar.trainee.entities;
+package net.kodar.trainee.data.entities;
 
 public class Student {
     private int ID;
@@ -57,4 +57,5 @@ public class Student {
                 ", facNumber='" + facNumber + '\'' +
                 '}';
     }
+
 }
