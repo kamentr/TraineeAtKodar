@@ -1,6 +1,6 @@
 import javax.security.auth.Subject;
 
-public class StudentTeacher implements Relation<Integer, Integer>{
+public class StudentTeacher {
 
     private Integer studentId;
     private Integer teacherId;
@@ -11,13 +11,19 @@ public class StudentTeacher implements Relation<Integer, Integer>{
         this.teacherId = teacherId;
     }
 
-    @Override
-    public Integer getKey() {
+    public Integer getStudentId() {
         return studentId;
     }
 
-    @Override
-    public Integer getValue() {
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
+    }
+
+    public Integer getTeacherId() {
         return teacherId;
+    }
+
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
     }
 }
