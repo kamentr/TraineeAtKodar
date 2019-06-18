@@ -1,7 +1,11 @@
+package net.kodar.trainee;
+
+import net.kodar.trainee.contracts.StudentTeacherDao;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentTeacherDao implements Dao<StudentTeacher> {
+public class StudentTeacherDaoImpl implements StudentTeacherDao {
 
     List<StudentTeacher> studentTeacher = new ArrayList<>();
 
@@ -24,7 +28,7 @@ public class StudentTeacherDao implements Dao<StudentTeacher> {
     public void update(StudentTeacher studentTeacher) {
         for (StudentTeacher s : this.studentTeacher) {
             if(s.getTeacherId() == studentTeacher.getTeacherId() &&
-            s.getStudentId() == studentTeacher.getStudentId()){
+                    s.getStudentId() == studentTeacher.getStudentId()){
                 s = studentTeacher;
                 break;
             }
@@ -41,3 +45,4 @@ public class StudentTeacherDao implements Dao<StudentTeacher> {
         this.studentTeacher.remove(id);
     }
 }
+

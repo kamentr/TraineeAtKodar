@@ -1,8 +1,12 @@
+package net.kodar.trainee.data;
+
+import net.kodar.trainee.entities.Teacher;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class TeacherData {
-    static ArrayList<Teacher> teacherData= new ArrayList<>(
+public class TeacherData {
+    public static ArrayList<Teacher> teacherData= new ArrayList<>(
 
             Arrays.asList(
                     new Teacher("Ivan", "Ivanov", 1),

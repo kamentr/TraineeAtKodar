@@ -1,3 +1,7 @@
+package net.kodar.trainee.data;
+
+import net.kodar.trainee.entities.Teacher;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -14,7 +18,7 @@ public class TeacherDataMap {
             )
     );
 
-    static Map<Integer, Teacher> teacherMap = new HashMap<>();
+   public static Map<Integer, Teacher> teacherMap = new HashMap<>();
 
     public TeacherDataMap(){
         for (Teacher t: teacherData) {

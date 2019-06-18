@@ -1,3 +1,9 @@
+package net.kodar.trainee;
+
+import net.kodar.trainee.contracts.StudentDao;
+import net.kodar.trainee.data.StudentData;
+import net.kodar.trainee.entities.Student;
+
 import java.util.*;
 
 public class StudentDaoImpl implements StudentDao {

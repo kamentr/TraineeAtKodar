@@ -1,3 +1,8 @@
+package net.kodar.trainee.contracts;
+
+import net.kodar.trainee.entities.Student;
+import net.kodar.trainee.entities.Teacher;
+
 import java.util.List;
 
 public interface StudentProcessor {

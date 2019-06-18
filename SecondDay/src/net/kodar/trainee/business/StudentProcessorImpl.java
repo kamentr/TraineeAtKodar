@@ -1,13 +1,23 @@
+package net.kodar.trainee.business;
+
+import net.kodar.trainee.StudentDaoMapImpl;
+import net.kodar.trainee.TeacherDaoMapImpl;
+import net.kodar.trainee.contracts.StudentDao;
+import net.kodar.trainee.contracts.StudentProcessor;
+import net.kodar.trainee.contracts.TeacherDao;
+import net.kodar.trainee.entities.Student;
+import net.kodar.trainee.entities.Teacher;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentProcessorImpl implements StudentProcessor {
 
-    //private StudentDao studentDao = new StudentDaoImpl();
-    //private StudentDao studentDao = new StudentDaoInnerListImpl();
+    //private net.kodar.trainee.contracts.StudentDao studentDao = new net.kodar.trainee.StudentDaoImpl();
+    //private net.kodar.trainee.contracts.StudentDao studentDao = new net.kodar.trainee.StudentDaoInnerListImpl();
     private StudentDao studentDao = new StudentDaoMapImpl();
 
-    //private TeacherDao teacherDao = new TeacherDaoImlp();
+    //private net.kodar.trainee.contracts.TeacherDao teacherDao = new net.kodar.trainee.TeacherDaoImlp();
 
     private TeacherDao teacherDao = new TeacherDaoMapImpl();
     @Override

@@ -1,3 +1,7 @@
+package net.kodar.trainee.data;
+
+import net.kodar.trainee.entities.Student;
+
 import java.util.*;
 
 public class StudentDataMap {

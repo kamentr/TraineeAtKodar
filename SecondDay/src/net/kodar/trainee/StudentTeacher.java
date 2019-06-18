@@ -1,3 +1,5 @@
+package net.kodar.trainee;
+
 import javax.security.auth.Subject;
 
 public class StudentTeacher {

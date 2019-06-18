@@ -1,3 +1,9 @@
+package net.kodar.trainee;
+
+import net.kodar.trainee.contracts.TeacherDao;
+import net.kodar.trainee.data.TeacherDataMap;
+import net.kodar.trainee.entities.Teacher;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

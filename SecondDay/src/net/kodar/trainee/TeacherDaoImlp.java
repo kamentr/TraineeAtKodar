@@ -1,4 +1,9 @@
-import java.util.ArrayList;
+package net.kodar.trainee;
+
+import net.kodar.trainee.contracts.TeacherDao;
+import net.kodar.trainee.data.TeacherData;
+import net.kodar.trainee.entities.Teacher;
+
 import java.util.List;
 import java.util.Objects;
 

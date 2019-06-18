@@ -1,3 +1,11 @@
+package net.kodar.trainee;
+
+import net.kodar.trainee.business.StudentProcessorImpl;
+import net.kodar.trainee.contracts.StudentProcessor;
+import net.kodar.trainee.contracts.TeacherDao;
+import net.kodar.trainee.entities.Student;
+import net.kodar.trainee.entities.Teacher;
+
 import java.util.List;
 import java.util.Scanner;
 

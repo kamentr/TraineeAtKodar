@@ -1,3 +1,5 @@
+package net.kodar.trainee.contracts;
+
 import java.util.List;
 
 public interface Dao<T> {

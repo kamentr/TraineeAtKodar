@@ -1,3 +1,5 @@
+package net.kodar.trainee.entities;
+
 public class Student {
     private int ID;
     private String firstName;
@@ -49,8 +51,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "ID=" + ID +
+        return  "ID=" + ID +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", facNumber='" + facNumber + '\'' +
