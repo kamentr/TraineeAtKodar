@@ -33,7 +33,7 @@ public class MainUI {
         System.out.println("3. Get student by ID");
         System.out.println("4. Remove a student by number");
         System.out.println("5. Get all students by teacher");
-        System.out.println("6. Get all students by first name"); //todo
+        System.out.println("6. Get all teachers by student");
 
         String input = scanner.next();
         operator(input);
