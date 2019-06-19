@@ -1,22 +1,18 @@
 package net.kodar.trainee.business.student;
 
-import net.kodar.trainee.business.studentTeacher.StudentTeacherProcessor;
-import net.kodar.trainee.business.studentTeacher.StudentTeacherProcessorImpl;
+import net.kodar.trainee.business.studentteacher.StudentTeacherProcessor;
+import net.kodar.trainee.business.studentteacher.StudentTeacherProcessorImpl;
 import net.kodar.trainee.data.entities.Student;
-import net.kodar.trainee.data.entities.Teacher;
-import net.kodar.trainee.dataАccess.dao.student.StudentDao;
-import net.kodar.trainee.dataАccess.dao.student.StudentDaoMapImpl;
-import net.kodar.trainee.dataАccess.dao.teacher.TeacherDao;
-import net.kodar.trainee.dataАccess.dao.teacher.TeacherDaoMapImpl;
+import net.kodar.trainee.dataaccess.dao.student.StudentDao;
+import net.kodar.trainee.dataaccess.dao.student.StudentDaoMapImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentProcessorImpl implements StudentProcessor {
 
     private StudentDao studentDao = new StudentDaoMapImpl();
     private StudentTeacherProcessor studentTeacherProcessor = new StudentTeacherProcessorImpl();
-
-    private TeacherDao teacherDao = new TeacherDaoMapImpl();
 
 
     @Override
@@ -51,8 +47,14 @@ public class StudentProcessorImpl implements StudentProcessor {
     }
 
     @Override
-    public List<Student> getStudentsByTeacher(Teacher teacher) {
+    public List<Student> getStudentsByTeacherId(Integer teacherId) {
+        List<Student> studentList = new ArrayList<>();
 
-        return studentTeacherProcessor.getStudentsByTeacher(teacher);
+        studentTeacherProcessor
+                .filterByTeacher(teacherId)
+                .forEach(s -> studentList.add(studentDao.get(s.getStudentId())));
+
+        return studentList;
+
     }
 }

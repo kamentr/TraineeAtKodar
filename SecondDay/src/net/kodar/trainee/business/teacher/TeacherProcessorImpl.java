@@ -1,13 +1,13 @@
 package net.kodar.trainee.business.teacher;
 
-import net.kodar.trainee.business.studentTeacher.StudentTeacherProcessor;
-import net.kodar.trainee.business.studentTeacher.StudentTeacherProcessorImpl;
-import net.kodar.trainee.data.entities.Student;
+import net.kodar.trainee.business.studentteacher.StudentTeacherProcessor;
+import net.kodar.trainee.business.studentteacher.StudentTeacherProcessorImpl;
 import net.kodar.trainee.data.entities.Teacher;
-import net.kodar.trainee.dataАccess.dao.teacher.TeacherDao;
-import net.kodar.trainee.dataАccess.dao.teacher.TeacherDaoMapImpl;
+import net.kodar.trainee.dataaccess.dao.teacher.TeacherDao;
+import net.kodar.trainee.dataaccess.dao.teacher.TeacherDaoMapImpl;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherProcessorImpl implements TeacherProcessor {
@@ -48,7 +48,13 @@ public class TeacherProcessorImpl implements TeacherProcessor {
     }
 
     @Override
-    public List<Teacher> getTeachersByStudent(Student student) {
-        return studentTeacherProcessor.getTeachersByStudent(student);
+    public List<Teacher> getTeachersByStudentId(Integer studentId) {
+        List<Teacher> teacherList = new ArrayList<>();
+
+        studentTeacherProcessor
+                .filterByTeacher(studentId)
+                .forEach(teacher -> teacherList.add(teacherDao.get(teacher.getStudentId())));
+
+        return teacherList;
     }
 }

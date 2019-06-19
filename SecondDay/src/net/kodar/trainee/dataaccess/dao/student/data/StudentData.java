@@ -1,4 +1,4 @@
-package net.kodar.trainee.dataАccess.dao.student.data;
+package net.kodar.trainee.dataaccess.dao.student.data;
 
 import net.kodar.trainee.data.entities.Student;
 

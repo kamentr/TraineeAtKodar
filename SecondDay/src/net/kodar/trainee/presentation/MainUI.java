@@ -3,8 +3,8 @@ import net.kodar.trainee.business.student.StudentProcessor;
 import net.kodar.trainee.business.student.StudentProcessorImpl;
 import net.kodar.trainee.data.entities.Student;
 import net.kodar.trainee.data.entities.Teacher;
-import net.kodar.trainee.dataАccess.dao.teacher.TeacherDao;
-import net.kodar.trainee.dataАccess.dao.teacher.TeacherDaoImlp;
+import net.kodar.trainee.dataaccess.dao.teacher.TeacherDao;
+import net.kodar.trainee.dataaccess.dao.teacher.TeacherDaoImlp;
 
 import java.util.List;
 import java.util.Scanner;

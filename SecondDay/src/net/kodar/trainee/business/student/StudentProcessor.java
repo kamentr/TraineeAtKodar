@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface StudentProcessor extends Processor<Student> {
 
-    List<Student> getStudentsByTeacher(Teacher teacher);
+    List<Student> getStudentsByTeacherId(Integer teacherId);
 
 }

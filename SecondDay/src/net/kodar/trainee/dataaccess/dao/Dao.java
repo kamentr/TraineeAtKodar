@@ -1,4 +1,4 @@
-package net.kodar.trainee.dataАccess.dao;
+package net.kodar.trainee.dataaccess.dao;
 
 import java.util.List;
 

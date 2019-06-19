@@ -1,6 +1,6 @@
-package net.kodar.trainee.dataАccess.dao.teacher;
+package net.kodar.trainee.dataaccess.dao.teacher;
 
-import net.kodar.trainee.dataАccess.dao.teacher.data.TeacherData;
+import net.kodar.trainee.dataaccess.dao.teacher.data.TeacherData;
 import net.kodar.trainee.data.entities.Teacher;
 
 import java.util.List;

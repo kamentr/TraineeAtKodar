@@ -1,7 +1,7 @@
-package net.kodar.trainee.dataАccess.dao.studentTeacher;
+package net.kodar.trainee.dataaccess.dao.studentTeacher;
 
 import net.kodar.trainee.data.entities.StudentTeacher;
-import net.kodar.trainee.dataАccess.dao.studentTeacher.data.StudentTeacherDataMap;
+import net.kodar.trainee.dataaccess.dao.studentTeacher.data.StudentTeacherDataMap;
 
 import java.util.ArrayList;
 import java.util.List;
