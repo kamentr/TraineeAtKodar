@@ -4,25 +4,19 @@ public class Student {
     private int ID;
     private String firstName;
     private String lastName;
-    private String facNumber;
 
     public Student() {
 
     }
 
-    public Student(int id, String firstName, String lastName, String facNumber) {
+    public Student(int id, String firstName, String lastName) {
         setID(id);
         setFirstName(firstName);
         setLastName(lastName);
-        setfacNumber(facNumber);
     }
 
     public void setID(int ID) {
         this.ID = ID;
-    }
-
-    public void setfacNumber(String facNumber) {
-        this.facNumber = facNumber;
     }
 
     public int getID() {
@@ -45,16 +39,12 @@ public class Student {
         return lastName;
     }
 
-    public String getfacNumber() {
-        return facNumber;
-    }
 
     @Override
     public String toString() {
         return  "ID=" + ID +
                 ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", facNumber='" + facNumber + '\'' +
+                ", lastName='" + lastName + '\''  +
                 '}';
     }
 

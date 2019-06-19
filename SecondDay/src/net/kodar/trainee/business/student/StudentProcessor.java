@@ -2,7 +2,6 @@ package net.kodar.trainee.business.student;
 
 import net.kodar.trainee.business.Processor;
 import net.kodar.trainee.data.entities.Student;
-import net.kodar.trainee.data.entities.Teacher;
 
 import java.util.List;
 

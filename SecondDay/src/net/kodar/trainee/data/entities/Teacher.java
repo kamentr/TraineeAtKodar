@@ -7,19 +7,18 @@ public class Teacher {
     private int id;
     private String fName;
     private String lName;
-    private List<Student> students;
 
-    public Teacher(String fName, String lName, List<Student> students) {
+
+    public Teacher(String fName, String lName) {
         this.fName = fName;
         this.lName = lName;
-        this.students = students;
+
     }
 
     public Teacher(String fName, String lName, int id) {
         setId(id);
         setfName(fName);
         setlName(lName);
-        setStudents(students);
     }
 
     public int getId() {
@@ -38,10 +37,6 @@ public class Teacher {
         this.lName = lName;
     }
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
-    }
-
     public String getfName() {
         return fName;
     }
@@ -50,16 +45,11 @@ public class Teacher {
         return lName;
     }
 
-    public List<Student> getStudents() {
-        return students;
-    }
-
     @Override
     public String toString() {
-        return "net.kodar.trainee.data.entities.Teacher{" +
+        return "{" +
                 "fName='" + fName + '\'' +
                 ", lName='" + lName + '\'' +
-                ", students=" + students +
                 '}';
     }
 }

@@ -52,7 +52,7 @@ public class StudentProcessorImpl implements StudentProcessor {
 
         studentTeacherProcessor
                 .filterByTeacher(teacherId)
-                .forEach(s -> studentList.add(studentDao.get(s.getStudentId())));
+                .forEach(student -> studentList.add(studentDao.get(student.getStudentId())));
 
         return studentList;
 

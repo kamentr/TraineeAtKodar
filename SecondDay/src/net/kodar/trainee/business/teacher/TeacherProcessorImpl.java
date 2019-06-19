@@ -16,7 +16,6 @@ public class TeacherProcessorImpl implements TeacherProcessor {
     StudentTeacherProcessor studentTeacherProcessor = new StudentTeacherProcessorImpl();
 
 
-
     @Override
     public Teacher get(int id) {
         return teacherDao.get(id);
@@ -52,8 +51,8 @@ public class TeacherProcessorImpl implements TeacherProcessor {
         List<Teacher> teacherList = new ArrayList<>();
 
         studentTeacherProcessor
-                .filterByTeacher(studentId)
-                .forEach(teacher -> teacherList.add(teacherDao.get(teacher.getStudentId())));
+                .filterByStudent(studentId)
+                .forEach(teacher -> teacherList.add(teacherDao.get(teacher.getTeacherId())));
 
         return teacherList;
     }

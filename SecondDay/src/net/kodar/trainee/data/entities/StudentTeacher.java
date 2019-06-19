@@ -6,7 +6,7 @@ public class StudentTeacher {
     private Integer teacherId;
     private Integer id;
 
-    public StudentTeacher(int id , int studentId, int teacherId) {
+    public StudentTeacher(int id, int studentId, int teacherId) {
         this.studentId = studentId;
         this.teacherId = teacherId;
         this.id = id;
