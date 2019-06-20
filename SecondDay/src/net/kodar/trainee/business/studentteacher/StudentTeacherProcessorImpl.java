@@ -4,6 +4,7 @@ import net.kodar.trainee.data.entities.StudentTeacher;
 import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDao;
 import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDaoImpl;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,20 +34,20 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
 
     @Override
     public void deleteStudent(int id) {
-        studentTeacherList.forEach(studentTeacher -> {
-            if(studentTeacher.getStudentId() == id){
-                studentTeacherList.remove(studentTeacher);
-            }
-        });
+
+        studentTeacherList = studentTeacherList
+                .stream()
+                .filter(studentTeacher -> studentTeacher.getStudentId() != id)
+                .collect(Collectors.toList());
+
     }
 
     @Override
     public void deleteTeacher(int id) {
-        studentTeacherList.forEach(studentTeacher -> {
-            if(studentTeacher.getTeacherId() == id){
-                studentTeacherList.remove(studentTeacher);
-            }
-        });
+        studentTeacherList =studentTeacherList
+                .stream()
+                .filter(studentTeacher -> studentTeacher.getTeacherId() != id)
+                .collect(Collectors.toList());
     }
 
     public StudentTeacher get(int id) {

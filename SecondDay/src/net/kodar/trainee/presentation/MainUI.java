@@ -41,10 +41,10 @@ public class MainUI {
         System.out.println("6. Remove a teacher by ID.");
         System.out.println("7. Add new discipline.");
         System.out.println("8. Remove a discipline by ID.");
-        System.out.println("9. Get students by teacher.");       //todo
-        System.out.println("10. Get teachers by student.");      //todo
-        System.out.println("11. Get discipline by student.");   //todo
-        System.out.println("12. Get discipline by teacher.");   //todo
+        System.out.println("9. Get students by teacher.");
+        System.out.println("10. Get teachers by student.");
+        System.out.println("11. Get discipline by student.");
+        System.out.println("12. Get discipline by teacher.");
 
         String input = scanner.next();
         operator(input);
@@ -54,16 +54,16 @@ public class MainUI {
     private void operator(String input) {
         switch (input) {
             case "1":
-                printStudents();
+                printStudents(); //works
                 break;
             case "2":
-                addStudent();
+                addStudent(); //works
                 break;
             case "3":
-                removeStudentById();
+                removeStudentById(); //works
                 break;
             case "4":
-                printTeachers();
+                printTeachers(); //works
                 break;
             case "5":
                 addTeacher();
@@ -136,13 +136,13 @@ public class MainUI {
 
     private void addStudent() {
 
-        System.out.println("Write Id: ");
+        System.out.print("Write Id: ");
         int id = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Write first name: ");
+        System.out.print("Write first name: ");
         String fname = scanner.nextLine();
 
-        System.out.println("Write last name: ");
+        System.out.print("Write last name: ");
         String lName = scanner.nextLine();
 
         studentProcessor.save(new Student(id, fname, lName));
@@ -155,12 +155,17 @@ public class MainUI {
         System.out.print("Write id: ");
         int id = scanner.nextInt();
         disciplineProcessor.delete(id);
+
+        printMenu();
     }
 
     private void addDiscipline() {
         System.out.print("Write discipline name and id: ");
+        scanner.next();
         String[] input = scanner.nextLine().split("\\s+");
         disciplineProcessor.save(new Discipline(Integer.parseInt(input[1]), input[0]));
+
+        printMenu();
     }
 
     private void removeTeacherById() {
@@ -174,13 +179,13 @@ public class MainUI {
     }
 
     private void addTeacher() {
-        System.out.println("Write Id: ");
+        System.out.print("Write Id: ");
         int id = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Write first name: ");
+        System.out.print("Write first name: ");
         String fname = scanner.nextLine();
 
-        System.out.println("Write last name: ");
+        System.out.print("Write last name: ");
         String lName = scanner.nextLine();
 
         teacherProcessor.save(new Teacher(fname, lName, id));

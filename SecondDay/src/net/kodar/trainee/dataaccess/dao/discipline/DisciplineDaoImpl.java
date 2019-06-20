@@ -10,7 +10,7 @@ import java.util.Map;
 public class DisciplineDaoImpl implements DisciplineDao {
 
 
-    DisciplineData dataLoad = new DisciplineData();
+    private DisciplineData dataLoad = new DisciplineData();
     private Map<Integer, Discipline> disciplineData  = DisciplineData.disciplineMapData;
 
     @Override
