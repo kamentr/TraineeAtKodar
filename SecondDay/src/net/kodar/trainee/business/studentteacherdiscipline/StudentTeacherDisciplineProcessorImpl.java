@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisciplineProcessor {
 
-    StudentTeacherDisciplineDao studentTeacherDisciplineDao = new StudentTeacherDisciplineDaoImpl();
+    private StudentTeacherDisciplineDao studentTeacherDisciplineDao = new StudentTeacherDisciplineDaoImpl();
 
     @Override
     public StudentTeacherDiscipline get(int id) {

@@ -21,9 +21,11 @@ public class StudentDataMap {
 
     public static Map<Integer, Student> studentDataMap = new HashMap<>();
 
-    public StudentDataMap(){
-        for (Student s: studentData) {
-            studentDataMap.put(s.getID(), s);
-        }
+    public static Map<Integer, Student> getStudentDataMap() {
+        return studentDataMap;
+    }
+
+    public StudentDataMap() {
+        studentData.forEach(s -> studentDataMap.put(s.getID(), s));
     }
 }

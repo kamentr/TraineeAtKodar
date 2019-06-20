@@ -1,8 +1,8 @@
 package net.kodar.trainee.business.studentteacher;
 
 import net.kodar.trainee.data.entities.StudentTeacher;
-import net.kodar.trainee.dataaccess.dao.studentTeacher.StudentTeacherDao;
-import net.kodar.trainee.dataaccess.dao.studentTeacher.StudentTeacherDaoImpl;
+import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDao;
+import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDaoImpl;
 
 import java.util.List;
 import java.util.stream.Collectors;

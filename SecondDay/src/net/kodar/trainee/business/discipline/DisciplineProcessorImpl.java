@@ -1,14 +1,20 @@
 package net.kodar.trainee.business.discipline;
 
+import net.kodar.trainee.business.studentteacherdiscipline.StudentTeacherDisciplineProcessor;
+import net.kodar.trainee.business.studentteacherdiscipline.StudentTeacherDisciplineProcessorImpl;
 import net.kodar.trainee.data.entities.Discipline;
+import net.kodar.trainee.data.entities.StudentTeacherDiscipline;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDao;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDaoImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DisciplineProcessorImpl implements DisciplineProcessor {
 
     DisciplineDao disciplineDao = new DisciplineDaoImpl();
+    StudentTeacherDisciplineProcessor studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorImpl();
+
 
     @Override
     public Discipline get(int id) {
@@ -42,13 +48,27 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
 
     @Override
     public List<Discipline> getByStudentId(Integer id) {
-        return null;
-        //todo
+        List<Discipline> disciplineList = new ArrayList<>();
+
+        for (StudentTeacherDiscipline studentid : studentTeacherDisciplineProcessor
+                .getAll()) {
+            if (studentid.getStudentId() == id) {
+                disciplineList.add(disciplineDao.get(studentid.getDisciplineId()));
+            }
+        }
+
+        return disciplineList;
     }
 
     @Override
     public List<Discipline> getByTeacherId(Integer id) {
-        return null;
-        //todo
+        List<Discipline> disciplineList = new ArrayList<>();
+
+        studentTeacherDisciplineProcessor
+                .filterByTeacher(id)
+                .forEach(discipline ->
+                        disciplineList.add(disciplineDao.get(discipline.getDisciplineId())));
+
+        return disciplineList;
     }
 }

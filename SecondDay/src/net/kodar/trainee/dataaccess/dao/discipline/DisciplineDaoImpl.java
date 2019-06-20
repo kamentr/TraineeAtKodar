@@ -11,7 +11,7 @@ public class DisciplineDaoImpl implements DisciplineDao {
 
 
     DisciplineData dataLoad = new DisciplineData();
-    Map<Integer, Discipline> disciplineData  = DisciplineData.disciplineMapData;
+    private Map<Integer, Discipline> disciplineData  = DisciplineData.disciplineMapData;
 
     @Override
     public Discipline get(int id) {
