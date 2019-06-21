@@ -1,6 +1,5 @@
-package net.kodar.trainee.business.studentteacher;
+package net.kodar.trainee.business.processor.studentteacher;
 
-import net.kodar.trainee.business.Processor;
 import net.kodar.trainee.data.entities.StudentTeacher;
 
 import java.util.List;

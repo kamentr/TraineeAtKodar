@@ -1,7 +1,7 @@
-package net.kodar.trainee.business.discipline;
+package net.kodar.trainee.business.processor.discipline;
 
-import net.kodar.trainee.business.studentteacherdiscipline.StudentTeacherDisciplineProcessor;
-import net.kodar.trainee.business.studentteacherdiscipline.StudentTeacherDisciplineProcessorImpl;
+import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessor;
+import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorImpl;
 import net.kodar.trainee.data.entities.Discipline;
 import net.kodar.trainee.data.entities.StudentTeacherDiscipline;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDao;

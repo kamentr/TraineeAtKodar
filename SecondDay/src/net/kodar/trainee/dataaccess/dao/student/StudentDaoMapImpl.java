@@ -1,7 +1,9 @@
 package net.kodar.trainee.dataaccess.dao.student;
 
+import net.kodar.trainee.business.transformer.GenericParamTransformer;
 import net.kodar.trainee.dataaccess.dao.student.data.StudentDataMap;
 import net.kodar.trainee.data.entities.Student;
+import net.kodar.trainee.presentation.result.StudentResult;
 
 import java.util.ArrayList;
 import java.util.List;

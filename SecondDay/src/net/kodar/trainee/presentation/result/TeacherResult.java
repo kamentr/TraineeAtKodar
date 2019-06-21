@@ -1,27 +1,24 @@
-package net.kodar.trainee.data.entities;
+package net.kodar.trainee.presentation.result;
 
-import java.util.List;
-
-public class Teacher {
-
+public class TeacherResult {
     private int id;
     private String fName;
     private String lName;
 
 
-    public Teacher(String fName, String lName) {
+    public TeacherResult(String fName, String lName) {
         this.fName = fName;
         this.lName = lName;
 
     }
 
-    public Teacher(String fName, String lName, int id) {
+    public TeacherResult(String fName, String lName, int id) {
         setId(id);
         setfName(fName);
         setlName(lName);
     }
 
-    public Teacher() {
+    public TeacherResult() {
 
     }
 

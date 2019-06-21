@@ -1,28 +1,21 @@
-package net.kodar.trainee.data.entities;
+package net.kodar.trainee.presentation.parameter;
 
-import java.util.List;
-
-public class Teacher {
-
+public class TeacherParam {
     private int id;
     private String fName;
     private String lName;
 
 
-    public Teacher(String fName, String lName) {
+    public TeacherParam(String fName, String lName) {
         this.fName = fName;
         this.lName = lName;
 
     }
 
-    public Teacher(String fName, String lName, int id) {
+    public TeacherParam(String fName, String lName, int id) {
         setId(id);
         setfName(fName);
         setlName(lName);
-    }
-
-    public Teacher() {
-
     }
 
     public int getId() {

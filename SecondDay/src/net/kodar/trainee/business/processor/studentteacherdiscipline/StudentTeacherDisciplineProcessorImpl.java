@@ -1,4 +1,4 @@
-package net.kodar.trainee.business.studentteacherdiscipline;
+package net.kodar.trainee.business.processor.studentteacherdiscipline;
 
 import net.kodar.trainee.data.entities.StudentTeacherDiscipline;
 import net.kodar.trainee.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDao;

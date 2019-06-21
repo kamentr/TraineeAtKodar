@@ -1,18 +1,17 @@
 package net.kodar.trainee.presentation;
-import net.kodar.trainee.business.discipline.DisciplineProcessor;
-import net.kodar.trainee.business.discipline.DisciplineProcessorImpl;
-import net.kodar.trainee.business.student.StudentProcessor;
-import net.kodar.trainee.business.student.StudentProcessorImpl;
-import net.kodar.trainee.business.studentteacher.StudentTeacherProcessor;
-import net.kodar.trainee.business.studentteacher.StudentTeacherProcessorImpl;
-import net.kodar.trainee.business.studentteacherdiscipline.StudentTeacherDisciplineProcessor;
-import net.kodar.trainee.business.studentteacherdiscipline.StudentTeacherDisciplineProcessorImpl;
-import net.kodar.trainee.business.teacher.TeacherProcessor;
-import net.kodar.trainee.business.teacher.TeacherProcessorImpl;
+import net.kodar.trainee.business.processor.discipline.DisciplineProcessor;
+import net.kodar.trainee.business.processor.discipline.DisciplineProcessorImpl;
+import net.kodar.trainee.business.processor.student.StudentProcessor;
+import net.kodar.trainee.business.processor.student.StudentProcessorImpl;
+import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessor;
+import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessorImpl;
+import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessor;
+import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorImpl;
+import net.kodar.trainee.business.processor.teacher.TeacherProcessor;
+import net.kodar.trainee.business.processor.teacher.TeacherProcessorImpl;
 import net.kodar.trainee.data.entities.Discipline;
 import net.kodar.trainee.data.entities.Student;
 import net.kodar.trainee.data.entities.Teacher;
-import net.kodar.trainee.dataaccess.dao.studentteacherdiscipline.data.StudentTeacherDisciplineData;
 
 
 import java.util.Scanner;

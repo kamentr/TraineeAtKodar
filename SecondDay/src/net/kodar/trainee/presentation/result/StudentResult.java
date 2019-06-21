@@ -1,16 +1,15 @@
-package net.kodar.trainee.presentation.parameter;
+package net.kodar.trainee.presentation.result;
 
-public class StudentParam {
-
+public class StudentResult {
     private int ID;
     private String firstName;
     private String lastName;
 
-    public StudentParam() {
+    public StudentResult() {
 
     }
 
-    public StudentParam(int id, String firstName, String lastName) {
+    public StudentResult(int id, String firstName, String lastName) {
         setID(id);
         setFirstName(firstName);
         setLastName(lastName);
@@ -39,5 +38,4 @@ public class StudentParam {
     public String getLastName() {
         return lastName;
     }
-
 }

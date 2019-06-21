@@ -1,10 +1,9 @@
-package net.kodar.trainee.business.studentteacher;
+package net.kodar.trainee.business.processor.studentteacher;
 
 import net.kodar.trainee.data.entities.StudentTeacher;
 import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDao;
 import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDaoImpl;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -1,6 +1,6 @@
-package net.kodar.trainee.business.discipline;
+package net.kodar.trainee.business.processor.discipline;
 
-import net.kodar.trainee.business.Processor;
+import net.kodar.trainee.business.processor.Processor;
 import net.kodar.trainee.data.entities.Discipline;
 
 import java.util.List;
