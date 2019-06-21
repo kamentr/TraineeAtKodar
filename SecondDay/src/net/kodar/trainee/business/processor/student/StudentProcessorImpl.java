@@ -7,6 +7,7 @@ import net.kodar.trainee.business.transformer.GenericResultTransformer;
 import net.kodar.trainee.business.transformer.StudentParamGenericParamTransformer;
 import net.kodar.trainee.business.transformer.StudentResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.Student;
+import net.kodar.trainee.data.entities.StudentTeacher;
 import net.kodar.trainee.dataaccess.dao.student.StudentDao;
 import net.kodar.trainee.dataaccess.dao.student.StudentDaoMapImpl;
 import net.kodar.trainee.presentation.parameter.StudentParam;
@@ -17,6 +18,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StudentProcessorImpl implements StudentProcessor {
 
@@ -33,30 +35,38 @@ public class StudentProcessorImpl implements StudentProcessor {
 
     @Override
     public List<StudentResult> getAll() {
-        return studentDao
-                .getAll()
-                .stream()
+        Stream<Student> studentStream = studentDao.getAll().stream();
+
+        return studentStream
                 .map(s -> resultTransformer.apply(s))
                 .collect(Collectors.toList());
     }
 
     @Override
     public void save(StudentParam t) {
-        Student student = new Student();
-        studentDao.save(paramTransformer.apply(t, new Student())); //null
+        studentDao.save(paramTransformer.apply(t, null));
     }
 
     @Override
     public void update(StudentParam t) {
+        Student student = studentDao.get(t.getID());
 
-        if(studentDao.getAll().contains(studentDao.get(t.getID()))){
-            studentDao.update(paramTransformer.apply(t, studentDao.get(t.getID())));
+        if (null != student) {
+            studentDao.update(paramTransformer.apply(t, student));
+        } else {
+            //exception
         }
     }
 
     @Override
     public void delete(StudentParam t) {
-        studentDao.delete(paramTransformer.apply(t, studentDao.get(t.getID())));
+        Student student = studentDao.get(t.getID());
+
+        if (null != student) {
+            studentDao.delete(paramTransformer.apply(t, student));
+        } else {
+            //exception
+        }
     }
 
     @Override
@@ -70,9 +80,13 @@ public class StudentProcessorImpl implements StudentProcessor {
 
         studentTeacherProcessor
                 .filterByTeacher(teacherId)
-                .forEach(student -> studentList.add(resultTransformer.apply(studentDao.get(student.getStudentId()))));
+                .forEach(student -> {
+
+                    int studentid = student.getStudentId();
+                    studentList.add(resultTransformer.apply(studentDao.get(studentid)));
+
+                });
 
         return studentList;
-
     }
 }

@@ -14,13 +14,14 @@ import net.kodar.trainee.presentation.result.TeacherResult;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TeacherProcessorImpl implements TeacherProcessor {
 
-    TeacherDao teacherDao = new TeacherDaoMapImpl();
-    StudentTeacherProcessor studentTeacherProcessor = new StudentTeacherProcessorImpl();
-    TeacherParamGenericParamTransformer paramTransformer = new TeacherParamGenericParamTransformer();
-    TeacheResultGenericResultTransformer resultTransformer = new TeacheResultGenericResultTransformer();
+    private TeacherDao teacherDao = new TeacherDaoMapImpl();
+    private StudentTeacherProcessor studentTeacherProcessor = new StudentTeacherProcessorImpl();
+    private TeacherParamGenericParamTransformer paramTransformer = new TeacherParamGenericParamTransformer();
+    private TeacheResultGenericResultTransformer resultTransformer = new TeacheResultGenericResultTransformer();
 
     @Override
     public TeacherResult get(int id) {
@@ -29,9 +30,8 @@ public class TeacherProcessorImpl implements TeacherProcessor {
 
     @Override
     public List<TeacherResult> getAll() {
-        return teacherDao
-                .getAll()
-                .stream()
+        Stream<Teacher> teacherStream = teacherDao.getAll().stream();
+        return teacherStream
                 .map(teacher -> resultTransformer.apply(teacher))
                 .collect(Collectors.toList());
     }
@@ -39,20 +39,29 @@ public class TeacherProcessorImpl implements TeacherProcessor {
     @Override
     public void save(TeacherParam teacher) {
 
-        teacherDao.save(paramTransformer.apply(teacher, new Teacher()));
+        teacherDao.save(paramTransformer.apply(teacher, null));
     }
 
     @Override
     public void update(TeacherParam teacher) {
+        Teacher teacherToUpdate = teacherDao.get(teacher.getId());
 
-        if(teacherDao.getAll().contains(teacherDao.get(teacher.getId()))){
-            teacherDao.update(paramTransformer.apply(teacher, teacherDao.get(teacher.getId())));
+        if (null != teacherToUpdate) {
+            teacherDao.update(paramTransformer.apply(teacher, teacherToUpdate));
+        } else {
+            //exception
         }
     }
 
     @Override
     public void delete(TeacherParam teacher) {
-        teacherDao.delete(paramTransformer.apply(teacher, teacherDao.get(teacher.getId())));
+        Teacher teacherToDel = teacherDao.get(teacher.getId());
+
+        if (null != teacherToDel) {
+            teacherDao.delete(paramTransformer.apply(teacher, teacherToDel));
+        } else {
+            //exception
+        }
     }
 
     @Override
