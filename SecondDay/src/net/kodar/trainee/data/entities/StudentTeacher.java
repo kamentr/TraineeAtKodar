@@ -11,6 +11,9 @@ public class StudentTeacher {
         this.teacherId = teacherId;
         this.id = id;
     }
+    public StudentTeacher(){
+
+    }
 
     public StudentTeacher(int studentId, int teacherId) {
         this.studentId = studentId;

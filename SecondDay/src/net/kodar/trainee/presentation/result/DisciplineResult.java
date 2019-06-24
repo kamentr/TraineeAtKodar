@@ -14,6 +14,10 @@ public class DisciplineResult {
         this.disciplineName = disciplineName;
     }
 
+    public DisciplineResult() {
+
+    }
+
     public Integer getId() {
         return id;
     }

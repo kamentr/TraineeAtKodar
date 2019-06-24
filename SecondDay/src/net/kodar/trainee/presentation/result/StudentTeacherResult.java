@@ -16,6 +16,10 @@ public class StudentTeacherResult {
         this.teacherId = teacherId;
     }
 
+    public StudentTeacherResult() {
+
+    }
+
     public Integer getId() {
         return id;
     }

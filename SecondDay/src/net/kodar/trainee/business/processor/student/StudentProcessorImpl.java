@@ -2,21 +2,16 @@ package net.kodar.trainee.business.processor.student;
 
 import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessor;
 import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessorImpl;
-import net.kodar.trainee.business.transformer.GenericParamTransformer;
-import net.kodar.trainee.business.transformer.GenericResultTransformer;
-import net.kodar.trainee.business.transformer.StudentParamGenericParamTransformer;
-import net.kodar.trainee.business.transformer.StudentResultGenericResultTransformer;
+import net.kodar.trainee.business.transformer.param.StudentParamGenericParamTransformer;
+import net.kodar.trainee.business.transformer.result.StudentResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.Student;
-import net.kodar.trainee.data.entities.StudentTeacher;
 import net.kodar.trainee.dataaccess.dao.student.StudentDao;
 import net.kodar.trainee.dataaccess.dao.student.StudentDaoMapImpl;
 import net.kodar.trainee.presentation.parameter.StudentParam;
 import net.kodar.trainee.presentation.result.StudentResult;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

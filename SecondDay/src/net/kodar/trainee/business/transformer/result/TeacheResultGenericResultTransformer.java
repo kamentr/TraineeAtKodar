@@ -1,10 +1,11 @@
-package net.kodar.trainee.business.transformer;
+package net.kodar.trainee.business.transformer.result;
 
+import net.kodar.trainee.business.transformer.GenericResultTransformer;
 import net.kodar.trainee.data.entities.Teacher;
 import net.kodar.trainee.presentation.result.TeacherResult;
 
 
-public class TeacheResultGenericResultTransformer implements 
+public class TeacheResultGenericResultTransformer implements
         GenericResultTransformer<Teacher, TeacherResult> {
 
     @Override

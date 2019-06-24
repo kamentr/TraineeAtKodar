@@ -1,5 +1,6 @@
-package net.kodar.trainee.business.transformer;
+package net.kodar.trainee.business.transformer.param;
 
+import net.kodar.trainee.business.transformer.GenericParamTransformer;
 import net.kodar.trainee.data.entities.Teacher;
 import net.kodar.trainee.presentation.parameter.StudentParam;
 import net.kodar.trainee.presentation.parameter.TeacherParam;

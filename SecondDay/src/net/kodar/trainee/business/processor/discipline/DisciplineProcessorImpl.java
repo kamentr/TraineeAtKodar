@@ -2,43 +2,66 @@ package net.kodar.trainee.business.processor.discipline;
 
 import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessor;
 import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorImpl;
+import net.kodar.trainee.business.transformer.param.DisciplineParamGenericParamTransformer;
+import net.kodar.trainee.business.transformer.result.DisciplineResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.Discipline;
 import net.kodar.trainee.data.entities.StudentTeacherDiscipline;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDao;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDaoImpl;
+import net.kodar.trainee.presentation.parameter.DisciplineParam;
+import net.kodar.trainee.presentation.result.DisciplineResult;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DisciplineProcessorImpl implements DisciplineProcessor {
 
     DisciplineDao disciplineDao = new DisciplineDaoImpl();
     StudentTeacherDisciplineProcessor studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorImpl();
+    DisciplineParamGenericParamTransformer disciplineParam = new DisciplineParamGenericParamTransformer();
+    DisciplineResultGenericResultTransformer disciplineResult = new DisciplineResultGenericResultTransformer();
 
 
     @Override
-    public Discipline get(int id) {
-        return disciplineDao.get(id);
+    public DisciplineResult get(int id) {
+        return disciplineResult.apply(disciplineDao.get(id));
     }
 
     @Override
-    public List<Discipline> getAll() {
-        return disciplineDao.getAll();
+    public List<DisciplineResult> getAll() {
+        Stream<Discipline> disciplineStream = disciplineDao.getAll().stream();
+
+        return disciplineStream
+                .map(d -> disciplineResult.apply(d))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public void save(Discipline discipline) {
-        disciplineDao.save(discipline);
+    public void save(DisciplineParam discipline) {
+        disciplineDao.save(disciplineParam.apply(discipline, null));
     }
 
     @Override
-    public void update(Discipline discipline) {
-        disciplineDao.update(discipline);
+    public void update(DisciplineParam discipline) {
+        Discipline discipline1 = disciplineDao.get(discipline.getId());
+
+        if (discipline != null) {
+            disciplineDao.update(disciplineParam.apply(discipline, discipline1));
+        } else {
+            //exception
+        }
     }
 
     @Override
-    public void delete(Discipline discipline) {
-        disciplineDao.delete(discipline);
+    public void delete(DisciplineParam discipline) {
+        Discipline d = disciplineDao.get(discipline.getId());
+        if (d != null) {
+            disciplineDao.delete(disciplineParam.apply(discipline, d));
+        }else {
+            //exception
+        }
     }
 
     @Override
@@ -47,27 +70,29 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
     }
 
     @Override
-    public List<Discipline> getByStudentId(Integer id) {
-        List<Discipline> disciplineList = new ArrayList<>();
+    public List<DisciplineResult> getByStudentId(Integer id) {
+        List<DisciplineResult> disciplineList = new ArrayList<>();
+        Stream<StudentTeacherDiscipline> studentTeacherDisciplineStream = studentTeacherDisciplineProcessor.getAll().stream();
 
-        for (StudentTeacherDiscipline studentid : studentTeacherDisciplineProcessor
-                .getAll()) {
-            if (studentid.getStudentId() == id) {
-                disciplineList.add(disciplineDao.get(studentid.getDisciplineId()));
-            }
-        }
-
+        studentTeacherDisciplineStream
+                .filter(s -> s.getTeacherId() == id)
+                .forEach(s -> {
+                    Discipline discipline = disciplineDao.get(s.getDisciplineId());
+                    disciplineList.add(disciplineResult.apply(discipline));
+                });
         return disciplineList;
     }
 
     @Override
-    public List<Discipline> getByTeacherId(Integer id) {
-        List<Discipline> disciplineList = new ArrayList<>();
+    public List<DisciplineResult> getByTeacherId(Integer id) {
+        List<DisciplineResult> disciplineList = new ArrayList<>();
 
         studentTeacherDisciplineProcessor
                 .filterByTeacher(id)
-                .forEach(discipline ->
-                        disciplineList.add(disciplineDao.get(discipline.getDisciplineId())));
+                .forEach(discipline ->{
+                            Discipline disciplineiId = disciplineDao.get(discipline.getDisciplineId());
+                            disciplineList.add(disciplineResult.apply(disciplineiId));
+                        });
 
         return disciplineList;
     }
