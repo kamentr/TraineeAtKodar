@@ -24,15 +24,19 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
     }
 
     @Override
-    public List<StudentTeacher> filterByStudent(Integer id) {
-        return studentTeacherList.stream().filter(student -> student.getStudentId() == id)
+    public List<StudentTeacherResult> filterByStudent(Integer id) {
+        return studentTeacherList
+                .stream()
+                .filter(student -> student.getStudentId() == id)
+                .map(st->resultTransformer.apply(st))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<StudentTeacher> filterByTeacher(Integer id) {
+    public List<StudentTeacherResult> filterByTeacher(Integer id) {
         return studentTeacherList.stream()
                 .filter(teacher -> teacher.getTeacherId() == id)
+                .map(st->resultTransformer.apply(st))
                 .collect(Collectors.toList());
 
     }
@@ -49,10 +53,12 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
 
     @Override
     public void deleteTeacher(int id) {
-        studentTeacherList = studentTeacherList
+        List<StudentTeacher> filteredList = studentTeacherList
                 .stream()
                 .filter(studentTeacher -> studentTeacher.getTeacherId() != id)
                 .collect(Collectors.toList());
+
+        studentTeacherList = filteredList;
     }
 
     public StudentTeacherResult get(int id) {
@@ -61,6 +67,7 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
 
     public List<StudentTeacherResult> getAll() {
         Stream<StudentTeacher> studentTeacherStream = studentTeacherDao.getAll().stream();
+
         return studentTeacherStream.map(st -> resultTransformer.apply(st)).collect(Collectors.toList());
     }
 

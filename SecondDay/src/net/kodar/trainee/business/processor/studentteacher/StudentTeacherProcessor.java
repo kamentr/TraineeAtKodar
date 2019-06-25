@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface StudentTeacherProcessor extends Processor<StudentTeacherParam, StudentTeacherResult> {
 
-    List<StudentTeacher> filterByStudent(Integer id);
+    List<StudentTeacherResult> filterByStudent(Integer id);
 
-    List<StudentTeacher> filterByTeacher(Integer id);
+    List<StudentTeacherResult> filterByTeacher(Integer id);
 
     void deleteStudent(int id);
 
