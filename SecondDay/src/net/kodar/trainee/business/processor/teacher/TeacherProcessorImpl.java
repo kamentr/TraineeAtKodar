@@ -30,8 +30,9 @@ public class TeacherProcessorImpl implements TeacherProcessor {
 
     @Override
     public List<TeacherResult> getAll() {
-        Stream<Teacher> teacherStream = teacherDao.getAll().stream();
+        List<Teacher> teacherStream = teacherDao.getAll();
         return teacherStream
+                .stream()
                 .map(teacher -> resultTransformer.apply(teacher))
                 .collect(Collectors.toList());
     }
