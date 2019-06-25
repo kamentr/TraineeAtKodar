@@ -10,8 +10,8 @@ import java.util.Objects;
 
 public class StudentTeacherDaoImpl implements StudentTeacherDao {
 
-    Map<Integer, StudentTeacher> studentTeacher = StudentTeacherDataMap.studentTeacherData;
-    StudentTeacherDataMap studentTeacherDataMap = new StudentTeacherDataMap();
+    private Map<Integer, StudentTeacher> studentTeacher = StudentTeacherDataMap.studentTeacherData;
+    private StudentTeacherDataMap studentTeacherDataMap = new StudentTeacherDataMap();
 
 
     @Override
@@ -25,8 +25,9 @@ public class StudentTeacherDaoImpl implements StudentTeacherDao {
     }
 
     @Override
-    public void save(StudentTeacher studentTeacher) {
+    public StudentTeacher save(StudentTeacher studentTeacher) {
         this.studentTeacher.put(studentTeacher.getId(), studentTeacher);
+        return this.studentTeacher.get(studentTeacher.getId());
     }
 
     @Override

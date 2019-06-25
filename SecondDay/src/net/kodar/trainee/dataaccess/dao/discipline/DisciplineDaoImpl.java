@@ -24,8 +24,9 @@ public class DisciplineDaoImpl implements DisciplineDao {
     }
 
     @Override
-    public void save(Discipline discipline) {
-        disciplineData.put(disciplineData.size() + 1, discipline);
+    public Discipline save(Discipline discipline) {
+        disciplineData.put(discipline.getId(), discipline);
+        return disciplineData.get(discipline.getId());
     }
 
     @Override
@@ -36,8 +37,12 @@ public class DisciplineDaoImpl implements DisciplineDao {
 
     @Override
     public void delete(Discipline discipline) {
-        if(disciplineData.containsKey(discipline.getId()))
-        disciplineData.remove(discipline);
+        if(disciplineData.containsKey(discipline.getId())) {
+            disciplineData.remove(discipline);
+        }
+        else {
+            //exception
+        }
     }
 
     @Override

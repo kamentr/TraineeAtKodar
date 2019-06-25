@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class TeacherDaoImlp implements TeacherDao {
 
-    protected List<Teacher> teacherData = TeacherData.teacherData;
+    private List<Teacher> teacherData = TeacherData.teacherData;
 
 
     @Override
@@ -22,8 +22,9 @@ public class TeacherDaoImlp implements TeacherDao {
     }
 
     @Override
-    public void save(Teacher teacher) {
+    public Teacher save(Teacher teacher) {
         teacherData.add(teacher);
+        return teacherData.get(teacher.getId());
     }
 
     @Override

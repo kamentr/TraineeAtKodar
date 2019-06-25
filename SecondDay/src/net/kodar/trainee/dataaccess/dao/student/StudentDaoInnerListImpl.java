@@ -31,8 +31,9 @@ public class StudentDaoInnerListImpl implements StudentDao {
     }
 
     @Override
-    public void save(Student student) {
+    public Student save(Student student) {
         studentData.add(student);
+        return studentData.get(student.getID());
     }
 
     @Override

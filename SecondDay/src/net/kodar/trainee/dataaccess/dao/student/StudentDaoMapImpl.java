@@ -25,8 +25,9 @@ public class StudentDaoMapImpl implements StudentDao {
     }
 
     @Override
-    public void save(Student student) {
+    public Student save(Student student) {
         studentData.put(student.getID(), student);
+        return studentData.get(student.getID());
     }
 
     @Override

@@ -23,8 +23,9 @@ public class TeacherDaoMapImpl implements TeacherDao {
     }
 
     @Override
-    public void save(Teacher teacher) {
+    public Teacher save(Teacher teacher) {
         teacherData.put(teacher.getId(), teacher);
+        return teacherData.get(teacher.getId());
     }
 
     @Override

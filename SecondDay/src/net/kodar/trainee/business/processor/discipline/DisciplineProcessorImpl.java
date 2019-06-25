@@ -10,6 +10,7 @@ import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDao;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDaoImpl;
 import net.kodar.trainee.presentation.parameter.DisciplineParam;
 import net.kodar.trainee.presentation.result.DisciplineResult;
+import net.kodar.trainee.presentation.result.StudentTeacherDisciplineResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +19,10 @@ import java.util.stream.Stream;
 
 public class DisciplineProcessorImpl implements DisciplineProcessor {
 
-    DisciplineDao disciplineDao = new DisciplineDaoImpl();
-    StudentTeacherDisciplineProcessor studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorImpl();
-    DisciplineParamGenericParamTransformer disciplineParam = new DisciplineParamGenericParamTransformer();
-    DisciplineResultGenericResultTransformer disciplineResult = new DisciplineResultGenericResultTransformer();
+    private DisciplineDao disciplineDao = new DisciplineDaoImpl();
+    private StudentTeacherDisciplineProcessor studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorImpl();
+    private DisciplineParamGenericParamTransformer disciplineParam = new DisciplineParamGenericParamTransformer();
+    private DisciplineResultGenericResultTransformer disciplineResult = new DisciplineResultGenericResultTransformer();
 
 
     @Override
@@ -31,24 +32,31 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
 
     @Override
     public List<DisciplineResult> getAll() {
-        Stream<Discipline> disciplineStream = disciplineDao.getAll().stream();
+        List<Discipline> disciplineStream = disciplineDao.getAll();
 
         return disciplineStream
+                .stream()
                 .map(d -> disciplineResult.apply(d))
                 .collect(Collectors.toList());
     }
 
     @Override
     public void save(DisciplineParam discipline) {
-        disciplineDao.save(disciplineParam.apply(discipline, null));
+        Discipline disciplineToSave = disciplineParam.apply(discipline, null);
+        if (disciplineToSave != null) {
+            disciplineDao.save(disciplineToSave);
+        } else {
+            //exception
+        }
     }
 
     @Override
     public void update(DisciplineParam discipline) {
-        Discipline discipline1 = disciplineDao.get(discipline.getId());
+        Discipline disciplineParamToUpdate = disciplineDao.get(discipline.getId());
 
-        if (discipline != null) {
-            disciplineDao.update(disciplineParam.apply(discipline, discipline1));
+        if (disciplineParamToUpdate != null) {
+            Discipline disciplineToUpdate = disciplineParam.apply(discipline, disciplineParamToUpdate);
+            disciplineDao.update(disciplineToUpdate);
         } else {
             //exception
         }
@@ -56,10 +64,12 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
 
     @Override
     public void delete(DisciplineParam discipline) {
-        Discipline d = disciplineDao.get(discipline.getId());
-        if (d != null) {
-            disciplineDao.delete(disciplineParam.apply(discipline, d));
-        }else {
+        Discipline disciplineParamToDelete = disciplineDao.get(discipline.getId());
+
+        if (disciplineParamToDelete != null) {
+            Discipline disciplineToDelete = disciplineParam.apply(discipline, disciplineParamToDelete);
+            disciplineDao.delete(disciplineToDelete);
+        } else {
             //exception
         }
     }
@@ -72,9 +82,10 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
     @Override
     public List<DisciplineResult> getByStudentId(Integer id) {
         List<DisciplineResult> disciplineList = new ArrayList<>();
-        Stream<StudentTeacherDiscipline> studentTeacherDisciplineStream = studentTeacherDisciplineProcessor.getAll().stream();
+        List<StudentTeacherDisciplineResult> studentTeacherDisciplineList = studentTeacherDisciplineProcessor.getAll();
 
-        studentTeacherDisciplineStream
+        studentTeacherDisciplineList
+                .stream()
                 .filter(s -> s.getTeacherId() == id)
                 .forEach(s -> {
                     Discipline discipline = disciplineDao.get(s.getDisciplineId());
@@ -89,10 +100,10 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
 
         studentTeacherDisciplineProcessor
                 .filterByTeacher(id)
-                .forEach(discipline ->{
-                            Discipline disciplineiId = disciplineDao.get(discipline.getDisciplineId());
-                            disciplineList.add(disciplineResult.apply(disciplineiId));
-                        });
+                .forEach(d -> {
+                    DisciplineResult filteredDiscipline = disciplineResult.apply(disciplineDao.get(d.getDisciplineId()));
+                    disciplineList.add(filteredDiscipline);
+                });
 
         return disciplineList;
     }

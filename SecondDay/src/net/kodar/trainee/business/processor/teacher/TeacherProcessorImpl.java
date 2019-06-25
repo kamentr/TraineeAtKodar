@@ -44,10 +44,11 @@ public class TeacherProcessorImpl implements TeacherProcessor {
 
     @Override
     public void update(TeacherParam teacher) {
-        Teacher teacherToUpdate = teacherDao.get(teacher.getId());
+        Teacher t = teacherDao.get(teacher.getId());
 
-        if (null != teacherToUpdate) {
-            teacherDao.update(paramTransformer.apply(teacher, teacherToUpdate));
+        if (null != t) {
+            Teacher teacherToUpdate = paramTransformer.apply(teacher, t);
+            teacherDao.update(teacherToUpdate);
         } else {
             //exception
         }
@@ -55,10 +56,11 @@ public class TeacherProcessorImpl implements TeacherProcessor {
 
     @Override
     public void delete(TeacherParam teacher) {
-        Teacher teacherToDel = teacherDao.get(teacher.getId());
+        Teacher t = teacherDao.get(teacher.getId());
 
-        if (null != teacherToDel) {
-            teacherDao.delete(paramTransformer.apply(teacher, teacherToDel));
+        if (null != t) {
+            Teacher teacherToDelete = paramTransformer.apply(teacher, t);
+            teacherDao.delete(teacherToDelete);
         } else {
             //exception
         }
@@ -75,7 +77,10 @@ public class TeacherProcessorImpl implements TeacherProcessor {
 
         studentTeacherProcessor
                 .filterByStudent(studentId)
-                .forEach(teacher -> teacherList.add(resultTransformer.apply(teacherDao.get(teacher.getTeacherId()))));
+                .forEach(teacher -> {
+                    TeacherResult teacherToAdd = resultTransformer.apply(teacherDao.get(teacher.getTeacherId()));
+                    teacherList.add(teacherToAdd);
+                });
 
         return teacherList;
     }

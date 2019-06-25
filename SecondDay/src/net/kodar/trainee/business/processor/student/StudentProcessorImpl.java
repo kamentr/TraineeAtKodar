@@ -30,16 +30,25 @@ public class StudentProcessorImpl implements StudentProcessor {
 
     @Override
     public List<StudentResult> getAll() {
-        Stream<Student> studentStream = studentDao.getAll().stream();
+        List<Student> studentStream = studentDao.getAll();
 
-        return studentStream
+        List<StudentResult> studentResults= studentStream
+                .stream()
                 .map(s -> resultTransformer.apply(s))
                 .collect(Collectors.toList());
+
+        return studentResults;
     }
 
     @Override
     public void save(StudentParam t) {
-        studentDao.save(paramTransformer.apply(t, null));
+        Student student = studentDao.get(t.getID());
+        if(student != null) {
+            Student studentToSave = paramTransformer.apply(t, null);
+            studentDao.save(studentToSave);
+        }else {
+            //exception
+        }
     }
 
     @Override
@@ -47,7 +56,8 @@ public class StudentProcessorImpl implements StudentProcessor {
         Student student = studentDao.get(t.getID());
 
         if (null != student) {
-            studentDao.update(paramTransformer.apply(t, student));
+            Student studentToUpdate = paramTransformer.apply(t,student);
+            studentDao.update(studentToUpdate);
         } else {
             //exception
         }
@@ -58,7 +68,8 @@ public class StudentProcessorImpl implements StudentProcessor {
         Student student = studentDao.get(t.getID());
 
         if (null != student) {
-            studentDao.delete(paramTransformer.apply(t, student));
+            Student studentToDelete = paramTransformer.apply(t,student);
+            studentDao.delete(studentToDelete);
         } else {
             //exception
         }

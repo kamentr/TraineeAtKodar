@@ -12,6 +12,9 @@ import net.kodar.trainee.business.processor.teacher.TeacherProcessorImpl;
 import net.kodar.trainee.data.entities.Discipline;
 import net.kodar.trainee.data.entities.Student;
 import net.kodar.trainee.data.entities.Teacher;
+import net.kodar.trainee.presentation.parameter.DisciplineParam;
+import net.kodar.trainee.presentation.parameter.StudentParam;
+import net.kodar.trainee.presentation.parameter.TeacherParam;
 
 
 import java.util.Scanner;
@@ -144,7 +147,7 @@ public class MainUI {
         System.out.print("Write last name: ");
         String lName = scanner.nextLine();
 
-        studentProcessor.save(new Student(id, fname, lName));
+        studentProcessor.save(new StudentParam(id, fname, lName));
         System.out.println("Successfully added!");
 
         printMenu();
@@ -162,7 +165,7 @@ public class MainUI {
         System.out.print("Write discipline name and id: ");
         scanner.next();
         String[] input = scanner.nextLine().split("\\s+");
-        disciplineProcessor.save(new Discipline(Integer.parseInt(input[1]), input[0]));
+        disciplineProcessor.save(new DisciplineParam(Integer.parseInt(input[1]), input[0]));
 
         printMenu();
     }
@@ -187,7 +190,7 @@ public class MainUI {
         System.out.print("Write last name: ");
         String lName = scanner.nextLine();
 
-        teacherProcessor.save(new Teacher(fname, lName, id));
+        teacherProcessor.save(new TeacherParam(fname, lName, id));
         System.out.println("Successfully added!");
 
         printMenu();

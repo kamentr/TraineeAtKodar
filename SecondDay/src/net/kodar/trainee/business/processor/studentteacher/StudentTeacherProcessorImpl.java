@@ -25,6 +25,7 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
 
     @Override
     public List<StudentTeacherResult> filterByStudent(Integer id) {
+
         return studentTeacherList
                 .stream()
                 .filter(student -> student.getStudentId() == id)
@@ -34,7 +35,8 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
 
     @Override
     public List<StudentTeacherResult> filterByTeacher(Integer id) {
-        return studentTeacherList.stream()
+        return studentTeacherList
+                .stream()
                 .filter(teacher -> teacher.getTeacherId() == id)
                 .map(st->resultTransformer.apply(st))
                 .collect(Collectors.toList());
@@ -46,16 +48,17 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
 
         studentTeacherList = studentTeacherList
                 .stream()
-                .filter(studentTeacher -> studentTeacher.getStudentId() != id)
+                .filter(st -> st.getStudentId() != id)
                 .collect(Collectors.toList());
 
     }
 
     @Override
     public void deleteTeacher(int id) {
+
         List<StudentTeacher> filteredList = studentTeacherList
                 .stream()
-                .filter(studentTeacher -> studentTeacher.getTeacherId() != id)
+                .filter(st -> st.getTeacherId() != id)
                 .collect(Collectors.toList());
 
         studentTeacherList = filteredList;
@@ -66,14 +69,23 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
     }
 
     public List<StudentTeacherResult> getAll() {
-        Stream<StudentTeacher> studentTeacherStream = studentTeacherDao.getAll().stream();
+        List<StudentTeacher> studentTeacherList = studentTeacherDao.getAll();
 
-        return studentTeacherStream.map(st -> resultTransformer.apply(st)).collect(Collectors.toList());
+        return studentTeacherList
+                .stream()
+                .map(st -> resultTransformer.apply(st))
+                .collect(Collectors.toList());
     }
 
     @Override
     public void save(StudentTeacherParam t) {
-        studentTeacherDao.save(paramTransformer.apply(t, null));
+        StudentTeacher studentTeacher = studentTeacherDao.get(t.getId());
+        if(studentTeacher != null) {
+            StudentTeacher studentTeacherToSave = paramTransformer.apply(t,null);
+            studentTeacherDao.save(studentTeacherToSave);
+        }else {
+            //exception
+        }
     }
 
     @Override
@@ -81,7 +93,8 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
         StudentTeacher studentTeacher = studentTeacherDao.get(t.getId());
 
         if (studentTeacher != null) {
-            studentTeacherDao.update(paramTransformer.apply(t, studentTeacher));
+            StudentTeacher studentTeacherToUpdate = paramTransformer.apply(t,studentTeacher);
+            studentTeacherDao.update(studentTeacherToUpdate);
         } else {
             //exception
         }
@@ -91,7 +104,8 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
     public void delete(StudentTeacherParam t) {
         StudentTeacher studentTeacher = studentTeacherDao.get(t.getId());
         if (studentTeacher != null) {
-            studentTeacherDao.delete(paramTransformer.apply(t, studentTeacher));
+            StudentTeacher studentTeacherToDelete = paramTransformer.apply(t,studentTeacher);
+            studentTeacherDao.delete(studentTeacherToDelete);
         } else {
             //exception
         }
