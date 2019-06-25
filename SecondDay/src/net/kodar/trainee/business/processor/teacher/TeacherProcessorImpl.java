@@ -25,23 +25,26 @@ public class TeacherProcessorImpl implements TeacherProcessor {
 
     @Override
     public TeacherResult get(int id) {
-        return resultTransformer.apply(teacherDao.get(id));
+        TeacherResult teacherResult = resultTransformer.apply(teacherDao.get(id));
+        return teacherResult;
     }
 
     @Override
     public List<TeacherResult> getAll() {
-        List<Teacher> teacherStream = teacherDao.getAll();
+        List<Teacher> teacherList = teacherDao.getAll();
 
-        return teacherStream
+        return teacherList
                 .stream()
                 .map(teacher -> resultTransformer.apply(teacher))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public void save(TeacherParam teacher) {
+    public TeacherParam save(TeacherParam teacher) {
         Teacher teacherToSave = paramTransformer.apply(teacher, null);
         teacherDao.save(teacherToSave);
+
+        return teacher;
     }
 
     @Override
@@ -80,8 +83,10 @@ public class TeacherProcessorImpl implements TeacherProcessor {
         studentTeacherProcessor
                 .filterByStudent(studentId)
                 .forEach(teacher -> {
+
                     TeacherResult teacherToAdd = resultTransformer.apply(teacherDao.get(teacher.getTeacherId()));
                     teacherList.add(teacherToAdd);
+
                 });
 
         return teacherList;

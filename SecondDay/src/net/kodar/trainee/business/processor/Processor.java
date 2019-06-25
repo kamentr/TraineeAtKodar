@@ -10,7 +10,7 @@ public interface Processor<P, R> {
 
     List<R> getAll();
 
-    void save(P t);
+    P save(P t);
 
     void update(P t);
 

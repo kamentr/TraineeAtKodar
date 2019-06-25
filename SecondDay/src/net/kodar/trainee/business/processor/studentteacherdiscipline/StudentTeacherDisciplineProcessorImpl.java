@@ -21,7 +21,8 @@ public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisc
 
     @Override
     public StudentTeacherDisciplineResult get(int id) {
-        return resultTransformer.apply(studentTeacherDisciplineDao.get(id));
+        StudentTeacherDisciplineResult studentTeacherDisciplineResult = resultTransformer.apply(studentTeacherDisciplineDao.get(id));
+        return studentTeacherDisciplineResult;
     }
 
     @Override
@@ -35,15 +36,17 @@ public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisc
     }
 
     @Override
-    public void save(StudentTeacherDisciplineParam studentTeacherDiscipline) {
+    public StudentTeacherDisciplineParam save(StudentTeacherDisciplineParam studentTeacherDiscipline) {
+        StudentTeacherDiscipline studentTeacherDisciplineToSave = paramTransformer.apply(studentTeacherDiscipline, null);
+        studentTeacherDisciplineDao.save(studentTeacherDisciplineToSave);
 
-            StudentTeacherDiscipline studentTeacherDisciplineToSave = paramTransformer.apply(studentTeacherDiscipline, null);
-            studentTeacherDisciplineDao.save(studentTeacherDisciplineToSave);
+        return studentTeacherDiscipline;
     }
 
     @Override
     public void update(StudentTeacherDisciplineParam studentTeacherDiscipline) {
         StudentTeacherDiscipline std = studentTeacherDisciplineDao.get(studentTeacherDiscipline.getId());
+
         if (std != null) {
             StudentTeacherDiscipline studentTeacherDisciplineToUpdate = paramTransformer.apply(studentTeacherDiscipline, std);
             studentTeacherDisciplineDao.update(studentTeacherDisciplineToUpdate);
@@ -69,11 +72,12 @@ public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisc
     }
 
     @Override
-    public List<StudentTeacherDisciplineResult> filterByTeacher(Integer techerId) {
-        return studentTeacherDisciplineDao
-                .getAll()
+    public List<StudentTeacherDisciplineResult> filterByTeacher(Integer teacherId) {
+        List<StudentTeacherDiscipline> studentTeacherDisciplineList = studentTeacherDisciplineDao.getAll();
+
+        return studentTeacherDisciplineList
                 .stream()
-                .filter(studentTeacherDiscipline -> studentTeacherDiscipline.getTeacherId() == techerId)
+                .filter(std -> std.getTeacherId() == teacherId)
                 .map(std -> resultTransformer.apply(std))
                 .collect(Collectors.toList());
     }
@@ -84,7 +88,7 @@ public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisc
 
         return studentTeacherDisciplines
                 .stream()
-                .filter(studentTeacherDiscipline -> studentTeacherDiscipline.getStudentId() == studentId)
+                .filter(std -> std.getStudentId() == studentId)
                 .map(std -> resultTransformer.apply(std))
                 .collect(Collectors.toList());
     }

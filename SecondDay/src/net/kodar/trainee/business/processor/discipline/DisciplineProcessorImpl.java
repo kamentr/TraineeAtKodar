@@ -27,32 +27,33 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
 
     @Override
     public DisciplineResult get(int id) {
-        return disciplineResult.apply(disciplineDao.get(id));
+        DisciplineResult discipline = disciplineResult.apply(disciplineDao.get(id));
+        return discipline;
     }
 
     @Override
     public List<DisciplineResult> getAll() {
-        List<Discipline> disciplineStream = disciplineDao.getAll();
+        List<Discipline> disciplineList = disciplineDao.getAll();
 
-        return disciplineStream
+        return disciplineList
                 .stream()
                 .map(d -> disciplineResult.apply(d))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public void save(DisciplineParam discipline) {
+    public DisciplineParam save(DisciplineParam discipline) {
         Discipline disciplineToSave = disciplineParam.apply(discipline, null);
         disciplineDao.save(disciplineToSave);
-
+        return discipline;
     }
 
     @Override
     public void update(DisciplineParam discipline) {
-        Discipline disciplineParamToUpdate = disciplineDao.get(discipline.getId());
+        Discipline input = disciplineDao.get(discipline.getId());
 
-        if (disciplineParamToUpdate != null) {
-            Discipline disciplineToUpdate = disciplineParam.apply(discipline, disciplineParamToUpdate);
+        if (input != null) {
+            Discipline disciplineToUpdate = disciplineParam.apply(discipline, input);
             disciplineDao.update(disciplineToUpdate);
         } else {
             //exception
@@ -83,11 +84,12 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
 
         studentTeacherDisciplineList
                 .stream()
-                .filter(s -> s.getTeacherId() == id)
+                .filter(s -> s.getTeacherId() != id)
                 .forEach(s -> {
                     Discipline discipline = disciplineDao.get(s.getDisciplineId());
                     disciplineList.add(disciplineResult.apply(discipline));
                 });
+
         return disciplineList;
     }
 
