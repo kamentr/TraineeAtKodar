@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class TeacherDaoMapImpl implements TeacherDao {
 
-    TeacherDataMap teacherDataMap = new TeacherDataMap();
+    private TeacherDataMap teacherDataMap = new TeacherDataMap();
     private Map<Integer, Teacher> teacherData = TeacherDataMap.teacherMap;
 
     @Override
