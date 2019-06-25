@@ -36,14 +36,9 @@ public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisc
 
     @Override
     public void save(StudentTeacherDisciplineParam studentTeacherDiscipline) {
-        StudentTeacherDiscipline std = studentTeacherDisciplineDao.get(studentTeacherDiscipline.getId());
-        if (std != null) {
+
             StudentTeacherDiscipline studentTeacherDisciplineToSave = paramTransformer.apply(studentTeacherDiscipline, null);
             studentTeacherDisciplineDao.save(studentTeacherDisciplineToSave);
-        } else {
-            //exception
-        }
-
     }
 
     @Override
@@ -100,7 +95,9 @@ public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisc
                 .forEach(studentTeacherDiscipline ->
                 {
                     if (studentTeacherDiscipline.getStudentId() == id) {
-                        studentTeacherDisciplineDao.getAll().remove(studentTeacherDiscipline);
+                        studentTeacherDisciplineDao
+                                .getAll()
+                                .remove(studentTeacherDiscipline);
                     }
                 });
     }
@@ -111,7 +108,9 @@ public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisc
                 .forEach(studentTeacherDiscipline ->
                 {
                     if (studentTeacherDiscipline.getTeacherId() == id) {
-                        studentTeacherDisciplineDao.getAll().remove(studentTeacherDiscipline);
+                        studentTeacherDisciplineDao
+                                .getAll()
+                                .remove(studentTeacherDiscipline);
                     }
                 });
     }

@@ -31,6 +31,7 @@ public class TeacherProcessorImpl implements TeacherProcessor {
     @Override
     public List<TeacherResult> getAll() {
         List<Teacher> teacherStream = teacherDao.getAll();
+
         return teacherStream
                 .stream()
                 .map(teacher -> resultTransformer.apply(teacher))
@@ -39,8 +40,8 @@ public class TeacherProcessorImpl implements TeacherProcessor {
 
     @Override
     public void save(TeacherParam teacher) {
-
-        teacherDao.save(paramTransformer.apply(teacher, null));
+        Teacher teacherToSave = paramTransformer.apply(teacher, null);
+        teacherDao.save(teacherToSave);
     }
 
     @Override

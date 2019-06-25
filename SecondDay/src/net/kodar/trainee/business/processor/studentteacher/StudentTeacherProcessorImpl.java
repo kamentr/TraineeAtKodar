@@ -79,13 +79,8 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
 
     @Override
     public void save(StudentTeacherParam t) {
-        StudentTeacher studentTeacher = studentTeacherDao.get(t.getId());
-        if(studentTeacher != null) {
             StudentTeacher studentTeacherToSave = paramTransformer.apply(t,null);
             studentTeacherDao.save(studentTeacherToSave);
-        }else {
-            //exception
-        }
     }
 
     @Override

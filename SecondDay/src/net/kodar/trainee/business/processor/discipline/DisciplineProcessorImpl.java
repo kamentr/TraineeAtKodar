@@ -43,11 +43,8 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
     @Override
     public void save(DisciplineParam discipline) {
         Discipline disciplineToSave = disciplineParam.apply(discipline, null);
-        if (disciplineToSave != null) {
-            disciplineDao.save(disciplineToSave);
-        } else {
-            //exception
-        }
+        disciplineDao.save(disciplineToSave);
+
     }
 
     @Override
