@@ -6,10 +6,11 @@ import net.kodar.trainee.dataaccess.dao.student.StudentDaoMapImpl;
 import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDaoImpl;
 import net.kodar.trainee.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDaoImpl;
 import net.kodar.trainee.dataaccess.dao.teacher.TeacherDaoMapImpl;
+import net.kodar.trainee.presentation.MainUI;
 
 import java.util.List;
 
-public class Main {
+class Main {
 
     public static void main(String[] args) {
 
@@ -35,6 +36,7 @@ public class Main {
         StudentTeacherDiscipline saveStudentTeacherDiscipline = studentTeacherDisciplineDao.save(studentTeacherDiscipline);
 
         System.out.println();
-        //MainUI mainUI = new MainUI();
+
+       // MainUI mainUI = new MainUI();
     }
 }

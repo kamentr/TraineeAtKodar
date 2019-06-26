@@ -22,15 +22,15 @@ public class TeacherParam {
         return id;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
-    public void setfName(String fName) {
+    private void setfName(String fName) {
         this.fName = fName;
     }
 
-    public void setlName(String lName) {
+    private void setlName(String lName) {
         this.lName = lName;
     }
 

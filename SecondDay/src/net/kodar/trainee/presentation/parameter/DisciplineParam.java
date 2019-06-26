@@ -11,6 +11,7 @@ public class DisciplineParam {
 
     public DisciplineParam(Integer id, String disciplineName) {
         this.setDisciplineName(disciplineName);
+        this.setId(id);
     }
 
     public Integer getId() {
