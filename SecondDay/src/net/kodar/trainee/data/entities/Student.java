@@ -1,24 +1,23 @@
 package net.kodar.trainee.data.entities;
 
 import java.util.Random;
+import java.util.UUID;
 
 public class Student {
     private int ID;
     private String firstName;
     private String lastName;
-    private int identifier;
-    private Random random = new Random();
-
+    private UUID identifier;
 
     public Student() {
-        this.setIdentifier(random.nextInt());
+        this.setIdentifier(UUID.randomUUID());
     }
 
     public Student(int id, String firstName, String lastName) {
         setID(id);
         setFirstName(firstName);
         setLastName(lastName);
-        this.setIdentifier(random.nextInt());
+        this.setIdentifier(UUID.randomUUID());
     }
 
     public void setID(int ID) {
@@ -45,11 +44,11 @@ public class Student {
         return lastName;
     }
 
-    public int getIdentifier() {
+    public UUID getIdentifier() {
         return identifier;
     }
 
-    private void setIdentifier(int identifier) {
+    private void setIdentifier(UUID identifier) {
         this.identifier = identifier;
     }
 

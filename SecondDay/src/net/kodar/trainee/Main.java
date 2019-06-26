@@ -15,5 +15,7 @@ public class Main {
         Student save = studentDaoMap.save(student);
         List<Student> all = studentDaoMap.getAll();
         System.out.println(save);
+
+        //MainUI mainUI = new MainUI();
     }
 }

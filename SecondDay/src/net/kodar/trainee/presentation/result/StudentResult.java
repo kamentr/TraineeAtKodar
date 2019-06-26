@@ -1,10 +1,12 @@
 package net.kodar.trainee.presentation.result;
 
+import java.util.UUID;
+
 public class StudentResult {
     private int ID;
     private String firstName;
     private String lastName;
-    private int identifier;
+    private UUID identifier;
 
 
     public StudentResult() {
@@ -42,11 +44,11 @@ public class StudentResult {
     }
 
 
-    public int getIdentifier() {
+    public UUID getIdentifier() {
         return identifier;
     }
 
-    public void setIdentifier(int identifier) {
+    public void setIdentifier(UUID identifier) {
         this.identifier = identifier;
     }
 }

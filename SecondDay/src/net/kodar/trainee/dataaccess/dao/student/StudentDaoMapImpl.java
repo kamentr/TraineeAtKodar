@@ -33,7 +33,7 @@ public class StudentDaoMapImpl implements StudentDao {
         Collection<Student> studentList = studentData.values();
         return  studentList
                 .stream()
-                .filter(s -> s.getIdentifier() == student.getIdentifier())
+                .filter(s -> s.getIdentifier().equals(student.getIdentifier()))
                 .findFirst()
                 .get();
     }
