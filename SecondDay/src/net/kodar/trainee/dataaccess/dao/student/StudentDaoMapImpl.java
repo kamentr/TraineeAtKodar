@@ -50,7 +50,11 @@ public class StudentDaoMapImpl implements StudentDao {
 
     @Override
     public void delete(int id) {
-        Student s = studentData.get(id);
-        studentData.remove(s.getID(), s);
+        if(studentData.containsValue(get(id))) {
+            Student s = studentData.get(id);
+            studentData.remove(s.getID(), s);
+        }else {
+            //exception
+        }
     }
 }
