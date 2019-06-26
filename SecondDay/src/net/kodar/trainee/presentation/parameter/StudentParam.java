@@ -5,8 +5,6 @@ public class StudentParam {
     private int ID;
     private String firstName;
     private String lastName;
-    private int identifier;
-
 
     public StudentParam() {
 
@@ -18,7 +16,7 @@ public class StudentParam {
         setLastName(lastName);
     }
 
-    public void setID(int ID) {
+    private void setID(int ID) {
         this.ID = ID;
     }
 
@@ -26,11 +24,11 @@ public class StudentParam {
         return ID;
     }
 
-    public void setFirstName(String firstName) {
+    private void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public void setLastName(String lastName) {
+    private void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -41,13 +39,4 @@ public class StudentParam {
     public String getLastName() {
         return lastName;
     }
-
-    public int getIdentifier() {
-        return identifier;
-    }
-
-    private void setIdentifier(int identifier) {
-        this.identifier = identifier;
-    }
-
 }

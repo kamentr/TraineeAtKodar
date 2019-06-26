@@ -4,6 +4,7 @@ import net.kodar.trainee.dataaccess.dao.teacher.data.TeacherDataMap;
 import net.kodar.trainee.data.entities.Teacher;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,13 @@ public class TeacherDaoMapImpl implements TeacherDao {
     @Override
     public Teacher save(Teacher teacher) {
         teacherData.put(teacher.getId(), teacher);
-        return teacherData.get(teacher.getId());
+
+        Collection<Teacher> teachers = teacherData.values();
+        return teachers
+                .stream()
+                .filter(t -> t.getIdentifier().equals(teacher.getIdentifier()))
+                .findFirst()
+                .get();
     }
 
     @Override

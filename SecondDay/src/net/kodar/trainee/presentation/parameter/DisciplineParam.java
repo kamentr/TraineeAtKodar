@@ -3,6 +3,7 @@ package net.kodar.trainee.presentation.parameter;
 import net.kodar.trainee.data.entities.Discipline;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class DisciplineParam {
 
@@ -10,8 +11,7 @@ public class DisciplineParam {
     private String disciplineName;
 
     public DisciplineParam(Integer id, String disciplineName) {
-
-        this.disciplineName = disciplineName;
+        this.setDisciplineName(disciplineName);
     }
 
     public Integer getId() {
@@ -26,7 +26,7 @@ public class DisciplineParam {
         return disciplineName;
     }
 
-    public void setDisciplineName(String disciplineName) {
+    private void setDisciplineName(String disciplineName) {
         this.disciplineName = disciplineName;
     }
 

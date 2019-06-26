@@ -1,6 +1,7 @@
 package net.kodar.trainee.data.entities;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class StudentTeacherDiscipline {
 
@@ -8,16 +9,26 @@ public class StudentTeacherDiscipline {
     private Integer teacherId;
     private Integer disciplineId;
     private Integer id;
+    private UUID identifier;
 
     public StudentTeacherDiscipline(Integer studentId, Integer teacherId, Integer disciplineId, Integer id) {
-        this.studentId = studentId;
-        this.teacherId = teacherId;
-        this.disciplineId = disciplineId;
-        this.id = id;
+        this.setStudentId(studentId);
+        this.setTeacherId(teacherId);
+        this.setDisciplineId(disciplineId);
+        this.setId(id);
+        this.setIdentifier(UUID.randomUUID());
     }
 
     public StudentTeacherDiscipline() {
 
+    }
+
+    public UUID getIdentifier() {
+        return identifier;
+    }
+
+    private void setIdentifier(UUID identifier) {
+        this.identifier = identifier;
     }
 
     public Integer getStudentId() {

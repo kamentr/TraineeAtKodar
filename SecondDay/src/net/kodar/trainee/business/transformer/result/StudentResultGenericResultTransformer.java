@@ -20,8 +20,6 @@ public class StudentResultGenericResultTransformer implements
         studentResult.setID(student.getID());
         studentResult.setLastName(student.getLastName());
 
-        studentResult.setIdentifier(student.getIdentifier());
-
         return studentResult;
     }
 

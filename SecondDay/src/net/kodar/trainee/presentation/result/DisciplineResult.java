@@ -3,6 +3,7 @@ package net.kodar.trainee.presentation.result;
 import net.kodar.trainee.data.entities.Discipline;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class DisciplineResult {
 
@@ -10,8 +11,7 @@ public class DisciplineResult {
     private String disciplineName;
 
     public DisciplineResult(Integer id, String disciplineName) {
-
-        this.disciplineName = disciplineName;
+        this.setDisciplineName(disciplineName);
     }
 
     public DisciplineResult() {

@@ -1,9 +1,12 @@
 package net.kodar.trainee.presentation.result;
 
+import java.util.UUID;
+
 public class StudentTeacherResult {
     private Integer studentId;
     private Integer teacherId;
     private Integer id;
+    private UUID identifier;
 
     public StudentTeacherResult(int id, int studentId, int teacherId) {
         this.studentId = studentId;
@@ -15,6 +18,7 @@ public class StudentTeacherResult {
         this.studentId = studentId;
         this.teacherId = teacherId;
     }
+
 
     public StudentTeacherResult() {
 

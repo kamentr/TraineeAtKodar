@@ -3,10 +3,7 @@ package net.kodar.trainee.dataaccess.dao.studenteacher;
 import net.kodar.trainee.data.entities.StudentTeacher;
 import net.kodar.trainee.dataaccess.dao.studenteacher.data.StudentTeacherDataMap;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class StudentTeacherDaoImpl implements StudentTeacherDao {
 
@@ -27,7 +24,12 @@ public class StudentTeacherDaoImpl implements StudentTeacherDao {
     @Override
     public StudentTeacher save(StudentTeacher studentTeacher) {
         this.studentTeacher.put(studentTeacher.getId(), studentTeacher);
-        return this.studentTeacher.get(studentTeacher.getId());
+        Collection<StudentTeacher> studentTeachers = this.studentTeacher.values();
+        return studentTeachers
+                .stream()
+                .filter(st -> st.getIdentifier().equals(studentTeacher.getIdentifier()))
+                .findFirst()
+                .get();
     }
 
     @Override

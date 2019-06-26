@@ -1,19 +1,16 @@
 package net.kodar.trainee.presentation.parameter;
 
+import java.util.UUID;
+
 public class StudentTeacherParam {
     private Integer studentId;
     private Integer teacherId;
     private Integer id;
 
     public StudentTeacherParam(int id, int studentId, int teacherId) {
-        this.studentId = studentId;
-        this.teacherId = teacherId;
-        this.id = id;
-    }
-
-    public StudentTeacherParam(int studentId, int teacherId) {
-        this.studentId = studentId;
-        this.teacherId = teacherId;
+        this.setStudentId(studentId);
+        this.setTeacherId(teacherId);
+        this.setId(id);
     }
 
     public Integer getId() {

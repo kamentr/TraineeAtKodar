@@ -6,7 +6,6 @@ public class StudentResult {
     private int ID;
     private String firstName;
     private String lastName;
-    private UUID identifier;
 
 
     public StudentResult() {
@@ -43,12 +42,4 @@ public class StudentResult {
         return lastName;
     }
 
-
-    public UUID getIdentifier() {
-        return identifier;
-    }
-
-    public void setIdentifier(UUID identifier) {
-        this.identifier = identifier;
-    }
 }

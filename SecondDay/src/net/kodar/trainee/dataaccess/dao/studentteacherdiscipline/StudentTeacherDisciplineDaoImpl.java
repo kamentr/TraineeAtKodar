@@ -3,10 +3,7 @@ package net.kodar.trainee.dataaccess.dao.studentteacherdiscipline;
 import net.kodar.trainee.data.entities.StudentTeacherDiscipline;
 import net.kodar.trainee.dataaccess.dao.studentteacherdiscipline.data.StudentTeacherDisciplineData;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class StudentTeacherDisciplineDaoImpl implements StudentTeacherDisciplineDao {
 
@@ -27,7 +24,12 @@ public class StudentTeacherDisciplineDaoImpl implements StudentTeacherDiscipline
     @Override
     public StudentTeacherDiscipline save(StudentTeacherDiscipline studentTeacherDiscipline) {
         studentTeacherDisciplineData.put(studentTeacherDiscipline.getDisciplineId(), studentTeacherDiscipline);
-        return studentTeacherDisciplineData.get(studentTeacherDiscipline.getId());
+        Collection<StudentTeacherDiscipline> studentTeacherDisciplines = studentTeacherDisciplineData.values();
+        return studentTeacherDisciplines
+                .stream()
+                .filter(std -> std.getIdentifier().equals(studentTeacherDiscipline.getIdentifier()))
+                .findFirst()
+                .get();
     }
 
     @Override

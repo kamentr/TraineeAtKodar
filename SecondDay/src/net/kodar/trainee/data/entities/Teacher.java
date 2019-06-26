@@ -1,28 +1,39 @@
 package net.kodar.trainee.data.entities;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Teacher {
 
     private int id;
     private String fName;
     private String lName;
+    private UUID identifier;
 
 
     public Teacher(String fName, String lName) {
-        this.fName = fName;
-        this.lName = lName;
-
+        this.setfName(fName);
+        this.setlName(lName);
+        this.setIdentifier(UUID.randomUUID());
     }
 
     public Teacher(String fName, String lName, int id) {
-        setId(id);
-        setfName(fName);
-        setlName(lName);
+        this.setId(id);
+        this.setfName(fName);
+        this.setlName(lName);
+        this.setIdentifier(UUID.randomUUID());
     }
 
     public Teacher() {
+        this.setIdentifier(UUID.randomUUID());
+    }
 
+    public UUID getIdentifier() {
+        return identifier;
+    }
+
+    private void setIdentifier(UUID identifier) {
+        this.identifier = identifier;
     }
 
     public int getId() {

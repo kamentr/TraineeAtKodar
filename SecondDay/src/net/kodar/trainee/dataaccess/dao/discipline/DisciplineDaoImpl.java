@@ -3,9 +3,7 @@ package net.kodar.trainee.dataaccess.dao.discipline;
 import net.kodar.trainee.data.entities.Discipline;
 import net.kodar.trainee.dataaccess.dao.discipline.data.DisciplineData;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DisciplineDaoImpl implements DisciplineDao {
 
@@ -26,7 +24,13 @@ public class DisciplineDaoImpl implements DisciplineDao {
     @Override
     public Discipline save(Discipline discipline) {
         disciplineData.put(discipline.getId(), discipline);
-        return disciplineData.get(discipline.getId()); //todo
+
+        Collection<Discipline> disciplineList = disciplineData.values();
+        return disciplineList
+                .stream()
+                .filter(d -> d.getIdentifier().equals(discipline.getIdentifier()))
+                .findFirst()
+                .get();
     }
 
     @Override

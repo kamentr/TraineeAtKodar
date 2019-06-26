@@ -1,19 +1,30 @@
 package net.kodar.trainee.data.entities;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Discipline {
 
     private Integer id;
     private String disciplineName;
+    private UUID identifier;
 
     public Discipline(Integer id, String disciplineName) {
-
-        this.disciplineName = disciplineName;
+        setId(id);
+        setDisciplineName(disciplineName);
+        setIdentifier(UUID.randomUUID());
     }
 
     public Discipline(){
+        setIdentifier(UUID.randomUUID());
+    }
 
+    public UUID getIdentifier() {
+        return identifier;
+    }
+
+    private void setIdentifier(UUID identifier) {
+        this.identifier = identifier;
     }
 
     public Integer getId() {
