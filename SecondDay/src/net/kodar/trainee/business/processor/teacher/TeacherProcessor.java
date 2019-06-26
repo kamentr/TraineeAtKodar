@@ -1,7 +1,6 @@
 package net.kodar.trainee.business.processor.teacher;
 
 import net.kodar.trainee.business.processor.Processor;
-import net.kodar.trainee.data.entities.Teacher;
 import net.kodar.trainee.presentation.parameter.TeacherParam;
 import net.kodar.trainee.presentation.result.TeacherResult;
 

@@ -10,7 +10,6 @@ import net.kodar.trainee.presentation.result.StudentTeacherResult;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
 
@@ -28,7 +27,7 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
 
         return studentTeacherList
                 .stream()
-                .filter(student -> student.getStudentId() == id)
+                .filter(student -> student.getStudentId().equals(id))
                 .map(st -> resultTransformer.apply(st))
                 .collect(Collectors.toList());
     }
@@ -37,7 +36,7 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
     public List<StudentTeacherResult> filterByTeacher(Integer id) {
         return studentTeacherList
                 .stream()
-                .filter(teacher -> teacher.getTeacherId() == id)
+                .filter(teacher -> teacher.getTeacherId().equals(id))
                 .map(st -> resultTransformer.apply(st))
                 .collect(Collectors.toList());
 

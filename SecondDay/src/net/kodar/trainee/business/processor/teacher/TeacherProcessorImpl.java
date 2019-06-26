@@ -14,7 +14,6 @@ import net.kodar.trainee.presentation.result.TeacherResult;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class TeacherProcessorImpl implements TeacherProcessor {
 

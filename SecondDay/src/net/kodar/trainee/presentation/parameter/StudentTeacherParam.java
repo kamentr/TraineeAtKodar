@@ -1,7 +1,5 @@
 package net.kodar.trainee.presentation.parameter;
 
-import java.util.UUID;
-
 public class StudentTeacherParam {
     private Integer studentId;
     private Integer teacherId;
@@ -17,7 +15,7 @@ public class StudentTeacherParam {
         return id;
     }
 
-    public void setId(Integer id) {
+    private void setId(Integer id) {
         this.id = id;
     }
 
@@ -25,7 +23,7 @@ public class StudentTeacherParam {
         return studentId;
     }
 
-    public void setStudentId(Integer studentId) {
+    private void setStudentId(Integer studentId) {
         this.studentId = studentId;
     }
 
@@ -33,7 +31,7 @@ public class StudentTeacherParam {
         return teacherId;
     }
 
-    public void setTeacherId(Integer teacherId) {
+    private void setTeacherId(Integer teacherId) {
         this.teacherId = teacherId;
     }
 }

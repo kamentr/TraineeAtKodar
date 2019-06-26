@@ -2,7 +2,6 @@ package net.kodar.trainee.business.transformer.result;
 
 import net.kodar.trainee.business.transformer.GenericResultTransformer;
 import net.kodar.trainee.data.entities.Student;
-import net.kodar.trainee.presentation.parameter.StudentParam;
 import net.kodar.trainee.presentation.result.StudentResult;
 
 import java.util.function.Function;

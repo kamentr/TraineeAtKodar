@@ -3,7 +3,6 @@ package net.kodar.trainee.presentation.result;
 import net.kodar.trainee.data.entities.Discipline;
 
 import java.util.Objects;
-import java.util.UUID;
 
 public class DisciplineResult {
 

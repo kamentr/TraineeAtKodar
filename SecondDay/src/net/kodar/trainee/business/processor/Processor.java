@@ -1,7 +1,5 @@
 package net.kodar.trainee.business.processor;
 
-import net.kodar.trainee.data.entities.Student;
-
 import java.util.List;
 
 public interface Processor<P, R> {

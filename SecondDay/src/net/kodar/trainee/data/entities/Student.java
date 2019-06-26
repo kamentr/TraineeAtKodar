@@ -1,6 +1,5 @@
 package net.kodar.trainee.data.entities;
 
-import java.util.Random;
 import java.util.UUID;
 
 public class Student {

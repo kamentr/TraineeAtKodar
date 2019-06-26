@@ -2,7 +2,6 @@ package net.kodar.trainee.business.processor.studentteacherdiscipline;
 
 import net.kodar.trainee.business.transformer.param.StudentTeacherDisciplineParamGenericParamTransformer;
 import net.kodar.trainee.business.transformer.result.StudentTeacherDisciplineResultGenericResultTransformer;
-import net.kodar.trainee.data.entities.StudentTeacher;
 import net.kodar.trainee.data.entities.StudentTeacherDiscipline;
 import net.kodar.trainee.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDao;
 import net.kodar.trainee.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDaoImpl;
@@ -11,7 +10,6 @@ import net.kodar.trainee.presentation.result.StudentTeacherDisciplineResult;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisciplineProcessor {
 
@@ -77,7 +75,7 @@ public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisc
 
         return studentTeacherDisciplineList
                 .stream()
-                .filter(std -> std.getTeacherId() == teacherId)
+                .filter(std -> std.getTeacherId().equals(teacherId))
                 .map(std -> resultTransformer.apply(std))
                 .collect(Collectors.toList());
     }
@@ -88,7 +86,7 @@ public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisc
 
         return studentTeacherDisciplines
                 .stream()
-                .filter(std -> std.getStudentId() == studentId)
+                .filter(std -> std.getStudentId().equals(studentId))
                 .map(std -> resultTransformer.apply(std))
                 .collect(Collectors.toList());
     }

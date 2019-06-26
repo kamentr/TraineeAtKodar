@@ -1,7 +1,5 @@
 package net.kodar.trainee.presentation.result;
 
-import java.util.UUID;
-
 public class StudentResult {
     private int ID;
     private String firstName;

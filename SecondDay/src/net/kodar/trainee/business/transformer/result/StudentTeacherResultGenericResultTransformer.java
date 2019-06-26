@@ -2,7 +2,6 @@ package net.kodar.trainee.business.transformer.result;
 
 import net.kodar.trainee.business.transformer.GenericResultTransformer;
 import net.kodar.trainee.data.entities.StudentTeacher;
-import net.kodar.trainee.presentation.parameter.StudentTeacherParam;
 import net.kodar.trainee.presentation.result.StudentTeacherResult;
 
 public class StudentTeacherResultGenericResultTransformer implements GenericResultTransformer<StudentTeacher, StudentTeacherResult> {

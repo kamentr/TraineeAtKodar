@@ -9,9 +9,6 @@ import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeac
 import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorImpl;
 import net.kodar.trainee.business.processor.teacher.TeacherProcessor;
 import net.kodar.trainee.business.processor.teacher.TeacherProcessorImpl;
-import net.kodar.trainee.data.entities.Discipline;
-import net.kodar.trainee.data.entities.Student;
-import net.kodar.trainee.data.entities.Teacher;
 import net.kodar.trainee.presentation.parameter.DisciplineParam;
 import net.kodar.trainee.presentation.parameter.StudentParam;
 import net.kodar.trainee.presentation.parameter.TeacherParam;

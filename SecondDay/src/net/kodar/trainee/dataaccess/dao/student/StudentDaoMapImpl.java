@@ -1,9 +1,7 @@
 package net.kodar.trainee.dataaccess.dao.student;
 
-import net.kodar.trainee.business.transformer.GenericParamTransformer;
 import net.kodar.trainee.dataaccess.dao.student.data.StudentDataMap;
 import net.kodar.trainee.data.entities.Student;
-import net.kodar.trainee.presentation.result.StudentResult;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,15 +25,17 @@ public class StudentDaoMapImpl implements StudentDao {
 
     @Override
     public Student save(Student student) {
-        if (student != null)
+        if (student != null) {
             studentData.put(student.getID(), student);
 
-        Collection<Student> studentList = studentData.values();
-        return  studentList
-                .stream()
-                .filter(s -> s.getIdentifier().equals(student.getIdentifier()))
-                .findFirst()
-                .get();
+            Collection<Student> studentList = studentData.values();
+            return studentList
+                    .stream()
+                    .filter(s -> s.getIdentifier().equals(student.getIdentifier()))
+                    .findFirst()
+                    .get();
+        }
+        return null;
     }
 
     @Override

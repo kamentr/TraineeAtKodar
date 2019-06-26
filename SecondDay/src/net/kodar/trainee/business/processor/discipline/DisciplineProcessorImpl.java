@@ -5,19 +5,15 @@ import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeac
 import net.kodar.trainee.business.transformer.param.DisciplineParamGenericParamTransformer;
 import net.kodar.trainee.business.transformer.result.DisciplineResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.Discipline;
-import net.kodar.trainee.data.entities.Student;
-import net.kodar.trainee.data.entities.StudentTeacherDiscipline;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDao;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDaoImpl;
 import net.kodar.trainee.presentation.parameter.DisciplineParam;
 import net.kodar.trainee.presentation.result.DisciplineResult;
-import net.kodar.trainee.presentation.result.StudentResult;
 import net.kodar.trainee.presentation.result.StudentTeacherDisciplineResult;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class DisciplineProcessorImpl implements DisciplineProcessor {
 
@@ -87,7 +83,7 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
 
         studentTeacherDisciplineList
                 .stream()
-                .filter(s -> s.getTeacherId() != id)
+                .filter(s -> !s.getTeacherId().equals(id))
                 .forEach(s -> {
                     Discipline discipline = disciplineDao.get(s.getDisciplineId());
                     disciplineList.add(disciplineResult.apply(discipline));
