@@ -11,7 +11,7 @@ import java.util.Map;
 public class TeacherDaoMapImpl implements TeacherDao {
 
     private TeacherDataMap teacherDataMap = new TeacherDataMap();
-    private Map<Integer, Teacher> teacherData = TeacherDataMap.teacherMap;
+    private Map<Integer, Teacher> teacherData = teacherDataMap.getTeacherMap();
 
     @Override
     public Teacher get(int id) {

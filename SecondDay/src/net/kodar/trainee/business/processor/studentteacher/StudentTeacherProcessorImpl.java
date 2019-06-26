@@ -4,6 +4,8 @@ import net.kodar.trainee.business.transformer.param.StudentTeacherParamGenericPa
 import net.kodar.trainee.business.transformer.result.StudentTeacherResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.StudentTeacher;
 import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDao;
+import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDaoGeneric;
+import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDaoGenericImpl;
 import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDaoImpl;
 import net.kodar.trainee.presentation.parameter.StudentTeacherParam;
 import net.kodar.trainee.presentation.result.StudentTeacherResult;
@@ -14,7 +16,7 @@ import java.util.stream.Collectors;
 public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
 
     private List<StudentTeacher> studentTeacherList;
-    private StudentTeacherDao studentTeacherDao = new StudentTeacherDaoImpl();
+    private StudentTeacherDaoGeneric studentTeacherDao = new StudentTeacherDaoGenericImpl();
     private StudentTeacherResultGenericResultTransformer resultTransformer = new StudentTeacherResultGenericResultTransformer();
     private StudentTeacherParamGenericParamTransformer paramTransformer = new StudentTeacherParamGenericParamTransformer();
 

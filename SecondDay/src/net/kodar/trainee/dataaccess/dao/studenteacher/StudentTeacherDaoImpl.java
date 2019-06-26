@@ -7,9 +7,8 @@ import java.util.*;
 
 public class StudentTeacherDaoImpl implements StudentTeacherDao {
 
-    private Map<Integer, StudentTeacher> studentTeacher = StudentTeacherDataMap.studentTeacherData;
     private StudentTeacherDataMap studentTeacherDataMap = new StudentTeacherDataMap();
-
+    private Map<Integer, StudentTeacher> studentTeacher = studentTeacherDataMap.getStudentTeacherData();
 
     @Override
     public StudentTeacher get(int id) {

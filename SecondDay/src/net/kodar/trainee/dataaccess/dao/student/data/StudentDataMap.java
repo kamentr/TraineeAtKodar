@@ -19,9 +19,9 @@ public class StudentDataMap {
             )
     );
 
-    public static Map<Integer, Student> studentDataMap = new HashMap<>();
+    private Map<Integer, Student> studentDataMap = new HashMap<>();
 
-    public static Map<Integer, Student> getStudentDataMap() {
+    public Map<Integer, Student> getStudentDataMap() {
         return studentDataMap;
     }
 

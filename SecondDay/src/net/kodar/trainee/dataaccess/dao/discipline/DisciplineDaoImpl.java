@@ -9,7 +9,7 @@ public class DisciplineDaoImpl implements DisciplineDao {
 
 
     private DisciplineData dataLoad = new DisciplineData();
-    private Map<Integer, Discipline> disciplineData  = DisciplineData.disciplineMapData;
+    private Map<Integer, Discipline> disciplineData  = dataLoad.getDisciplineMapData();
 
     @Override
     public Discipline get(int id) {

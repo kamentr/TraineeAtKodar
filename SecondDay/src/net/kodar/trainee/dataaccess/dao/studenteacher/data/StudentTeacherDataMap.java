@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StudentTeacherDataMap {
-    public  static Map<Integer, StudentTeacher> studentTeacherData = new HashMap<>();
+    private Map<Integer, StudentTeacher> studentTeacherData = new HashMap<>();
 
     public StudentTeacherDataMap(){
         studentTeacherData.put(1, new StudentTeacher(1,1));
@@ -15,5 +15,9 @@ public class StudentTeacherDataMap {
         studentTeacherData.put(4, new StudentTeacher(1,4));
         studentTeacherData.put(5, new StudentTeacher(4,2));
         studentTeacherData.put(6, new StudentTeacher(2,2));
+    }
+
+    public Map<Integer, StudentTeacher> getStudentTeacherData() {
+        return studentTeacherData;
     }
 }

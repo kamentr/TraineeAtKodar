@@ -8,7 +8,7 @@ import java.util.*;
 public class StudentTeacherDisciplineDaoImpl implements StudentTeacherDisciplineDao {
 
     private StudentTeacherDisciplineData data = new StudentTeacherDisciplineData();
-    private Map<Integer, StudentTeacherDiscipline> studentTeacherDisciplineData = StudentTeacherDisciplineData.studentTeacherDisciplineMap;
+    private Map<Integer, StudentTeacherDiscipline> studentTeacherDisciplineData = data.getStudentTeacherDisciplineMap();
 
     @Override
     public StudentTeacherDiscipline get(int id) {

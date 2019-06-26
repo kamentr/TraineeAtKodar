@@ -4,6 +4,8 @@ import net.kodar.trainee.business.transformer.param.StudentTeacherDisciplinePara
 import net.kodar.trainee.business.transformer.result.StudentTeacherDisciplineResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.StudentTeacherDiscipline;
 import net.kodar.trainee.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDao;
+import net.kodar.trainee.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDaoGeneric;
+import net.kodar.trainee.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDaoGenericImpl;
 import net.kodar.trainee.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDaoImpl;
 import net.kodar.trainee.presentation.parameter.StudentTeacherDisciplineParam;
 import net.kodar.trainee.presentation.result.StudentTeacherDisciplineResult;
@@ -13,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisciplineProcessor {
 
-    private StudentTeacherDisciplineDao studentTeacherDisciplineDao = new StudentTeacherDisciplineDaoImpl();
+    private StudentTeacherDisciplineDaoGeneric studentTeacherDisciplineDao = new StudentTeacherDisciplineDaoGenericImpl();
     private StudentTeacherDisciplineParamGenericParamTransformer paramTransformer = new StudentTeacherDisciplineParamGenericParamTransformer();
     private StudentTeacherDisciplineResultGenericResultTransformer resultTransformer = new StudentTeacherDisciplineResultGenericResultTransformer();
 

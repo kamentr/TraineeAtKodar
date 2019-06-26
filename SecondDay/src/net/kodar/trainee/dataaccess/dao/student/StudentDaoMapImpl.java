@@ -11,7 +11,7 @@ import java.util.Map;
 public class StudentDaoMapImpl implements StudentDao {
 
     private StudentDataMap studentDataMap = new StudentDataMap();
-    private Map<Integer, Student> studentData = StudentDataMap.studentDataMap;
+    private Map<Integer, Student> studentData = studentDataMap.getStudentDataMap();
 
     @Override
     public Student get(int id) {

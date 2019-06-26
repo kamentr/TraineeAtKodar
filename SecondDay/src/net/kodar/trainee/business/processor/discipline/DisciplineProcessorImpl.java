@@ -6,6 +6,8 @@ import net.kodar.trainee.business.transformer.param.DisciplineParamGenericParamT
 import net.kodar.trainee.business.transformer.result.DisciplineResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.Discipline;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDao;
+import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDaoGeneric;
+import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDaoGenericImpl;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDaoImpl;
 import net.kodar.trainee.presentation.parameter.DisciplineParam;
 import net.kodar.trainee.presentation.result.DisciplineResult;
@@ -17,7 +19,7 @@ import java.util.stream.Collectors;
 
 public class DisciplineProcessorImpl implements DisciplineProcessor {
 
-    private DisciplineDao disciplineDao = new DisciplineDaoImpl();
+    private DisciplineDaoGeneric disciplineDao = new DisciplineDaoGenericImpl();
     private StudentTeacherDisciplineProcessor studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorImpl();
     private DisciplineParamGenericParamTransformer disciplineParam = new DisciplineParamGenericParamTransformer();
     private DisciplineResultGenericResultTransformer disciplineResult = new DisciplineResultGenericResultTransformer();

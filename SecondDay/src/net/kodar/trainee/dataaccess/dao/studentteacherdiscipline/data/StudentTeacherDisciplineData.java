@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class StudentTeacherDisciplineData {
 
-    public static Map<Integer, StudentTeacherDiscipline> studentTeacherDisciplineMap = new HashMap<>();
+    private Map<Integer, StudentTeacherDiscipline> studentTeacherDisciplineMap = new HashMap<>();
 
     public StudentTeacherDisciplineData() {
 
@@ -16,5 +16,9 @@ public class StudentTeacherDisciplineData {
         studentTeacherDisciplineMap.put(3, new StudentTeacherDiscipline(2, 1, 1, 3));
         studentTeacherDisciplineMap.put(4, new StudentTeacherDiscipline(2, 2, 3, 4));
         studentTeacherDisciplineMap.put(5, new StudentTeacherDiscipline(4, 1, 2, 5));
+    }
+
+    public Map<Integer, StudentTeacherDiscipline> getStudentTeacherDisciplineMap() {
+        return studentTeacherDisciplineMap;
     }
 }

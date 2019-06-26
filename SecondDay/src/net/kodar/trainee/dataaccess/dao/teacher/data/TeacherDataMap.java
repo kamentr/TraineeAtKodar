@@ -9,7 +9,11 @@ import java.util.Map;
 
 public class TeacherDataMap {
 
-    public static Map<Integer, Teacher> teacherMap = new HashMap<>();
+    public Map<Integer, Teacher> getTeacherMap() {
+        return teacherMap;
+    }
+
+    private Map<Integer, Teacher> teacherMap = new HashMap<>();
 
     public TeacherDataMap(){
         ArrayList<Teacher> teacherData = new ArrayList<>(
