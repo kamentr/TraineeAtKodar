@@ -36,11 +36,11 @@ public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisc
     }
 
     @Override
-    public StudentTeacherDisciplineParam save(StudentTeacherDisciplineParam studentTeacherDiscipline) {
+    public StudentTeacherDisciplineResult save(StudentTeacherDisciplineParam studentTeacherDiscipline) {
         StudentTeacherDiscipline studentTeacherDisciplineToSave = paramTransformer.apply(studentTeacherDiscipline, null);
-        studentTeacherDisciplineDao.save(studentTeacherDisciplineToSave);
+        StudentTeacherDiscipline save = studentTeacherDisciplineDao.save(studentTeacherDisciplineToSave);
 
-        return studentTeacherDiscipline;
+        return resultTransformer.apply(save);
     }
 
     @Override

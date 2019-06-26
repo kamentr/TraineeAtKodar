@@ -40,11 +40,11 @@ public class TeacherProcessorImpl implements TeacherProcessor {
     }
 
     @Override
-    public TeacherParam save(TeacherParam teacher) {
+    public TeacherResult save(TeacherParam teacher) {
         Teacher teacherToSave = paramTransformer.apply(teacher, null);
-        teacherDao.save(teacherToSave);
+        Teacher save = teacherDao.save(teacherToSave);
 
-        return teacher;
+        return resultTransformer.apply(save);
     }
 
     @Override

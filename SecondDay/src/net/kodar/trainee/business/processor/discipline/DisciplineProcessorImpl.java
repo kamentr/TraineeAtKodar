@@ -5,11 +5,13 @@ import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeac
 import net.kodar.trainee.business.transformer.param.DisciplineParamGenericParamTransformer;
 import net.kodar.trainee.business.transformer.result.DisciplineResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.Discipline;
+import net.kodar.trainee.data.entities.Student;
 import net.kodar.trainee.data.entities.StudentTeacherDiscipline;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDao;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDaoImpl;
 import net.kodar.trainee.presentation.parameter.DisciplineParam;
 import net.kodar.trainee.presentation.result.DisciplineResult;
+import net.kodar.trainee.presentation.result.StudentResult;
 import net.kodar.trainee.presentation.result.StudentTeacherDisciplineResult;
 
 import java.util.ArrayList;
@@ -42,10 +44,11 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
     }
 
     @Override
-    public DisciplineParam save(DisciplineParam discipline) {
+    public DisciplineResult save(DisciplineParam discipline) {
         Discipline disciplineToSave = disciplineParam.apply(discipline, null);
-        disciplineDao.save(disciplineToSave);
-        return discipline;
+        Discipline save = disciplineDao.save(disciplineToSave);
+
+        return disciplineResult.apply(save);
     }
 
     @Override

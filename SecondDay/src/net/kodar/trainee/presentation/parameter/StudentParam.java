@@ -5,6 +5,8 @@ public class StudentParam {
     private int ID;
     private String firstName;
     private String lastName;
+    private int identifier;
+
 
     public StudentParam() {
 
@@ -38,6 +40,14 @@ public class StudentParam {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public int getIdentifier() {
+        return identifier;
+    }
+
+    private void setIdentifier(int identifier) {
+        this.identifier = identifier;
     }
 
 }

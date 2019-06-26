@@ -6,6 +6,7 @@ import net.kodar.trainee.data.entities.Student;
 import net.kodar.trainee.presentation.result.StudentResult;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -26,8 +27,15 @@ public class StudentDaoMapImpl implements StudentDao {
 
     @Override
     public Student save(Student student) {
-        studentData.put(student.getID(), student);
-        return studentData.get(student.getID());
+        if (student != null)
+            studentData.put(student.getID(), student);
+
+        Collection<Student> studentList = studentData.values();
+        return  studentList
+                .stream()
+                .filter(s -> s.getIdentifier() == student.getIdentifier())
+                .findFirst()
+                .get();
     }
 
     @Override

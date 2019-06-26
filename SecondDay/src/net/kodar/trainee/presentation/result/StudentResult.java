@@ -4,6 +4,8 @@ public class StudentResult {
     private int ID;
     private String firstName;
     private String lastName;
+    private int identifier;
+
 
     public StudentResult() {
 
@@ -37,5 +39,14 @@ public class StudentResult {
 
     public String getLastName() {
         return lastName;
+    }
+
+
+    public int getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(int identifier) {
+        this.identifier = identifier;
     }
 }

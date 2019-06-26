@@ -79,10 +79,10 @@ public class StudentTeacherProcessorImpl implements StudentTeacherProcessor {
     }
 
     @Override
-    public StudentTeacherParam save(StudentTeacherParam std) {
+    public StudentTeacherResult save(StudentTeacherParam std) {
         StudentTeacher studentTeacherToSave = paramTransformer.apply(std, null);
-        studentTeacherDao.save(studentTeacherToSave);
-        return std;
+        StudentTeacher save = studentTeacherDao.save(studentTeacherToSave);
+        return resultTransformer.apply(save);
     }
 
     @Override

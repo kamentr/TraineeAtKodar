@@ -42,10 +42,11 @@ public class StudentProcessorImpl implements StudentProcessor {
     }
 
     @Override
-    public StudentParam save(StudentParam t) {
+    public StudentResult save(StudentParam t) {
         Student studentToSave = paramTransformer.apply(t, null);
-        studentDao.save(studentToSave);
-        return t;
+        Student save = studentDao.save(studentToSave);
+
+        return resultTransformer.apply(save);
     }
 
     @Override

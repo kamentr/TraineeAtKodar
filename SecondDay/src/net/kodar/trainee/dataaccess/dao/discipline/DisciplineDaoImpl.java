@@ -26,7 +26,7 @@ public class DisciplineDaoImpl implements DisciplineDao {
     @Override
     public Discipline save(Discipline discipline) {
         disciplineData.put(discipline.getId(), discipline);
-        return disciplineData.get(discipline.getId());
+        return disciplineData.get(discipline.getId()); //todo
     }
 
     @Override
