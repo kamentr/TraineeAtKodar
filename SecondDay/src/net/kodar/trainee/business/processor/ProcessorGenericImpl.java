@@ -2,6 +2,7 @@ package net.kodar.trainee.business.processor;
 
 import net.kodar.trainee.dataaccess.dao.DaoImplGeneric;
 
+import javax.xml.validation.Validator;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -14,7 +15,7 @@ public abstract class ProcessorGenericImpl
                 RTR extends Function<ENT, OUT>>
         implements Processor<IN, OUT> {
 
-    public abstract int getID(IN entity);
+    public abstract int getID(IN param);
 
     private DAO dao;
     private PTR ptr;
@@ -40,20 +41,20 @@ public abstract class ProcessorGenericImpl
     }
 
     @Override
-    public OUT save(IN ent) {
+    public OUT save(IN param) {
 
-        ENT studentToSave = ptr.apply(ent, null);
+        ENT studentToSave = ptr.apply(param, null);
         ENT save = dao.save(studentToSave);
 
         return rtr.apply(save);
     }
 
     @Override
-    public void update(IN ent) {
-        ENT entity = dao.get(getID(ent));
+    public void update(IN param) {
+        ENT entity = dao.get(getID(param));
 
         if (null != entity) {
-            ENT studentToUpdate = ptr.apply(ent, entity);
+            ENT studentToUpdate = ptr.apply(param, entity);
             dao.update(studentToUpdate);
         } else {
             //exception
@@ -61,11 +62,12 @@ public abstract class ProcessorGenericImpl
     }
 
     @Override
-    public void delete(IN ent) {
-        ENT entity = dao.get(getID(ent));
+    public void delete(IN param) {
+
+        ENT entity = dao.get(getID(param));
 
         if (null != entity) {
-            ENT entToDelete = ptr.apply(ent, entity);
+            ENT entToDelete = ptr.apply(param, entity);
             dao.delete(entToDelete);
         } else {
             //exception
@@ -76,5 +78,6 @@ public abstract class ProcessorGenericImpl
     public void delete(int id) {
         dao.delete(id);
     }
+
 
 }
