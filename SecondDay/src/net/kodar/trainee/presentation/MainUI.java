@@ -1,14 +1,14 @@
 package net.kodar.trainee.presentation;
-import net.kodar.trainee.business.processor.discipline.DisciplineProcessor;
-import net.kodar.trainee.business.processor.discipline.DisciplineProcessorImpl;
-import net.kodar.trainee.business.processor.student.StudentProcessor;
-import net.kodar.trainee.business.processor.student.StudentProcessorImpl;
-import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessor;
-import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessorImpl;
-import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessor;
-import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorImpl;
-import net.kodar.trainee.business.processor.teacher.TeacherProcessor;
-import net.kodar.trainee.business.processor.teacher.TeacherProcessorImpl;
+import net.kodar.trainee.business.processor.discipline.DisciplineProcessorGeneric;
+import net.kodar.trainee.business.processor.discipline.DisciplineProcessorGenericImpl;
+import net.kodar.trainee.business.processor.student.StudentProcessorGeneric;
+import net.kodar.trainee.business.processor.student.StudentProcessorGenericImpl;
+import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessorGeneric;
+import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessorGenericImpl;
+import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorGeneric;
+import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorGenericImpl;
+import net.kodar.trainee.business.processor.teacher.TeacherProcessorGeneric;
+import net.kodar.trainee.business.processor.teacher.TeacherProcessorGenericImpl;
 import net.kodar.trainee.presentation.parameter.DisciplineParam;
 import net.kodar.trainee.presentation.parameter.StudentParam;
 import net.kodar.trainee.presentation.parameter.TeacherParam;
@@ -20,11 +20,11 @@ public class MainUI {
 
     private Scanner scanner = new Scanner(System.in);
 
-    private TeacherProcessor teacherProcessor = new TeacherProcessorImpl();
-    private StudentProcessor studentProcessor = new StudentProcessorImpl();
-    private StudentTeacherProcessor studentTeacherProcessor =  new StudentTeacherProcessorImpl();
-    private DisciplineProcessor disciplineProcessor = new DisciplineProcessorImpl();
-    private StudentTeacherDisciplineProcessor studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorImpl();
+    private TeacherProcessorGeneric teacherProcessor = new TeacherProcessorGenericImpl();
+    private StudentProcessorGeneric studentProcessor = new StudentProcessorGenericImpl();
+    private StudentTeacherProcessorGeneric studentTeacherProcessor =  new StudentTeacherProcessorGenericImpl();
+    private DisciplineProcessorGeneric disciplineProcessor = new DisciplineProcessorGenericImpl();
+    private StudentTeacherDisciplineProcessorGeneric studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorGenericImpl();
 
     public MainUI() {
         printMenu();

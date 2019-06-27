@@ -1,6 +1,5 @@
 package net.kodar.trainee.business.processor;
 
-import net.kodar.trainee.dataaccess.dao.Dao;
 import net.kodar.trainee.dataaccess.dao.DaoImplGeneric;
 
 import java.util.List;
@@ -15,12 +14,12 @@ public abstract class ProcessorGenericImpl
                 RTR extends Function<ENT, OUT>>
         implements Processor<IN, OUT> {
 
-    abstract int getID(IN entity);
+    public abstract int getID(IN entity);
 
     private DAO dao;
     private PTR ptr;
     private RTR rtr;
-
+    
     @Override
     public OUT get(int id) {
         OUT out = rtr.apply(dao.get(id));

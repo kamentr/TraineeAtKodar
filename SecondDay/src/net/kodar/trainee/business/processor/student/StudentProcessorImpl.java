@@ -5,10 +5,8 @@ import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcess
 import net.kodar.trainee.business.transformer.param.StudentParamGenericParamTransformer;
 import net.kodar.trainee.business.transformer.result.StudentResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.Student;
-import net.kodar.trainee.dataaccess.dao.student.StudentDao;
 import net.kodar.trainee.dataaccess.dao.student.StudentDaoGeneric;
 import net.kodar.trainee.dataaccess.dao.student.StudentDaoGenericImpl;
-import net.kodar.trainee.dataaccess.dao.student.StudentDaoMapImpl;
 import net.kodar.trainee.presentation.parameter.StudentParam;
 import net.kodar.trainee.presentation.result.StudentResult;
 

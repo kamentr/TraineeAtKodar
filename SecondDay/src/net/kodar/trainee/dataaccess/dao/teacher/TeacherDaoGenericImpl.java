@@ -1,7 +1,6 @@
 package net.kodar.trainee.dataaccess.dao.teacher;
 
 import net.kodar.trainee.data.entities.Teacher;
-import net.kodar.trainee.dataaccess.dao.DaoImplGeneric;
 import net.kodar.trainee.dataaccess.dao.teacher.data.TeacherDataMap;
 
 import java.util.Collection;

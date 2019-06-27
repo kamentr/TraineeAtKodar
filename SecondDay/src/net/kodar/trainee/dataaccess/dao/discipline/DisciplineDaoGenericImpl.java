@@ -1,7 +1,6 @@
 package net.kodar.trainee.dataaccess.dao.discipline;
 
 import net.kodar.trainee.data.entities.Discipline;
-import net.kodar.trainee.dataaccess.dao.DaoImplGeneric;
 import net.kodar.trainee.dataaccess.dao.discipline.data.DisciplineData;
 
 import java.util.Collection;

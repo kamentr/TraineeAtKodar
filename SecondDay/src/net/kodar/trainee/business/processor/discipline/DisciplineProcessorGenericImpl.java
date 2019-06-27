@@ -2,7 +2,6 @@ package net.kodar.trainee.business.processor.discipline;
 
 import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessor;
 import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorImpl;
-import net.kodar.trainee.business.transformer.param.DisciplineParamGenericParamTransformer;
 import net.kodar.trainee.business.transformer.result.DisciplineResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.Discipline;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDaoGeneric;
@@ -13,68 +12,12 @@ import net.kodar.trainee.presentation.result.StudentTeacherDisciplineResult;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
-public class DisciplineProcessorImpl implements DisciplineProcessor {
+public class DisciplineProcessorGenericImpl extends DisciplineProcessorGeneric {
 
     private DisciplineDaoGeneric disciplineDao = new DisciplineDaoGenericImpl();
     private StudentTeacherDisciplineProcessor studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorImpl();
-    private DisciplineParamGenericParamTransformer disciplineParam = new DisciplineParamGenericParamTransformer();
     private DisciplineResultGenericResultTransformer disciplineResult = new DisciplineResultGenericResultTransformer();
-
-
-    @Override
-    public DisciplineResult get(int id) {
-        DisciplineResult discipline = disciplineResult.apply(disciplineDao.get(id));
-        return discipline;
-    }
-
-    @Override
-    public List<DisciplineResult> getAll() {
-        List<Discipline> disciplineList = disciplineDao.getAll();
-
-        return disciplineList
-                .stream()
-                .map(d -> disciplineResult.apply(d))
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public DisciplineResult save(DisciplineParam discipline) {
-        Discipline disciplineToSave = disciplineParam.apply(discipline, null);
-        Discipline save = disciplineDao.save(disciplineToSave);
-
-        return disciplineResult.apply(save);
-    }
-
-    @Override
-    public void update(DisciplineParam discipline) {
-        Discipline input = disciplineDao.get(discipline.getId());
-
-        if (input != null) {
-            Discipline disciplineToUpdate = disciplineParam.apply(discipline, input);
-            disciplineDao.update(disciplineToUpdate);
-        } else {
-            //exception
-        }
-    }
-
-    @Override
-    public void delete(DisciplineParam discipline) {
-        Discipline disciplineParamToDelete = disciplineDao.get(discipline.getId());
-
-        if (disciplineParamToDelete != null) {
-            Discipline disciplineToDelete = disciplineParam.apply(discipline, disciplineParamToDelete);
-            disciplineDao.delete(disciplineToDelete);
-        } else {
-            //exception
-        }
-    }
-
-    @Override
-    public void delete(int id) {
-        disciplineDao.delete(id);
-    }
 
     @Override
     public List<DisciplineResult> getByStudentId(Integer id) {
@@ -104,5 +47,10 @@ public class DisciplineProcessorImpl implements DisciplineProcessor {
                 });
 
         return disciplineList;
+    }
+
+    @Override
+    public int getID(DisciplineParam entity) {
+        return entity.getId();
     }
 }

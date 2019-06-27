@@ -11,63 +11,11 @@ import net.kodar.trainee.presentation.result.StudentTeacherDisciplineResult;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisciplineProcessor {
+public class StudentTeacherDisciplineProcessorGenericImpl extends StudentTeacherDisciplineProcessorGeneric {
 
     private StudentTeacherDisciplineDaoGeneric studentTeacherDisciplineDao = new StudentTeacherDisciplineDaoGenericImpl();
     private StudentTeacherDisciplineParamGenericParamTransformer paramTransformer = new StudentTeacherDisciplineParamGenericParamTransformer();
     private StudentTeacherDisciplineResultGenericResultTransformer resultTransformer = new StudentTeacherDisciplineResultGenericResultTransformer();
-
-    @Override
-    public StudentTeacherDisciplineResult get(int id) {
-        StudentTeacherDisciplineResult studentTeacherDisciplineResult = resultTransformer.apply(studentTeacherDisciplineDao.get(id));
-        return studentTeacherDisciplineResult;
-    }
-
-    @Override
-    public List<StudentTeacherDisciplineResult> getAll() {
-        List<StudentTeacherDiscipline> studentTeacherDisciplineList = studentTeacherDisciplineDao.getAll();
-
-        return studentTeacherDisciplineList
-                .stream()
-                .map(std -> resultTransformer.apply(std))
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public StudentTeacherDisciplineResult save(StudentTeacherDisciplineParam studentTeacherDiscipline) {
-        StudentTeacherDiscipline studentTeacherDisciplineToSave = paramTransformer.apply(studentTeacherDiscipline, null);
-        StudentTeacherDiscipline save = studentTeacherDisciplineDao.save(studentTeacherDisciplineToSave);
-
-        return resultTransformer.apply(save);
-    }
-
-    @Override
-    public void update(StudentTeacherDisciplineParam studentTeacherDiscipline) {
-        StudentTeacherDiscipline std = studentTeacherDisciplineDao.get(studentTeacherDiscipline.getId());
-
-        if (std != null) {
-            StudentTeacherDiscipline studentTeacherDisciplineToUpdate = paramTransformer.apply(studentTeacherDiscipline, std);
-            studentTeacherDisciplineDao.update(studentTeacherDisciplineToUpdate);
-        } else {
-            //exception
-        }
-    }
-
-    @Override
-    public void delete(StudentTeacherDisciplineParam studentTeacherDiscipline) {
-        StudentTeacherDiscipline std = studentTeacherDisciplineDao.get(studentTeacherDiscipline.getId());
-        if (std != null) {
-            StudentTeacherDiscipline studentTeacherDisciplineToDelete = paramTransformer.apply(studentTeacherDiscipline, std);
-            studentTeacherDisciplineDao.delete(studentTeacherDisciplineToDelete);
-        } else {
-            //exception
-        }
-    }
-
-    @Override
-    public void delete(int id) {
-        studentTeacherDisciplineDao.delete(id);
-    }
 
     @Override
     public List<StudentTeacherDisciplineResult> filterByTeacher(Integer teacherId) {
@@ -115,5 +63,10 @@ public class StudentTeacherDisciplineProcessorImpl implements StudentTeacherDisc
                                 .remove(studentTeacherDiscipline);
                     }
                 });
+    }
+
+    @Override
+    public int getID(StudentTeacherDisciplineParam entity) {
+        return entity.getId();
     }
 }

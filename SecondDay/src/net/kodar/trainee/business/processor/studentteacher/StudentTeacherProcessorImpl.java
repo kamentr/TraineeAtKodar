@@ -3,10 +3,8 @@ package net.kodar.trainee.business.processor.studentteacher;
 import net.kodar.trainee.business.transformer.param.StudentTeacherParamGenericParamTransformer;
 import net.kodar.trainee.business.transformer.result.StudentTeacherResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.StudentTeacher;
-import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDao;
 import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDaoGeneric;
 import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDaoGenericImpl;
-import net.kodar.trainee.dataaccess.dao.studenteacher.StudentTeacherDaoImpl;
 import net.kodar.trainee.presentation.parameter.StudentTeacherParam;
 import net.kodar.trainee.presentation.result.StudentTeacherResult;
 
