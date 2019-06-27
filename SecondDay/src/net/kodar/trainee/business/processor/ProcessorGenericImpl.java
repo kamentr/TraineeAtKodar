@@ -19,10 +19,11 @@ public abstract class ProcessorGenericImpl
 
     private DAO dao;
     private PTR ptr;
+    private RTR rtr;
 
     @Override
     public OUT get(int id) {
-        OUT out = (OUT) RTR.identity().apply(dao.get(id));
+        OUT out = rtr.apply(dao.get(id));
 
         return out;
     }
@@ -33,7 +34,7 @@ public abstract class ProcessorGenericImpl
 
         List<OUT> studentResults = list
                 .stream()
-                .map(s -> (OUT) RTR.identity().apply(s))
+                .map(s -> rtr.apply(s))
                 .collect(Collectors.toList());
 
         return studentResults;
@@ -45,7 +46,7 @@ public abstract class ProcessorGenericImpl
         ENT studentToSave = ptr.apply(ent, null);
         ENT save = dao.save(studentToSave);
 
-        return (OUT) RTR.identity().apply(save);
+        return rtr.apply(save);
     }
 
     @Override
