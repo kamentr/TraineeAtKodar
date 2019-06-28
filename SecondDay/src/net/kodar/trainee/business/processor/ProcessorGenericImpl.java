@@ -15,7 +15,7 @@ public abstract class ProcessorGenericImpl
                 DAO extends DaoImplGeneric<PK, ENT>,
                 PTR extends BiFunction<IN, ENT, ENT>,
                 RTR extends Function<ENT, OUT>,
-                VAL extends GenericValidator<ENT>>
+                VAL extends GenericValidator<IN>>
         implements Processor<IN, OUT> {
 
     public abstract int getID(IN param);
@@ -24,7 +24,7 @@ public abstract class ProcessorGenericImpl
     private PTR ptr;
     private RTR rtr;
     private VAL val;
-    
+
     @Override
     public OUT get(int id) {
         OUT out = rtr.apply(dao.get(id));
@@ -45,13 +45,9 @@ public abstract class ProcessorGenericImpl
     }
 
     @Override
-    public OUT save(IN param) {
+    public OUT save(IN param) throws ValidationException {
 
-        try {
-            val.validate(ptr.apply(param, null));
-        } catch (ValidationException e) {
-            e.printStackTrace();
-        }
+        val.validate(param);
 
         ENT studentToSave = ptr.apply(param, null);
         ENT save = dao.save(studentToSave);
@@ -60,13 +56,9 @@ public abstract class ProcessorGenericImpl
     }
 
     @Override
-    public void update(IN param) {
+    public void update(IN param) throws ValidationException {
 
-        try {
-            val.validate(ptr.apply(param, null));
-        } catch (ValidationException e) {
-            e.printStackTrace();
-        }
+        val.validate(param);
 
         ENT entity = dao.get(getID(param));
 
@@ -79,13 +71,9 @@ public abstract class ProcessorGenericImpl
     }
 
     @Override
-    public void delete(IN param) {
+    public void delete(IN param) throws ValidationException {
 
-        try {
-            val.validate(ptr.apply(param, null));
-        } catch (ValidationException e) {
-            e.printStackTrace();
-        }
+        val.validate(param);
 
         ENT entity = dao.get(getID(param));
 

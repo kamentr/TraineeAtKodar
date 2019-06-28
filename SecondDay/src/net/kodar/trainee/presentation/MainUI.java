@@ -14,6 +14,7 @@ import net.kodar.trainee.presentation.parameter.StudentParam;
 import net.kodar.trainee.presentation.parameter.TeacherParam;
 
 
+import javax.xml.bind.ValidationException;
 import java.util.Scanner;
 
 public class MainUI {
@@ -26,11 +27,11 @@ public class MainUI {
     private DisciplineProcessorGeneric disciplineProcessor = new DisciplineProcessorGenericImpl();
     private StudentTeacherDisciplineProcessorGeneric studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorGenericImpl();
 
-    public MainUI() {
+    public MainUI() throws ValidationException {
         printMenu();
     }
 
-    private void printMenu() {
+    private void printMenu() throws ValidationException {
         System.out.println("--------Student Manager--------");
         System.out.println("1. Print list of students");
         System.out.println("2. Add new student");
@@ -50,7 +51,7 @@ public class MainUI {
     }
 
 
-    private void operator(String input) {
+    private void operator(String input) throws ValidationException {
         switch (input) {
             case "1":
                 printStudents(); //works
@@ -91,7 +92,7 @@ public class MainUI {
         }
     }
 
-    private void getDisciplineByTeacher() {
+    private void getDisciplineByTeacher() throws ValidationException {
         System.out.print("Give teacher id: ");
         int id = scanner.nextInt();
         disciplineProcessor.getByTeacherId(id).forEach(System.out::println);
@@ -99,7 +100,7 @@ public class MainUI {
         printMenu();
     }
 
-    private void getDisciplineByStudent() {
+    private void getDisciplineByStudent() throws ValidationException {
         System.out.print("Give student id: ");
         int id = scanner.nextInt();
         disciplineProcessor.getByStudentId(id).forEach(System.out::println);
@@ -107,7 +108,7 @@ public class MainUI {
         printMenu();
     }
 
-    private void getTeachersByStudent() {
+    private void getTeachersByStudent() throws ValidationException {
         System.out.print("Write student id: ");
         int id = scanner.nextInt();
 
@@ -115,7 +116,7 @@ public class MainUI {
         printMenu();
     }
 
-    private void getStudentsByTeacher() {
+    private void getStudentsByTeacher() throws ValidationException {
         System.out.print("Write teacher id: ");
         int id = scanner.nextInt();
 
@@ -123,17 +124,17 @@ public class MainUI {
         printMenu();
     }
 
-    private void printTeachers() {
+    private void printTeachers() throws ValidationException {
         teacherProcessor.getAll().forEach(System.out::println);
         printMenu();
     }
 
-    private void printStudents() {
+    private void printStudents() throws ValidationException {
         studentProcessor.getAll().forEach(System.out::println);
         printMenu();
     }
 
-    private void addStudent() {
+    private void addStudent() throws ValidationException {
 
         System.out.print("Write Id: ");
         int id = scanner.nextInt();
@@ -150,7 +151,7 @@ public class MainUI {
         printMenu();
     }
 
-    private void removeDisciplineById() {
+    private void removeDisciplineById() throws ValidationException {
         System.out.print("Write id: ");
         int id = scanner.nextInt();
         disciplineProcessor.delete(id);
@@ -158,7 +159,7 @@ public class MainUI {
         printMenu();
     }
 
-    private void addDiscipline() {
+    private void addDiscipline() throws ValidationException {
         System.out.print("Write discipline name and id: ");
         scanner.next();
         String[] input = scanner.nextLine().split("\\s+");
@@ -167,7 +168,7 @@ public class MainUI {
         printMenu();
     }
 
-    private void removeTeacherById() {
+    private void removeTeacherById() throws ValidationException {
         scanner.nextLine();
         System.out.print("Write id: ");
         int id = scanner.nextInt();
@@ -177,7 +178,7 @@ public class MainUI {
         printMenu();
     }
 
-    private void addTeacher() {
+    private void addTeacher() throws ValidationException {
         System.out.print("Write Id: ");
         int id = scanner.nextInt();
         scanner.nextLine();
@@ -193,7 +194,7 @@ public class MainUI {
         printMenu();
     }
 
-    private void removeStudentById() {
+    private void removeStudentById() throws ValidationException {
         scanner.nextLine();
         System.out.print("Write id: ");
         int id = scanner.nextInt();

@@ -1,5 +1,6 @@
 package net.kodar.trainee.business.processor;
 
+import javax.xml.bind.ValidationException;
 import java.util.List;
 
 public interface Processor<P, R> {
@@ -8,11 +9,11 @@ public interface Processor<P, R> {
 
     List<R> getAll();
 
-    R save(P t);
+    R save(P t) throws ValidationException;
 
-    void update(P t);
+    void update(P t) throws ValidationException;
 
-    void delete(P t);
+    void delete(P t) throws ValidationException;
 
     void delete(int id);
 }
