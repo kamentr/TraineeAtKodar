@@ -1,7 +1,9 @@
 package net.kodar.trainee.business.processor;
 
+import net.kodar.trainee.business.validator.GenericValidator;
 import net.kodar.trainee.dataaccess.dao.DaoImplGeneric;
 
+import javax.xml.bind.ValidationException;
 import javax.xml.validation.Validator;
 import java.util.List;
 import java.util.function.BiFunction;
@@ -12,7 +14,8 @@ public abstract class ProcessorGenericImpl
         <IN, OUT, PK, ENT,
                 DAO extends DaoImplGeneric<PK, ENT>,
                 PTR extends BiFunction<IN, ENT, ENT>,
-                RTR extends Function<ENT, OUT>>
+                RTR extends Function<ENT, OUT>,
+                VAL extends GenericValidator<ENT>>
         implements Processor<IN, OUT> {
 
     public abstract int getID(IN param);
@@ -20,6 +23,7 @@ public abstract class ProcessorGenericImpl
     private DAO dao;
     private PTR ptr;
     private RTR rtr;
+    private VAL val;
     
     @Override
     public OUT get(int id) {
@@ -43,6 +47,12 @@ public abstract class ProcessorGenericImpl
     @Override
     public OUT save(IN param) {
 
+        try {
+            val.validate(ptr.apply(param, null));
+        } catch (ValidationException e) {
+            e.printStackTrace();
+        }
+
         ENT studentToSave = ptr.apply(param, null);
         ENT save = dao.save(studentToSave);
 
@@ -51,6 +61,13 @@ public abstract class ProcessorGenericImpl
 
     @Override
     public void update(IN param) {
+
+        try {
+            val.validate(ptr.apply(param, null));
+        } catch (ValidationException e) {
+            e.printStackTrace();
+        }
+
         ENT entity = dao.get(getID(param));
 
         if (null != entity) {
@@ -63,6 +80,12 @@ public abstract class ProcessorGenericImpl
 
     @Override
     public void delete(IN param) {
+
+        try {
+            val.validate(ptr.apply(param, null));
+        } catch (ValidationException e) {
+            e.printStackTrace();
+        }
 
         ENT entity = dao.get(getID(param));
 

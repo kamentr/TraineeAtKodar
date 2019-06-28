@@ -3,6 +3,7 @@ package net.kodar.trainee.business.processor.studentteacherdiscipline;
 import net.kodar.trainee.business.processor.ProcessorGenericImpl;
 import net.kodar.trainee.business.transformer.param.StudentTeacherDisciplineParamGenericParamTransformer;
 import net.kodar.trainee.business.transformer.result.StudentTeacherDisciplineResultGenericResultTransformer;
+import net.kodar.trainee.business.validator.StudentTeacherDiscipline.StudentTeacherDisciplineGenericValidatorImpl;
 import net.kodar.trainee.data.entities.StudentTeacherDiscipline;
 import net.kodar.trainee.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDaoGeneric;
 import net.kodar.trainee.presentation.parameter.StudentTeacherDisciplineParam;
@@ -17,7 +18,8 @@ public abstract class StudentTeacherDisciplineProcessorGeneric extends Processor
                 StudentTeacherDiscipline,
                 StudentTeacherDisciplineDaoGeneric,
                 StudentTeacherDisciplineParamGenericParamTransformer,
-                StudentTeacherDisciplineResultGenericResultTransformer> {
+                StudentTeacherDisciplineResultGenericResultTransformer,
+                StudentTeacherDisciplineGenericValidatorImpl> {
 
     abstract List<StudentTeacherDisciplineResult> filterByTeacher(Integer techerId);
 
