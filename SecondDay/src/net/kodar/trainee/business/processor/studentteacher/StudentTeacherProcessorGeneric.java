@@ -21,9 +21,9 @@ public abstract class StudentTeacherProcessorGeneric extends ProcessorGenericImp
                 StudentTeacherResultGenericResultTransformer,
                 StudentTeacherGenericValidatorImpl>{
 
-    abstract List<StudentTeacherResult> filterByStudent(Integer id);
+    public abstract List<StudentTeacherResult> filterByStudent(Integer id);
 
-    abstract List<StudentTeacherResult> filterByTeacher(Integer id);
+    public abstract List<StudentTeacherResult> filterByTeacher(Integer id);
 
     public abstract void deleteStudent(int id);
 

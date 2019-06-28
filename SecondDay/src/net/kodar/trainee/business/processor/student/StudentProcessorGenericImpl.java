@@ -1,7 +1,7 @@
 package net.kodar.trainee.business.processor.student;
 
-import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessor;
-import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessorImpl;
+import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessorGeneric;
+import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessorGenericImpl;
 import net.kodar.trainee.business.transformer.result.StudentResultGenericResultTransformer;
 import net.kodar.trainee.dataaccess.dao.student.StudentDaoGeneric;
 import net.kodar.trainee.dataaccess.dao.student.StudentDaoGenericImpl;
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class StudentProcessorGenericImpl extends StudentProcessorGeneric {
 
-    private StudentTeacherProcessor studentTeacherProcessor = new StudentTeacherProcessorImpl();
+    private StudentTeacherProcessorGeneric studentTeacherProcessor = new StudentTeacherProcessorGenericImpl();
     private StudentResultGenericResultTransformer resultTransformer = new StudentResultGenericResultTransformer();
     private StudentDaoGeneric studentDao = new StudentDaoGenericImpl();
 

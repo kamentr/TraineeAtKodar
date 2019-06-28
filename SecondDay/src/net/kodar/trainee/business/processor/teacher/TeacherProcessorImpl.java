@@ -1,7 +1,7 @@
 package net.kodar.trainee.business.processor.teacher;
 
-import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessor;
-import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessorImpl;
+import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessorGeneric;
+import net.kodar.trainee.business.processor.studentteacher.StudentTeacherProcessorGenericImpl;
 import net.kodar.trainee.business.transformer.result.TeacheResultGenericResultTransformer;
 import net.kodar.trainee.business.transformer.param.TeacherParamGenericParamTransformer;
 import net.kodar.trainee.data.entities.Teacher;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class TeacherProcessorImpl implements TeacherProcessor {
 
     private TeacherDaoGeneric teacherDao = new TeacherDaoGenericImpl();
-    private StudentTeacherProcessor studentTeacherProcessor = new StudentTeacherProcessorImpl();
+    private StudentTeacherProcessorGeneric studentTeacherProcessor = new StudentTeacherProcessorGenericImpl();
     private TeacherParamGenericParamTransformer paramTransformer = new TeacherParamGenericParamTransformer();
     private TeacheResultGenericResultTransformer resultTransformer = new TeacheResultGenericResultTransformer();
 

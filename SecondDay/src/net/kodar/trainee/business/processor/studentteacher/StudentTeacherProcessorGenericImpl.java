@@ -14,7 +14,7 @@ public class StudentTeacherProcessorGenericImpl extends StudentTeacherProcessorG
     private StudentTeacherResultGenericResultTransformer resultTransformer = new StudentTeacherResultGenericResultTransformer();
 
     @Override
-    List<StudentTeacherResult> filterByStudent(Integer id) {
+    public List<StudentTeacherResult> filterByStudent(Integer id) {
         return studentTeacherList
                 .stream()
                 .filter(student -> student.getStudentId().equals(id))
@@ -23,7 +23,7 @@ public class StudentTeacherProcessorGenericImpl extends StudentTeacherProcessorG
     }
 
     @Override
-    List<StudentTeacherResult> filterByTeacher(Integer id) {
+    public List<StudentTeacherResult> filterByTeacher(Integer id) {
         return studentTeacherList
                 .stream()
                 .filter(teacher -> teacher.getTeacherId().equals(id))
