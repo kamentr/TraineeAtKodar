@@ -3,32 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fe44b3ba-f5f8-4782-bf3d-aaeba1c3f4a3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/kodar/trainee/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/business/processor/discipline/DisciplineProcessorGenericImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/kodar/trainee/business/processor/discipline/DisciplineProcessorGenericImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/business/processor/studentteacherdiscipline/StudentTeacherDisciplineProcessor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/business/processor/studentteacherdiscipline/StudentTeacherDisciplineProcessorGeneric.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/kodar/trainee/business/processor/studentteacherdiscipline/StudentTeacherDisciplineProcessorGeneric.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/business/processor/studentteacherdiscipline/StudentTeacherDisciplineProcessorImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/business/processor/teacher/TeacherProcessor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/business/processor/teacher/TeacherProcessorImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/data/entities/StudentTeacherDiscipline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/kodar/trainee/data/entities/StudentTeacherDiscipline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/discipline/DisciplineDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/discipline/DisciplineDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/discipline/data/DisciplineData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/discipline/data/DisciplineData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/student/StudentDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/student/StudentDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/student/StudentDaoInnerListImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/student/StudentDaoMapImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/student/data/StudentDataMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/student/data/StudentDataMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studenteacher/StudentTeacherDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studenteacher/StudentTeacherDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studenteacher/data/StudentTeacherDataMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studenteacher/data/StudentTeacherDataMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/StudentTeacherDisciplineDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/StudentTeacherDisciplineDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/data/StudentTeacherDisciplineData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/data/StudentTeacherDisciplineData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/teacher/TeacherDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/teacher/TeacherDaoImlp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/teacher/TeacherDaoMapImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/teacher/data/TeacherDataMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/teacher/data/TeacherDataMap.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,20 +19,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="46" column="1" lean-forward="true" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
+            <state relative-caret-position="476">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/StudentTeacherDisciplineDaoGenericImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+            <state relative-caret-position="105">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
@@ -75,11 +49,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/data/entities/StudentTeacherDiscipline.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-426">
-              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+            <state relative-caret-position="137">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
               <folding>
                 <element signature="e#629#630#0" expanded="true" />
                 <element signature="e#682#683#0" expanded="true" />
+                <element signature="e#1358#1359#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/data/StudentTeacherDisciplineData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="136">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -321,6 +296,15 @@
               <item name="trainee" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
               <item name="studentteacherdiscipline" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="StudentManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SecondDay" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="trainee" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="studentteacherdiscipline" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="StudentManager" type="b2602c69:ProjectViewProjectNode" />
@@ -653,7 +637,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561725667431</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Clean up some unused files">
+      <created>1561728042011</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1561728042011</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView">
@@ -679,7 +670,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.21246459" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4986577" weight="0.5028329" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.26912183" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2719547" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
@@ -1223,10 +1214,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/data/StudentTeacherDisciplineData.java">
+    <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/StudentTeacherDisciplineDaoGeneric.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="68">
+          <caret line="5" column="70" lean-forward="true" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studenteacher/StudentTeacherDaoGenericImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1239,19 +1237,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/data/entities/StudentTeacherDiscipline.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-426">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="137">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
           <folding>
             <element signature="e#629#630#0" expanded="true" />
             <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/StudentTeacherDisciplineDaoGeneric.java">
+    <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/StudentTeacherDisciplineDaoGenericImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="70" lean-forward="true" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
+        <state relative-caret-position="105">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -1268,24 +1267,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/data/StudentTeacherDisciplineData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="46" column="1" lean-forward="true" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studenteacher/StudentTeacherDaoGenericImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/kodar/trainee/dataaccess/dao/studentteacherdiscipline/StudentTeacherDisciplineDaoGenericImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+        <state relative-caret-position="476">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
