@@ -6,7 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StudentTeacherDataMap {
-    private Map<Integer, StudentTeacher> studentTeacherData = new HashMap<>();
+
+    private static Map<Integer, StudentTeacher> studentTeacherData = new HashMap<>();
 
     public StudentTeacherDataMap(){
         studentTeacherData.put(1, new StudentTeacher(1,1));

@@ -1,7 +1,7 @@
 package net.kodar.trainee.business.processor.discipline;
 
-import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessor;
-import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorImpl;
+import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorGeneric;
+import net.kodar.trainee.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorGenericImpl;
 import net.kodar.trainee.business.transformer.result.DisciplineResultGenericResultTransformer;
 import net.kodar.trainee.data.entities.Discipline;
 import net.kodar.trainee.dataaccess.dao.discipline.DisciplineDaoGeneric;
@@ -16,7 +16,7 @@ import java.util.List;
 public class DisciplineProcessorGenericImpl extends DisciplineProcessorGeneric {
 
     private DisciplineDaoGeneric disciplineDao = new DisciplineDaoGenericImpl();
-    private StudentTeacherDisciplineProcessor studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorImpl();
+    private StudentTeacherDisciplineProcessorGeneric studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorGenericImpl();
     private DisciplineResultGenericResultTransformer disciplineResult = new DisciplineResultGenericResultTransformer();
 
     @Override

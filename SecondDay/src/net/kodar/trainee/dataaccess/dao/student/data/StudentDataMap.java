@@ -7,7 +7,7 @@ import java.util.*;
 public class StudentDataMap {
 
 
-    private List<Student> studentData = new ArrayList<>(
+    private static List<Student> studentData = new ArrayList<>(
 
             Arrays.asList(
                     new Student(1, "Kamen", "Traikov"),
@@ -19,7 +19,7 @@ public class StudentDataMap {
             )
     );
 
-    private Map<Integer, Student> studentDataMap = new HashMap<>();
+    private static Map<Integer, Student> studentDataMap = new HashMap<>();
 
     public Map<Integer, Student> getStudentDataMap() {
         return studentDataMap;

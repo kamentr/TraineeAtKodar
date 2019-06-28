@@ -13,7 +13,7 @@ public class TeacherDataMap {
         return teacherMap;
     }
 
-    private Map<Integer, Teacher> teacherMap = new HashMap<>();
+    private static Map<Integer, Teacher> teacherMap = new HashMap<>();
 
     public TeacherDataMap(){
         ArrayList<Teacher> teacherData = new ArrayList<>(

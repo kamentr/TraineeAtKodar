@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class DisciplineData {
 
-    private Map<Integer, Discipline> disciplineMapData = new HashMap<>();
+    private static Map<Integer, Discipline> disciplineMapData = new HashMap<>();
 
     public DisciplineData(){
         disciplineMapData.put(1, new Discipline(1,"Maths"));

@@ -20,7 +20,7 @@ public class StudentTeacherDiscipline {
     }
 
     public StudentTeacherDiscipline() {
-
+        this.setIdentifier(UUID.randomUUID());
     }
 
     public UUID getIdentifier() {

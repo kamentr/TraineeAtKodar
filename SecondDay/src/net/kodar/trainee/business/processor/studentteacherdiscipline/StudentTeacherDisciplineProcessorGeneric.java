@@ -21,7 +21,7 @@ public abstract class StudentTeacherDisciplineProcessorGeneric extends Processor
                 StudentTeacherDisciplineResultGenericResultTransformer,
                 StudentTeacherDisciplineGenericValidatorImpl> {
 
-    abstract List<StudentTeacherDisciplineResult> filterByTeacher(Integer techerId);
+    public abstract List<StudentTeacherDisciplineResult> filterByTeacher(Integer techerId);
 
     abstract List<StudentTeacherDisciplineResult> filterByStudent(Integer studentId);
 
