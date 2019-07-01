@@ -88,6 +88,4 @@ public abstract class ProcessorGenericImpl
     public void delete(int id) {
         dao.delete(id);
     }
-
-
 }

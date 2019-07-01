@@ -8,6 +8,5 @@ public class StudentGenericValidatorImpl extends GenericValidatorImpl<StudentPar
     @Override
     public void validate(StudentParam obj){
         super.validate(obj);
-
     }
 }

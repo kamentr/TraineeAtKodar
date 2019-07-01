@@ -1,5 +1,6 @@
 package net.kodar.trainee.dataaccess.dao.discipline.data;
 
+
 import net.kodar.trainee.data.entities.Discipline;
 
 import java.util.HashMap;
