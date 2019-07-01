@@ -4,7 +4,6 @@ import net.kodar.trainee.business.validator.GenericValidator;
 import net.kodar.trainee.dataaccess.dao.DaoImplGeneric;
 
 import javax.xml.bind.ValidationException;
-import javax.xml.validation.Validator;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;

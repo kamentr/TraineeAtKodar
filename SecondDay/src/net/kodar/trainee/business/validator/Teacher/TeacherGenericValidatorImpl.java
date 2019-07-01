@@ -1,7 +1,6 @@
 package net.kodar.trainee.business.validator.Teacher;
 
 import net.kodar.trainee.business.validator.GenericValidatorImpl;
-import net.kodar.trainee.data.entities.Teacher;
 import net.kodar.trainee.presentation.parameter.TeacherParam;
 
 public class TeacherGenericValidatorImpl extends GenericValidatorImpl<TeacherParam> implements TeacherGenericValidator {
@@ -11,5 +10,5 @@ public class TeacherGenericValidatorImpl extends GenericValidatorImpl<TeacherPar
         super.validate(obj);
 
 
-    };
+    }
 }
