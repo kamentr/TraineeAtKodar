@@ -7,25 +7,18 @@ import java.util.*;
 public class StudentDataMap {
 
 
-    private static List<Student> studentData = new ArrayList<>(
-
-            Arrays.asList(
-                    new Student(1, "Kamen", "Traikov"),
-                    new Student(2, "Ivan", "Ivanov"),
-                    new Student(3, "Spas", "Todorov"),
-                    new Student(4, "Mihail", "Tryanov"),
-                    new Student(5, "MapMihail", "Tryanov"),
-                    new Student(6, "MapMihail", "Tryanov")
-            )
-    );
-
-    private static Map<Integer, Student> studentDataMap = new HashMap<>();
+    public Map<Integer, Student> studentDataMap = new HashMap<>();
 
     public Map<Integer, Student> getStudentDataMap() {
         return studentDataMap;
     }
 
     public StudentDataMap() {
-        studentData.forEach(s -> studentDataMap.put(s.getID(), s));
+        studentDataMap.put(1, new Student(1, "Kamen", "Traikov"));
+        studentDataMap.put(2, new Student(2, "Ivan", "Ivanov"));
+        studentDataMap.put(3, new Student(3, "Spas", "Todorov"));
+        studentDataMap.put(4, new Student(4, "Mihail", "Tryanov"));
+        studentDataMap.put(5, new Student(5, "MapMihail", "Tryanov"));
+        studentDataMap.put(6, new Student(6, "MapMihail", "Tryanov"));
     }
 }

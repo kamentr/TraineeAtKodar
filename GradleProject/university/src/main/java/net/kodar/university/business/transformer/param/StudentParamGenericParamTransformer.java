@@ -2,7 +2,7 @@ package net.kodar.university.business.transformer.param;
 
 import net.kodar.university.business.transformer.GenericParamTransformer;
 import net.kodar.university.data.entities.Student;
-import net.kodar.university.presentation.parameter.StudentParam;
+import net.kodar.university.presentation.depricated.parameter.StudentParam;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;

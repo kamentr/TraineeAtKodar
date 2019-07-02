@@ -1,23 +1,41 @@
 package net.kodar.university.business.processor.discipline;
 
+import net.kodar.university.business.processor.ProcessorGenericImpl;
+import net.kodar.university.business.processor.studentteacher.StudentTeacherProcessorGeneric;
+import net.kodar.university.business.processor.studentteacher.StudentTeacherProcessorGenericImpl;
 import net.kodar.university.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorGeneric;
 import net.kodar.university.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorGenericImpl;
+import net.kodar.university.business.transformer.param.DisciplineParamGenericParamTransformer;
 import net.kodar.university.business.transformer.result.DisciplineResultGenericResultTransformer;
+import net.kodar.university.business.validator.Discipline.DisciplineGenericValidatorImpl;
 import net.kodar.university.data.entities.Discipline;
 import net.kodar.university.dataaccess.dao.discipline.DisciplineDaoGeneric;
 import net.kodar.university.dataaccess.dao.discipline.DisciplineDaoGenericImpl;
-import net.kodar.university.presentation.parameter.DisciplineParam;
-import net.kodar.university.presentation.result.DisciplineResult;
-import net.kodar.university.presentation.result.StudentTeacherDisciplineResult;
+import net.kodar.university.presentation.depricated.parameter.DisciplineParam;
+import net.kodar.university.presentation.depricated.result.DisciplineResult;
+import net.kodar.university.presentation.depricated.result.StudentTeacherDisciplineResult;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisciplineProcessorGenericImpl extends DisciplineProcessorGeneric {
+public class DisciplineProcessorGenericImpl extends ProcessorGenericImpl
+        <DisciplineParam, DisciplineResult, Integer, Discipline,
+                DisciplineDaoGenericImpl,
+                DisciplineParamGenericParamTransformer,
+                DisciplineResultGenericResultTransformer,
+                DisciplineGenericValidatorImpl>
+        implements DisciplineProcessorGeneric
+{
 
-    private DisciplineDaoGeneric disciplineDao = new DisciplineDaoGenericImpl();
-    private StudentTeacherDisciplineProcessorGeneric studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorGenericImpl();
-    private DisciplineResultGenericResultTransformer disciplineResult = new DisciplineResultGenericResultTransformer();
+    private StudentTeacherDisciplineProcessorGeneric studentTeacherDisciplineProcessor;
+
+    public DisciplineProcessorGenericImpl(){
+        this.dao = new DisciplineDaoGenericImpl();
+        this.ptr = new DisciplineParamGenericParamTransformer();
+        this.rtr = new DisciplineResultGenericResultTransformer();
+        this.val = new DisciplineGenericValidatorImpl();
+        this.studentTeacherDisciplineProcessor = new StudentTeacherDisciplineProcessorGenericImpl();
+    }
 
     @Override
     public List<DisciplineResult> getByStudentId(Integer id) {
@@ -28,8 +46,8 @@ public class DisciplineProcessorGenericImpl extends DisciplineProcessorGeneric {
                 .stream()
                 .filter(s -> !s.getTeacherId().equals(id))
                 .forEach(s -> {
-                    Discipline discipline = disciplineDao.get(s.getDisciplineId());
-                    disciplineList.add(disciplineResult.apply(discipline));
+                    Discipline discipline = dao.get(s.getDisciplineId());
+                    disciplineList.add(rtr.apply(discipline));
                 });
 
         return disciplineList;
@@ -42,7 +60,7 @@ public class DisciplineProcessorGenericImpl extends DisciplineProcessorGeneric {
         studentTeacherDisciplineProcessor
                 .filterByTeacher(id)
                 .forEach(d -> {
-                    DisciplineResult filteredDiscipline = disciplineResult.apply(disciplineDao.get(d.getDisciplineId()));
+                    DisciplineResult filteredDiscipline = rtr.apply(dao.get(d.getDisciplineId()));
                     disciplineList.add(filteredDiscipline);
                 });
 

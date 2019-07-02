@@ -5,6 +5,7 @@ import net.kodar.university.dataaccess.dao.DaoImplGeneric;
 
 import javax.validation.ValidationException;
 import java.util.List;
+import java.util.Map;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -19,10 +20,11 @@ public abstract class ProcessorGenericImpl
 
     public abstract int getID(IN param);
 
-    private DAO dao;
-    private PTR ptr;
-    private RTR rtr;
-    private VAL val;
+    protected DAO dao;
+    protected PTR ptr;
+    protected RTR rtr;
+    protected VAL val;
+
 
     @Override
     public OUT get(int id) {
@@ -76,12 +78,8 @@ public abstract class ProcessorGenericImpl
 
         ENT entity = dao.get(getID(param));
 
-        if (null != entity) {
-            ENT entToDelete = ptr.apply(param, entity);
-            dao.delete(entToDelete);
-        } else {
-            //exception
-        }
+        ENT entToDelete = ptr.apply(param, entity);
+        dao.delete(entToDelete);
     }
 
     @Override

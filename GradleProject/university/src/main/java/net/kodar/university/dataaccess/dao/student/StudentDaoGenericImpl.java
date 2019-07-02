@@ -8,6 +8,11 @@ import java.util.Map;
 import java.util.UUID;
 
 public class StudentDaoGenericImpl extends StudentDaoGeneric {
+
+    public StudentDaoGenericImpl(){
+
+    }
+
     @Override
     protected Integer getId(Student student) {
         return student.getID();
@@ -31,7 +36,7 @@ public class StudentDaoGenericImpl extends StudentDaoGeneric {
 
     @Override
     protected Map<Integer, Student> getData() {
-        StudentDataMap studentDataMap = new StudentDataMap();
-        return studentDataMap.getStudentDataMap();
+        StudentDataMap dataMap = new StudentDataMap();
+        return dataMap.getStudentDataMap();
     }
 }

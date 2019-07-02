@@ -1,7 +1,7 @@
 package net.kodar.university.business.validator.StudentTeacherDiscipline;
 
 import net.kodar.university.business.validator.GenericValidatorImpl;
-import net.kodar.university.presentation.parameter.StudentTeacherDisciplineParam;
+import net.kodar.university.presentation.depricated.parameter.StudentTeacherDisciplineParam;
 
 public class StudentTeacherDisciplineGenericValidatorImpl extends GenericValidatorImpl<StudentTeacherDisciplineParam> implements StudentTeacherDisciplineGenericValidator {
     @Override
