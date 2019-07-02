@@ -5,10 +5,8 @@ import net.kodar.university.business.processor.studentteacher.StudentTeacherProc
 import net.kodar.university.business.processor.studentteacher.StudentTeacherProcessorGenericImpl;
 import net.kodar.university.business.transformer.param.StudentParamGenericParamTransformer;
 import net.kodar.university.business.transformer.result.StudentResultGenericResultTransformer;
-import net.kodar.university.business.validator.GenericValidator;
 import net.kodar.university.business.validator.Student.StudentGenericValidatorImpl;
 import net.kodar.university.data.entities.Student;
-import net.kodar.university.dataaccess.dao.DaoImplGeneric;
 import net.kodar.university.dataaccess.dao.student.StudentDaoGeneric;
 import net.kodar.university.dataaccess.dao.student.StudentDaoGenericImpl;
 import net.kodar.university.presentation.depricated.parameter.StudentParam;
@@ -16,8 +14,6 @@ import net.kodar.university.presentation.depricated.result.StudentResult;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiFunction;
-import java.util.function.Function;
 
 public class StudentProcessorGenericImpl extends ProcessorGenericImpl
         <StudentParam, StudentResult, Integer, Student,

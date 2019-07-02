@@ -2,8 +2,6 @@ package net.kodar.university.presentation.service.studentteacherdiscipline;
 
 import net.kodar.university.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorGeneric;
 import net.kodar.university.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorGenericImpl;
-import net.kodar.university.data.entities.StudentTeacher;
-import net.kodar.university.data.entities.StudentTeacherDiscipline;
 import net.kodar.university.presentation.depricated.result.StudentTeacherDisciplineResult;
 import org.springframework.web.bind.annotation.*;
 

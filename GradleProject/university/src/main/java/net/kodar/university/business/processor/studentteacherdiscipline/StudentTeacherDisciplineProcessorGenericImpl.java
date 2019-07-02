@@ -1,7 +1,6 @@
 package net.kodar.university.business.processor.studentteacherdiscipline;
 
 import net.kodar.university.business.processor.ProcessorGenericImpl;
-import net.kodar.university.business.processor.studentteacher.StudentTeacherProcessorGeneric;
 import net.kodar.university.business.transformer.param.StudentTeacherDisciplineParamGenericParamTransformer;
 import net.kodar.university.business.transformer.result.StudentTeacherDisciplineResultGenericResultTransformer;
 import net.kodar.university.business.validator.StudentTeacherDiscipline.StudentTeacherDisciplineGenericValidatorImpl;

@@ -7,7 +7,6 @@ import net.kodar.university.business.transformer.param.TeacherParamGenericParamT
 import net.kodar.university.business.transformer.result.TeacheResultGenericResultTransformer;
 import net.kodar.university.business.validator.Teacher.TeacherGenericValidatorImpl;
 import net.kodar.university.data.entities.Teacher;
-import net.kodar.university.dataaccess.dao.teacher.TeacherDaoGeneric;
 import net.kodar.university.dataaccess.dao.teacher.TeacherDaoGenericImpl;
 import net.kodar.university.presentation.depricated.parameter.TeacherParam;
 import net.kodar.university.presentation.depricated.result.TeacherResult;

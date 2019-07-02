@@ -13,11 +13,12 @@ public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
 
     protected abstract Map<PK, ENT> getData();
 
-    private Map<PK, ENT> data = getData();
+    protected Map<PK, ENT> data = getData();
+
 
     @Override
-    public ENT get(int index) {
-        return data.get(index);
+    public ENT get(int id) {
+        return data.get(id);
     }
 
     @Override

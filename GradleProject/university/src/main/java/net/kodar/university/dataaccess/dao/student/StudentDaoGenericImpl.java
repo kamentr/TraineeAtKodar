@@ -13,6 +13,8 @@ public class StudentDaoGenericImpl extends StudentDaoGeneric {
 
     }
 
+
+
     @Override
     protected Integer getId(Student student) {
         return student.getID();
@@ -20,7 +22,7 @@ public class StudentDaoGenericImpl extends StudentDaoGeneric {
 
     @Override
     protected Student getByIdentifier(Student student) {
-        Collection<Student> list = getData().values();
+        Collection<Student> list = this.data.values();
 
         return list
                 .stream()
