@@ -32,6 +32,7 @@ public class StudentTeacherProcessorGenericImpl extends ProcessorGenericImpl
         this.rtr = new StudentTeacherResultGenericResultTransformer();
         this.val = new StudentTeacherGenericValidatorImpl();
     }
+
     @Override
     public List<StudentTeacherResult> filterByStudent(Integer id) {
         return studentTeacherList

@@ -29,9 +29,10 @@ public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
     @Override
     public ENT save(ENT entity) {
         if (entity != null) {
-            data.put(getId(entity), entity);
 
+            data.put(getId(entity), entity);
             return getByIdentifier(entity);
+
         }
         return null;
     }
