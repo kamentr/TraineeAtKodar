@@ -1,25 +1,24 @@
-package net.kodar.university.presentation.result;
+package net.kodar.university.presentation.depricated.parameter;
 
 import net.kodar.university.data.entities.StudentTeacherDiscipline;
 
 import java.util.Objects;
 
-public class StudentTeacherDisciplineResult {
+public class StudentTeacherDisciplineParam {
 
     private Integer studentId;
     private Integer teacherId;
     private Integer disciplineId;
     private Integer id;
 
-    public StudentTeacherDisciplineResult(Integer studentId, Integer teacherId, Integer disciplineId, Integer id) {
+    public StudentTeacherDisciplineParam(Integer studentId, Integer teacherId, Integer disciplineId, Integer id) {
         this.studentId = studentId;
         this.teacherId = teacherId;
         this.disciplineId = disciplineId;
         this.id = id;
     }
 
-    public StudentTeacherDisciplineResult() {
-
+    public StudentTeacherDisciplineParam() {
     }
 
     public Integer getStudentId() {
@@ -72,7 +71,7 @@ public class StudentTeacherDisciplineResult {
 
     @Override
     public String toString() {
-        return "StudentTeacherDiscipline{" +
+        return "StudentTeacherDisciplineService{" +
                 "studentId=" + studentId +
                 ", teacherId=" + teacherId +
                 ", disciplineId=" + disciplineId +

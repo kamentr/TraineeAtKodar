@@ -19,10 +19,11 @@ public abstract class ProcessorGenericImpl
 
     public abstract int getID(IN param);
 
-    private DAO dao;
-    private PTR ptr;
-    private RTR rtr;
-    private VAL val;
+    protected DAO dao;
+    protected PTR ptr;
+    protected RTR rtr;
+    protected VAL val;
+
 
     @Override
     public OUT get(int id) {
@@ -35,12 +36,12 @@ public abstract class ProcessorGenericImpl
     public List<OUT> getAll() {
         List<ENT> list = dao.getAll();
 
-        List<OUT> studentResults = list
+        List<OUT> entResults = list
                 .stream()
                 .map(s -> rtr.apply(s))
                 .collect(Collectors.toList());
 
-        return studentResults;
+        return entResults;
     }
 
     @Override
@@ -48,8 +49,8 @@ public abstract class ProcessorGenericImpl
 
         val.validate(param);
 
-        ENT studentToSave = ptr.apply(param, null);
-        ENT save = dao.save(studentToSave);
+        ENT entToSave = ptr.apply(param, null);
+        ENT save = dao.save(entToSave);
 
         return rtr.apply(save);
     }
@@ -62,8 +63,8 @@ public abstract class ProcessorGenericImpl
         ENT entity = dao.get(getID(param));
 
         if (null != entity) {
-            ENT studentToUpdate = ptr.apply(param, entity);
-            dao.update(studentToUpdate);
+            ENT entToUpdate = ptr.apply(param, entity);
+            dao.update(entToUpdate);
         } else {
             //exception
         }
@@ -76,12 +77,8 @@ public abstract class ProcessorGenericImpl
 
         ENT entity = dao.get(getID(param));
 
-        if (null != entity) {
-            ENT entToDelete = ptr.apply(param, entity);
-            dao.delete(entToDelete);
-        } else {
-            //exception
-        }
+        ENT entToDelete = ptr.apply(param, entity);
+        dao.delete(entToDelete);
     }
 
     @Override

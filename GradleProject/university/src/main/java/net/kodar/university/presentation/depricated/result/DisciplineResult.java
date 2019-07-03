@@ -1,4 +1,4 @@
-package net.kodar.university.presentation.result;
+package net.kodar.university.presentation.depricated.result;
 
 import net.kodar.university.data.entities.Discipline;
 

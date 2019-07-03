@@ -1,4 +1,4 @@
-package net.kodar.university.presentation;
+package net.kodar.university.presentation.depricated;
 import net.kodar.university.business.processor.discipline.DisciplineProcessorGeneric;
 import net.kodar.university.business.processor.discipline.DisciplineProcessorGenericImpl;
 import net.kodar.university.business.processor.student.StudentProcessorGeneric;
@@ -9,9 +9,9 @@ import net.kodar.university.business.processor.studentteacherdiscipline.StudentT
 import net.kodar.university.business.processor.studentteacherdiscipline.StudentTeacherDisciplineProcessorGenericImpl;
 import net.kodar.university.business.processor.teacher.TeacherProcessorGeneric;
 import net.kodar.university.business.processor.teacher.TeacherProcessorGenericImpl;
-import net.kodar.university.presentation.parameter.DisciplineParam;
-import net.kodar.university.presentation.parameter.StudentParam;
-import net.kodar.university.presentation.parameter.TeacherParam;
+import net.kodar.university.presentation.depricated.parameter.DisciplineParam;
+import net.kodar.university.presentation.depricated.parameter.StudentParam;
+import net.kodar.university.presentation.depricated.parameter.TeacherParam;
 
 
 import javax.validation.ValidationException;
@@ -188,7 +188,7 @@ public class MainUI {
         System.out.print("Write last name: ");
         String lName = scanner.nextLine();
 
-        teacherProcessor.save(new TeacherParam(fname, lName, id));
+        teacherProcessor.save(new TeacherParam(id, fname, lName));
         System.out.println("Successfully added!");
 
         printMenu();

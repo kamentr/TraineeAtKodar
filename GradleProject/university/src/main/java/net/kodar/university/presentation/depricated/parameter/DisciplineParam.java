@@ -1,4 +1,4 @@
-package net.kodar.university.presentation.parameter;
+package net.kodar.university.presentation.depricated.parameter;
 
 import net.kodar.university.data.entities.Discipline;
 
@@ -12,6 +12,9 @@ public class DisciplineParam {
     public DisciplineParam(Integer id, String disciplineName) {
         this.setDisciplineName(disciplineName);
         this.setId(id);
+    }
+
+    public DisciplineParam() {
     }
 
     public Integer getId() {

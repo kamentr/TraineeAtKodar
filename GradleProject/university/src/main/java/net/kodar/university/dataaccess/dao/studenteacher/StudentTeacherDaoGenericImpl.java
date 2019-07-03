@@ -16,7 +16,7 @@ public class StudentTeacherDaoGenericImpl extends StudentTeacherDaoGeneric {
 
     @Override
     protected StudentTeacher getByIdentifier(StudentTeacher studentTeacher) {
-        Collection<StudentTeacher> list = getData().values();
+        Collection<StudentTeacher> list = this.data.values();
         return list
                 .stream()
                 .filter(s -> getIdentifier(s).equals(getIdentifier(studentTeacher)))

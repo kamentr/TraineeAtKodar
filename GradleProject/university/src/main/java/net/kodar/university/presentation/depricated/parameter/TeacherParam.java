@@ -1,24 +1,17 @@
-package net.kodar.university.presentation.result;
+package net.kodar.university.presentation.depricated.parameter;
 
-public class TeacherResult {
+public class TeacherParam {
     private int id;
     private String fName;
     private String lName;
 
-
-    public TeacherResult(String fName, String lName) {
-        this.fName = fName;
-        this.lName = lName;
-
-    }
-
-    public TeacherResult(String fName, String lName, int id) {
+    public TeacherParam(int id, String fName, String lName) {
         setId(id);
         setfName(fName);
         setlName(lName);
     }
 
-    public TeacherResult() {
+    public TeacherParam() {
 
     }
 
@@ -26,15 +19,15 @@ public class TeacherResult {
         return id;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
-    public void setfName(String fName) {
+    private void setfName(String fName) {
         this.fName = fName;
     }
 
-    public void setlName(String lName) {
+    private void setlName(String lName) {
         this.lName = lName;
     }
 

@@ -1,4 +1,4 @@
-package net.kodar.university.presentation.parameter;
+package net.kodar.university.presentation.depricated.parameter;
 
 public class StudentTeacherParam {
     private Integer studentId;
@@ -9,6 +9,9 @@ public class StudentTeacherParam {
         this.setStudentId(studentId);
         this.setTeacherId(teacherId);
         this.setId(id);
+    }
+
+    public StudentTeacherParam() {
     }
 
     public Integer getId() {

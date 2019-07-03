@@ -6,26 +6,33 @@ public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
 
 
     protected abstract PK getId(ENT entity);
+
     protected abstract ENT getByIdentifier(ENT entity);
+
     protected abstract UUID getIdentifier(ENT entity);
+
     protected abstract Map<PK, ENT> getData();
 
+    protected Map<PK, ENT> data = getData();
+
+
     @Override
-    public ENT get(int index) {
-        return getData().get(index);
+    public ENT get(int id) {
+        return data.get(id);
     }
 
     @Override
     public List<ENT> getAll() {
-        return new ArrayList<>(getData().values());
+        return new ArrayList<>(data.values());
     }
 
     @Override
     public ENT save(ENT entity) {
         if (entity != null) {
-            getData().put(getId(entity), entity);
 
+            data.put(getId(entity), entity);
             return getByIdentifier(entity);
+
         }
         return null;
     }
@@ -33,21 +40,16 @@ public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
 
     @Override
     public void update(ENT entity) {
-        getData().put(getId(entity), entity);
+        data.put(getId(entity), entity);
     }
 
     @Override
     public void delete(ENT entity) {
-        getData().remove(getId(entity));
+        data.remove(getId(entity));
     }
 
     @Override
     public void delete(int id) {
-        if (getData().containsValue(get(id))) {
-            ENT entity = getData().get(id);
-            getData().remove(getId(entity));
-        } else {
-            //exception
-        }
+        data.remove(id);
     }
 }

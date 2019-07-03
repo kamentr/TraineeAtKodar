@@ -1,22 +1,37 @@
 package net.kodar.university.business.processor.studentteacherdiscipline;
 
+import net.kodar.university.business.processor.ProcessorGenericImpl;
 import net.kodar.university.business.transformer.param.StudentTeacherDisciplineParamGenericParamTransformer;
 import net.kodar.university.business.transformer.result.StudentTeacherDisciplineResultGenericResultTransformer;
+import net.kodar.university.business.validator.StudentTeacherDiscipline.StudentTeacherDisciplineGenericValidatorImpl;
 import net.kodar.university.data.entities.StudentTeacherDiscipline;
 import net.kodar.university.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDaoGeneric;
 import net.kodar.university.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDaoGenericImpl;
-import net.kodar.university.presentation.parameter.StudentTeacherDisciplineParam;
-import net.kodar.university.presentation.result.StudentTeacherDisciplineResult;
+import net.kodar.university.presentation.depricated.parameter.StudentTeacherDisciplineParam;
+import net.kodar.university.presentation.depricated.result.StudentTeacherDisciplineResult;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StudentTeacherDisciplineProcessorGenericImpl extends StudentTeacherDisciplineProcessorGeneric {
+public class StudentTeacherDisciplineProcessorGenericImpl extends ProcessorGenericImpl
+        <StudentTeacherDisciplineParam,
+                StudentTeacherDisciplineResult,
+                Integer,
+                StudentTeacherDiscipline,
+                StudentTeacherDisciplineDaoGeneric,
+                StudentTeacherDisciplineParamGenericParamTransformer,
+                StudentTeacherDisciplineResultGenericResultTransformer,
+                StudentTeacherDisciplineGenericValidatorImpl> implements StudentTeacherDisciplineProcessorGeneric {
 
     private StudentTeacherDisciplineDaoGeneric studentTeacherDisciplineDao = new StudentTeacherDisciplineDaoGenericImpl();
-    private StudentTeacherDisciplineParamGenericParamTransformer paramTransformer = new StudentTeacherDisciplineParamGenericParamTransformer();
-    private StudentTeacherDisciplineResultGenericResultTransformer resultTransformer = new StudentTeacherDisciplineResultGenericResultTransformer();
 
+    public StudentTeacherDisciplineProcessorGenericImpl(){
+        this.dao = new StudentTeacherDisciplineDaoGenericImpl();
+        this.ptr = new StudentTeacherDisciplineParamGenericParamTransformer();
+        this.rtr = new StudentTeacherDisciplineResultGenericResultTransformer();
+        this.val = new StudentTeacherDisciplineGenericValidatorImpl();
+    }
+    
     @Override
     public List<StudentTeacherDisciplineResult> filterByTeacher(Integer teacherId) {
         List<StudentTeacherDiscipline> studentTeacherDisciplineList = studentTeacherDisciplineDao.getAll();
@@ -24,7 +39,7 @@ public class StudentTeacherDisciplineProcessorGenericImpl extends StudentTeacher
         return studentTeacherDisciplineList
                 .stream()
                 .filter(std -> std.getTeacherId().equals(teacherId))
-                .map(std -> resultTransformer.apply(std))
+                .map(std -> rtr.apply(std))
                 .collect(Collectors.toList());
     }
 
@@ -35,7 +50,7 @@ public class StudentTeacherDisciplineProcessorGenericImpl extends StudentTeacher
         return studentTeacherDisciplines
                 .stream()
                 .filter(std -> std.getStudentId().equals(studentId))
-                .map(std -> resultTransformer.apply(std))
+                .map(std -> rtr.apply(std))
                 .collect(Collectors.toList());
     }
 

@@ -2,7 +2,7 @@ package net.kodar.university.business.transformer.result;
 
 import net.kodar.university.business.transformer.GenericResultTransformer;
 import net.kodar.university.data.entities.Student;
-import net.kodar.university.presentation.result.StudentResult;
+import net.kodar.university.presentation.depricated.result.StudentResult;
 
 import java.util.function.Function;
 

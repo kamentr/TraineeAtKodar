@@ -15,7 +15,7 @@ public class StudentTeacherDisciplineDaoGenericImpl extends StudentTeacherDiscip
 
     @Override
     protected StudentTeacherDiscipline getByIdentifier(StudentTeacherDiscipline studentTeacherDiscipline) {
-        Collection<StudentTeacherDiscipline> list = getData().values();
+        Collection<StudentTeacherDiscipline> list = this.data.values();
         return list
                 .stream()
                 .filter(std -> getIdentifier(std).equals(getIdentifier(studentTeacherDiscipline)))

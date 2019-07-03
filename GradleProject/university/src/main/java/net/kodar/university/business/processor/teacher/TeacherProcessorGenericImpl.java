@@ -1,22 +1,37 @@
 package net.kodar.university.business.processor.teacher;
 
+import net.kodar.university.business.processor.ProcessorGenericImpl;
 import net.kodar.university.business.processor.studentteacher.StudentTeacherProcessorGeneric;
 import net.kodar.university.business.processor.studentteacher.StudentTeacherProcessorGenericImpl;
+import net.kodar.university.business.transformer.param.TeacherParamGenericParamTransformer;
 import net.kodar.university.business.transformer.result.TeacheResultGenericResultTransformer;
-import net.kodar.university.dataaccess.dao.teacher.TeacherDaoGeneric;
+import net.kodar.university.business.validator.Teacher.TeacherGenericValidatorImpl;
+import net.kodar.university.data.entities.Teacher;
 import net.kodar.university.dataaccess.dao.teacher.TeacherDaoGenericImpl;
-import net.kodar.university.presentation.parameter.TeacherParam;
-import net.kodar.university.presentation.result.TeacherResult;
+import net.kodar.university.presentation.depricated.parameter.TeacherParam;
+import net.kodar.university.presentation.depricated.result.TeacherResult;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeacherProcessorGenericImpl extends TeacherProcessorGeneric {
+public class TeacherProcessorGenericImpl extends ProcessorGenericImpl
+        <TeacherParam,
+                TeacherResult,
+                Integer,
+                Teacher,
+                TeacherDaoGenericImpl,
+                TeacherParamGenericParamTransformer,
+                TeacheResultGenericResultTransformer,
+                TeacherGenericValidatorImpl> implements TeacherProcessorGeneric{
 
-    private TeacherDaoGeneric teacherDao = new TeacherDaoGenericImpl();
     private StudentTeacherProcessorGeneric studentTeacherProcessor = new StudentTeacherProcessorGenericImpl();
-    private TeacheResultGenericResultTransformer resultTransformer = new TeacheResultGenericResultTransformer();
 
+    public TeacherProcessorGenericImpl(){
+        this.dao = new TeacherDaoGenericImpl();
+        this.ptr = new TeacherParamGenericParamTransformer();
+        this.rtr = new TeacheResultGenericResultTransformer();
+        this.val = new TeacherGenericValidatorImpl();
+    }
     @Override
     public List<TeacherResult> getTeachersByStudentId(Integer studentId) {
         List<TeacherResult> teacherList = new ArrayList<>();
@@ -25,7 +40,7 @@ public class TeacherProcessorGenericImpl extends TeacherProcessorGeneric {
                 .filterByStudent(studentId)
                 .forEach(teacher -> {
 
-                    TeacherResult teacherToAdd = resultTransformer.apply(teacherDao.get(teacher.getTeacherId()));
+                    TeacherResult teacherToAdd = rtr.apply(dao.get(teacher.getTeacherId()));
                     teacherList.add(teacherToAdd);
 
                 });

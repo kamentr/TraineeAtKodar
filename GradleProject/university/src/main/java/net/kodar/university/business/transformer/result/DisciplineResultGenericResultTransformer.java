@@ -2,7 +2,7 @@ package net.kodar.university.business.transformer.result;
 
 import net.kodar.university.business.transformer.GenericResultTransformer;
 import net.kodar.university.data.entities.Discipline;
-import net.kodar.university.presentation.result.DisciplineResult;
+import net.kodar.university.presentation.depricated.result.DisciplineResult;
 
 public class DisciplineResultGenericResultTransformer implements GenericResultTransformer<Discipline, DisciplineResult> {
     @Override
