@@ -5,17 +5,14 @@ public class TeacherParam {
     private String fName;
     private String lName;
 
-
-    public TeacherParam(String fName, String lName) {
-        this.fName = fName;
-        this.lName = lName;
-
-    }
-
-    public TeacherParam(String fName, String lName, int id) {
+    public TeacherParam(int id, String fName, String lName) {
         setId(id);
         setfName(fName);
         setlName(lName);
+    }
+
+    public TeacherParam() {
+
     }
 
     public int getId() {

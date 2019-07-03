@@ -18,6 +18,9 @@ public class StudentTeacherDisciplineParam {
         this.id = id;
     }
 
+    public StudentTeacherDisciplineParam() {
+    }
+
     public Integer getStudentId() {
         return studentId;
     }

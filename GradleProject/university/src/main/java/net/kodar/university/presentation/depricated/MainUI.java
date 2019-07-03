@@ -188,7 +188,7 @@ public class MainUI {
         System.out.print("Write last name: ");
         String lName = scanner.nextLine();
 
-        teacherProcessor.save(new TeacherParam(fname, lName, id));
+        teacherProcessor.save(new TeacherParam(id, fname, lName));
         System.out.println("Successfully added!");
 
         printMenu();

@@ -11,6 +11,9 @@ public class StudentTeacherParam {
         this.setId(id);
     }
 
+    public StudentTeacherParam() {
+    }
+
     public Integer getId() {
         return id;
     }

@@ -13,8 +13,6 @@ public class StudentDaoGenericImpl extends StudentDaoGeneric {
 
     }
 
-
-
     @Override
     protected Integer getId(Student student) {
         return student.getID();

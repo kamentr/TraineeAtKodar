@@ -5,15 +5,6 @@ public class StudentParam {
     private int ID;
     private String firstName;
     private String lastName;
-    private int identifier;
-
-    public int getIdentifier() {
-        return identifier;
-    }
-
-    public void setIdentifier(int identifier) {
-        this.identifier = identifier;
-    }
 
     public StudentParam() {
 

@@ -10,13 +10,7 @@ public class Teacher {
     private UUID identifier;
 
 
-    public Teacher(String fName, String lName) {
-        this.setfName(fName);
-        this.setlName(lName);
-        this.setIdentifier(UUID.randomUUID());
-    }
-
-    public Teacher(String fName, String lName, int id) {
+    public Teacher(int id, String fName, String lName) {
         this.setId(id);
         this.setfName(fName);
         this.setlName(lName);

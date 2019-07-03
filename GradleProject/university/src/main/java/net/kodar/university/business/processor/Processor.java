@@ -4,17 +4,17 @@ import javax.validation.ValidationException;
 
 import java.util.List;
 
-public interface Processor<P, R> {
+public interface Processor<IN, OUT> {
 
-    R get(int id);
+    OUT get(int id);
 
-    List<R> getAll();
+    List<OUT> getAll();
 
-    R save(P t) throws ValidationException;
+    OUT save(IN t) throws ValidationException;
 
-    void update(P t) throws ValidationException;
+    void update(IN t) throws ValidationException;
 
-    void delete(P t) throws ValidationException;
+    void delete(IN t) throws ValidationException;
 
     void delete(int id);
 }

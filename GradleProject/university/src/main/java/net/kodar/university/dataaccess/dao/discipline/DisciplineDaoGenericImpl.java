@@ -17,7 +17,7 @@ public class DisciplineDaoGenericImpl extends DisciplineDaoGeneric {
 
     @Override
     protected Discipline getByIdentifier(Discipline discipline) {
-        Collection<Discipline> list = getData().values();
+        Collection<Discipline> list = this.data.values();
         return list
                 .stream()
                 .filter(ent -> getIdentifier(ent).equals(getIdentifier(discipline)))

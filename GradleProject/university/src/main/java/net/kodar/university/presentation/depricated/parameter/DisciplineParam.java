@@ -14,6 +14,9 @@ public class DisciplineParam {
         this.setId(id);
     }
 
+    public DisciplineParam() {
+    }
+
     public Integer getId() {
         return id;
     }
