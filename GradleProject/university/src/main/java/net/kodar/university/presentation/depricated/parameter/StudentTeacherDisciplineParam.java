@@ -71,7 +71,7 @@ public class StudentTeacherDisciplineParam {
 
     @Override
     public String toString() {
-        return "StudentTeacherDiscipline{" +
+        return "StudentTeacherDisciplineService{" +
                 "studentId=" + studentId +
                 ", teacherId=" + teacherId +
                 ", disciplineId=" + disciplineId +

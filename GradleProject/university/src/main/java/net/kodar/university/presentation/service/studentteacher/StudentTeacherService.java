@@ -1,30 +1,25 @@
-//package net.kodar.university.presentation.service.studentteacher;
-//
-//import net.kodar.university.business.processor.studentteacher.StudentTeacherProcessorGeneric;
-//import net.kodar.university.business.processor.studentteacher.StudentTeacherProcessorGenericImpl;
-//import net.kodar.university.presentation.depricated.result.StudentTeacherResult;
-//import org.springframework.web.bind.annotation.*;
-//
-//import java.util.List;
-//
-//@RestController
-//@RequestMapping("studentteacher")
-//public class StudentTeacherService {
-//
-//    private StudentTeacherProcessorGeneric studentTeacherProcessor = new StudentTeacherProcessorGenericImpl();
-//
-//    @GetMapping
-//    public List<StudentTeacherResult> getAll() {
-//        return studentTeacherProcessor.getAll();
-//    }
-//
-//    @GetMapping("/{id}")
-//    public StudentTeacherResult get(@PathVariable(name="id") int id) {
-//        return studentTeacherProcessor.get(id);
-//    }
-//
-//    @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
-//    public void delete(@PathVariable(name="id") int id) {
-//        studentTeacherProcessor.delete(id);
-//    }
-//}
+package net.kodar.university.presentation.service.studentteacher;
+
+import net.kodar.university.business.processor.studentteacher.StudentTeacherProcessorGenericImpl;
+import net.kodar.university.presentation.depricated.parameter.StudentTeacherParam;
+import net.kodar.university.presentation.depricated.result.StudentTeacherResult;
+import net.kodar.university.presentation.service.ServiceGeneric;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(value="studentteacher", produces = "application/json", consumes = "application/json")
+public class StudentTeacherService extends ServiceGeneric
+        <StudentTeacherParam,
+                StudentTeacherResult,
+                StudentTeacherProcessorGenericImpl>{
+
+    public StudentTeacherService() {
+        this.processor = new StudentTeacherProcessorGenericImpl();
+    }
+
+    @Override
+    protected int getId(StudentTeacherParam param) {
+        return param.getId();
+    }
+}

@@ -1,25 +1,45 @@
 package net.kodar.university.presentation.service;
 
-
+import net.kodar.university.business.processor.Processor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-public interface ServiceGeneric<IN, OUT> {
+public abstract class ServiceGeneric<IN, OUT,
+        PR extends Processor<IN, OUT>> {
+
+    protected PR processor;
+
 
     @GetMapping
-    List<OUT> getAll();
+    public List<OUT> getAll() {
+        return processor.getAll();
+    }
 
     @GetMapping(value = "/{id}")
-    OUT get(@PathVariable(name = "id") int id);
+    public OUT get(@PathVariable(name="id") int id) {
+        return processor.get(id);
+    }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    void delete(@PathVariable(name = "id") int id);
-
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable(name="id") int id) {
+        processor.delete(id);
+    }
 
     @PostMapping
-    OUT save(@RequestBody IN param);
+    public OUT save(@RequestBody IN param){
+        OUT result= processor.save(param);
+        return result;
+    }
 
     @PutMapping("/{id}")
-    void update(@PathVariable(name = "id") int id, @RequestBody IN param) throws Exception;
+    public void update(@PathVariable(name="id") int id, @RequestBody IN param) throws Exception {
+        if(getId(param) == id) {
+            processor.update(param);
+        }else {
+            throw new Exception("Wrong id or param");
+        }
+    }
+
+    protected abstract int getId(IN param);
 }

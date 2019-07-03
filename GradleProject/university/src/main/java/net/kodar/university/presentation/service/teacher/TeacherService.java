@@ -1,33 +1,26 @@
-//package net.kodar.university.presentation.service.teacher;
-//
-//
-//import net.kodar.university.business.processor.teacher.TeacherProcessorGeneric;
-//import net.kodar.university.business.processor.teacher.TeacherProcessorGenericImpl;
-//import net.kodar.university.presentation.depricated.result.TeacherResult;
-//import org.springframework.web.bind.annotation.*;
-//
-//import java.util.List;
-//
-//@RestController
-//@RequestMapping("teacher")
-//public class TeacherService {
-//
-//    private TeacherProcessorGeneric teacherProcessor = new TeacherProcessorGenericImpl();
-//
-//    @GetMapping
-//    public List<TeacherResult> getAll(){
-//        List<TeacherResult> result = teacherProcessor.getAll();
-//        return result;
-//    }
-//
-//    @GetMapping("/{id}")
-//    public TeacherResult get(@PathVariable(name = "id") int id){
-//        TeacherResult teacherResult = teacherProcessor.get(id);
-//        return teacherResult;
-//    }
-//
-//    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-//    public void delete(@PathVariable(name = "id") int id){
-//        teacherProcessor.delete(id);
-//    }
-//}
+package net.kodar.university.presentation.service.teacher;
+
+import net.kodar.university.business.processor.teacher.TeacherProcessorGenericImpl;
+import net.kodar.university.presentation.depricated.parameter.TeacherParam;
+import net.kodar.university.presentation.depricated.result.TeacherResult;
+import net.kodar.university.presentation.service.ServiceGeneric;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping(value = "teacher", produces = "application/json", consumes = "application/json")
+public class TeacherService extends ServiceGeneric
+        <TeacherParam,
+                TeacherResult,
+                TeacherProcessorGenericImpl> {
+
+
+    public TeacherService() {
+        this.processor = new TeacherProcessorGenericImpl();
+    }
+
+    @Override
+    protected int getId(TeacherParam param) {
+        return param.getId();
+    }
+}
