@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class StudentGenericValidatorImpl extends GenericValidatorImpl<StudentParam> implements StudentGenericValidator {
 
     @Override
-    public void validate(StudentParam obj){
+    public void validate(StudentParam obj) {
         super.validate(obj);
     }
 }
