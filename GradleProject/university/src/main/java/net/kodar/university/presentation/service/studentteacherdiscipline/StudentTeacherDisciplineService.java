@@ -14,10 +14,6 @@ public class StudentTeacherDisciplineService extends ServiceGeneric
                 StudentTeacherDisciplineResult,
                 StudentTeacherDisciplineProcessorGenericImpl> {
 
-    public StudentTeacherDisciplineService() {
-        this.processor = new StudentTeacherDisciplineProcessorGenericImpl();
-    }
-
     @Override
     protected int getId(StudentTeacherDisciplineParam param) {
         return param.getId();

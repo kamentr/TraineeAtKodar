@@ -3,10 +3,12 @@ package net.kodar.university.business.transformer.param;
 import net.kodar.university.business.transformer.GenericParamTransformer;
 import net.kodar.university.data.entities.Teacher;
 import net.kodar.university.presentation.depricated.parameter.TeacherParam;
+import org.springframework.stereotype.Component;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+@Component
 public class TeacherParamGenericParamTransformer implements GenericParamTransformer<TeacherParam, Teacher, Teacher> {
     @Override
     public Teacher apply(TeacherParam teacherParam, Teacher teacher) {

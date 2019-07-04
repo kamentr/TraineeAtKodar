@@ -1,5 +1,6 @@
 package net.kodar.university.data.entities;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Teacher {
@@ -59,5 +60,18 @@ public class Teacher {
                 "fName='" + fName + '\'' +
                 ", lName='" + lName + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Teacher)) return false;
+        Teacher teacher = (Teacher) o;
+        return identifier.equals(teacher.identifier);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(identifier);
     }
 }

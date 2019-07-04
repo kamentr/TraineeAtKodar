@@ -10,10 +10,12 @@ import net.kodar.university.data.entities.Student;
 import net.kodar.university.dataaccess.dao.student.StudentDaoGenericImpl;
 import net.kodar.university.presentation.depricated.parameter.StudentParam;
 import net.kodar.university.presentation.depricated.result.StudentResult;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class StudentProcessorGenericImpl extends ProcessorGenericImpl
         <StudentParam, StudentResult, Integer, Student,
                 StudentDaoGenericImpl,
@@ -23,13 +25,6 @@ public class StudentProcessorGenericImpl extends ProcessorGenericImpl
         implements StudentProcessorGeneric {
 
     private StudentTeacherProcessorGeneric studentTeacherProcessor = new StudentTeacherProcessorGenericImpl();
-
-    public StudentProcessorGenericImpl(){
-        this.dao = new StudentDaoGenericImpl();
-        this.ptr = new StudentParamGenericParamTransformer();
-        this.rtr = new StudentResultGenericResultTransformer();
-        this.val = new StudentGenericValidatorImpl();
-    }
 
     @Override
     public int getID(StudentParam entity) {

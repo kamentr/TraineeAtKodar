@@ -14,11 +14,6 @@ public class TeacherService extends ServiceGeneric
                 TeacherResult,
                 TeacherProcessorGenericImpl> {
 
-
-    public TeacherService() {
-        this.processor = new TeacherProcessorGenericImpl();
-    }
-
     @Override
     protected int getId(TeacherParam param) {
         return param.getId();

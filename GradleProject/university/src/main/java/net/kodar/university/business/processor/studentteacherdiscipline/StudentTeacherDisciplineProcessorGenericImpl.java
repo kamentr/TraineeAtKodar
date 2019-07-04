@@ -9,10 +9,12 @@ import net.kodar.university.dataaccess.dao.studentteacherdiscipline.StudentTeach
 import net.kodar.university.dataaccess.dao.studentteacherdiscipline.StudentTeacherDisciplineDaoGenericImpl;
 import net.kodar.university.presentation.depricated.parameter.StudentTeacherDisciplineParam;
 import net.kodar.university.presentation.depricated.result.StudentTeacherDisciplineResult;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class StudentTeacherDisciplineProcessorGenericImpl extends ProcessorGenericImpl
         <StudentTeacherDisciplineParam,
                 StudentTeacherDisciplineResult,
@@ -25,13 +27,6 @@ public class StudentTeacherDisciplineProcessorGenericImpl extends ProcessorGener
 
     private StudentTeacherDisciplineDaoGeneric studentTeacherDisciplineDao = new StudentTeacherDisciplineDaoGenericImpl();
 
-    public StudentTeacherDisciplineProcessorGenericImpl(){
-        this.dao = new StudentTeacherDisciplineDaoGenericImpl();
-        this.ptr = new StudentTeacherDisciplineParamGenericParamTransformer();
-        this.rtr = new StudentTeacherDisciplineResultGenericResultTransformer();
-        this.val = new StudentTeacherDisciplineGenericValidatorImpl();
-    }
-    
     @Override
     public List<StudentTeacherDisciplineResult> filterByTeacher(Integer teacherId) {
         List<StudentTeacherDiscipline> studentTeacherDisciplineList = studentTeacherDisciplineDao.getAll();
