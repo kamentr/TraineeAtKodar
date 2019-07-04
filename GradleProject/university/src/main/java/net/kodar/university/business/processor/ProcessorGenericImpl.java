@@ -71,14 +71,12 @@ public abstract class ProcessorGenericImpl
             ENT entToUpdate = ptr.apply(param, entity);
             dao.update(entToUpdate);
         } else {
-            //exception
+            throw new NullPointerException();
         }
     }
 
     @Override
     public void delete(IN param) throws ValidationException {
-
-        val.validate(param);
 
         ENT entity = dao.get(getID(param));
 
