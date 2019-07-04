@@ -14,11 +14,6 @@ public class StudentService extends ServiceGeneric
                 StudentResult,
                 StudentProcessorGenericImpl> {
 
-
-    public StudentService() {
-        this.processor = new StudentProcessorGenericImpl();
-    }
-
     @Override
     protected int getId(StudentParam param) {
         return param.getID();

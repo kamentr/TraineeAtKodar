@@ -2,11 +2,18 @@ package net.kodar.university.presentation.depricated.parameter;
 
 import net.kodar.university.data.entities.Discipline;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class DisciplineParam {
 
+    @NotNull(message = "Id cannot be null")
+    @Min(value = 0, message = "Id cannot be negative")
     private Integer id;
+    @NotNull
+    @Size(min=2, max=20, message = "Name size should be between 2 and 20")
     private String disciplineName;
 
     public DisciplineParam(Integer id, String disciplineName) {

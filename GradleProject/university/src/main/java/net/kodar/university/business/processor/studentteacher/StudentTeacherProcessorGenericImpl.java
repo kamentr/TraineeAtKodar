@@ -6,13 +6,14 @@ import net.kodar.university.business.transformer.result.StudentTeacherResultGene
 import net.kodar.university.business.validator.StudentTeacher.StudentTeacherGenericValidatorImpl;
 import net.kodar.university.data.entities.StudentTeacher;
 import net.kodar.university.dataaccess.dao.studenteacher.StudentTeacherDaoGeneric;
-import net.kodar.university.dataaccess.dao.studenteacher.StudentTeacherDaoGenericImpl;
 import net.kodar.university.presentation.depricated.parameter.StudentTeacherParam;
 import net.kodar.university.presentation.depricated.result.StudentTeacherResult;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class StudentTeacherProcessorGenericImpl extends ProcessorGenericImpl
         <StudentTeacherParam,
                 StudentTeacherResult,
@@ -25,13 +26,6 @@ public class StudentTeacherProcessorGenericImpl extends ProcessorGenericImpl
         implements StudentTeacherProcessorGeneric {
 
     private List<StudentTeacher> studentTeacherList;
-
-    public StudentTeacherProcessorGenericImpl(){
-        this.dao = new StudentTeacherDaoGenericImpl();
-        this.ptr = new StudentTeacherParamGenericParamTransformer();
-        this.rtr = new StudentTeacherResultGenericResultTransformer();
-        this.val = new StudentTeacherGenericValidatorImpl();
-    }
 
     @Override
     public List<StudentTeacherResult> filterByStudent(Integer id) {

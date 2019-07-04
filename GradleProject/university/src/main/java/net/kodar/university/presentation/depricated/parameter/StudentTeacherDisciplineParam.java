@@ -2,13 +2,26 @@ package net.kodar.university.presentation.depricated.parameter;
 
 import net.kodar.university.data.entities.StudentTeacherDiscipline;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class StudentTeacherDisciplineParam {
 
+    @NotNull(message = "Id cannot be null")
+    @Min(value = 0, message = "Id cannot be negative")
     private Integer studentId;
+
+    @NotNull(message = "Id cannot be null")
+    @Min(value = 0, message = "Id cannot be negative")
     private Integer teacherId;
+
+    @NotNull(message = "Id cannot be null")
+    @Min(value = 0, message = "Id cannot be negative")
     private Integer disciplineId;
+
+    @NotNull(message = "Id cannot be null")
+    @Min(value = 0, message = "Id cannot be negative")
     private Integer id;
 
     public StudentTeacherDisciplineParam(Integer studentId, Integer teacherId, Integer disciplineId, Integer id) {

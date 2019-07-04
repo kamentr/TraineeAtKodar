@@ -2,6 +2,7 @@ package net.kodar.university.business.processor;
 
 import net.kodar.university.business.validator.GenericValidator;
 import net.kodar.university.dataaccess.dao.DaoImplGeneric;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ValidationException;
 import java.util.List;
@@ -19,9 +20,13 @@ public abstract class ProcessorGenericImpl
 
     public abstract int getID(IN param);
 
+    @Autowired
     protected DAO dao;
+    @Autowired
     protected PTR ptr;
+    @Autowired
     protected RTR rtr;
+    @Autowired
     protected VAL val;
 
 

@@ -2,11 +2,13 @@ package net.kodar.university.dataaccess.dao.studenteacher;
 
 import net.kodar.university.data.entities.StudentTeacher;
 import net.kodar.university.dataaccess.dao.studenteacher.data.StudentTeacherDataMap;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
 
+@Component
 public class StudentTeacherDaoGenericImpl extends StudentTeacherDaoGeneric {
 
     @Override

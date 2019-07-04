@@ -10,10 +10,12 @@ import net.kodar.university.data.entities.Teacher;
 import net.kodar.university.dataaccess.dao.teacher.TeacherDaoGenericImpl;
 import net.kodar.university.presentation.depricated.parameter.TeacherParam;
 import net.kodar.university.presentation.depricated.result.TeacherResult;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TeacherProcessorGenericImpl extends ProcessorGenericImpl
         <TeacherParam,
                 TeacherResult,
@@ -26,12 +28,6 @@ public class TeacherProcessorGenericImpl extends ProcessorGenericImpl
 
     private StudentTeacherProcessorGeneric studentTeacherProcessor = new StudentTeacherProcessorGenericImpl();
 
-    public TeacherProcessorGenericImpl(){
-        this.dao = new TeacherDaoGenericImpl();
-        this.ptr = new TeacherParamGenericParamTransformer();
-        this.rtr = new TeacheResultGenericResultTransformer();
-        this.val = new TeacherGenericValidatorImpl();
-    }
     @Override
     public List<TeacherResult> getTeachersByStudentId(Integer studentId) {
         List<TeacherResult> teacherList = new ArrayList<>();

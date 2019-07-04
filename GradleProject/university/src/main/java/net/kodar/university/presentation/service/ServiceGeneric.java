@@ -1,13 +1,16 @@
 package net.kodar.university.presentation.service;
 
 import net.kodar.university.business.processor.Processor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 public abstract class ServiceGeneric<IN, OUT,
         PR extends Processor<IN, OUT>> {
 
+    @Autowired
     protected PR processor;
 
 
@@ -27,13 +30,13 @@ public abstract class ServiceGeneric<IN, OUT,
     }
 
     @PostMapping
-    public OUT save(@RequestBody IN param){
+    public OUT save(@Valid @RequestBody IN param){
         OUT result= processor.save(param);
         return result;
     }
 
     @PutMapping("/{id}")
-    public void update(@PathVariable(name="id") int id, @RequestBody IN param) throws Exception {
+    public void update(@PathVariable(name="id") int id, @Valid @RequestBody IN param) throws Exception {
         if(getId(param) == id) {
             processor.update(param);
         }else {
