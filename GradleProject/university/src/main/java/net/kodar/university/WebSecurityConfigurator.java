@@ -15,6 +15,7 @@ public class WebSecurityConfigurator extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth)
             throws Exception {
+
         auth.inMemoryAuthentication()
                 .withUser("user").password("{noop}password").roles("USER")
                 .and()
@@ -27,9 +28,7 @@ public class WebSecurityConfigurator extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/discipline", "/studentteacher", "/studentteacherdiscipline")
-                .access("hasRole('USER')")
-                .and()
-                .httpBasic()
+                .permitAll()
                 .and()
 
                 .authorizeRequests()
