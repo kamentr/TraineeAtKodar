@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "discipline", produces = "application/json", consumes = "application/json")
+@RequestMapping(value = "discipline")
 public class DisciplineService extends ServiceGeneric
         <DisciplineParam,
                 DisciplineResult,

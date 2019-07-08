@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.EnableGlobalAuthentication;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -20,28 +21,24 @@ import org.springframework.security.web.util.matcher.RequestMatcher;
 
 
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 @Order(1)
-public class WebSecurityConfigAdmin extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .antMatcher("/student/**")
                 .authorizeRequests()
-                .anyRequest()
-                .hasRole("ADMIN");
-
+                .antMatchers("/student/**", "/teacher/**")
+                .hasRole("ADMIN")
+                .and().formLogin()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/studentteacher/**", "/studentteacherdiscipline/**")
+                .hasRole("USER")
+                .and().formLogin()
+                .and()
+                .authorizeRequests().anyRequest().permitAll();
     }
-
-    @Bean
-    public AuthenticationEntryPoint authenticationEntryPoint(){
-        BasicAuthenticationEntryPoint entryPoint =
-                new BasicAuthenticationEntryPoint();
-        entryPoint.setRealmName("admin realm");
-        return entryPoint;
-    }
-
-
 }
 
