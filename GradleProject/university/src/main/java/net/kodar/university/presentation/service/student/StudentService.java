@@ -4,8 +4,13 @@ import net.kodar.university.business.processor.student.StudentProcessorGenericIm
 import net.kodar.university.presentation.depricated.parameter.StudentParam;
 import net.kodar.university.presentation.depricated.result.StudentResult;
 import net.kodar.university.presentation.service.ServiceGeneric;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.security.RolesAllowed;
+import java.util.List;
+
 
 @RestController
 @RequestMapping(value = "student", produces = "application/json", consumes = "application/json")
@@ -18,4 +23,5 @@ public class StudentService extends ServiceGeneric
     protected int getId(StudentParam param) {
         return param.getID();
     }
+
 }
