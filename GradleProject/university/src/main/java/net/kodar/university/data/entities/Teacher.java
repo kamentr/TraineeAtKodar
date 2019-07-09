@@ -6,15 +6,15 @@ import java.util.UUID;
 public class Teacher {
 
     private int id;
-    private String fName;
-    private String lName;
+    private String firstName;
+    private String lastName;
     private UUID identifier;
 
 
-    public Teacher(int id, String fName, String lName) {
+    public Teacher(int id, String firstName, String lastName) {
         this.setId(id);
-        this.setfName(fName);
-        this.setlName(lName);
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
         this.setIdentifier(UUID.randomUUID());
     }
 
@@ -38,27 +38,27 @@ public class Teacher {
         this.id = id;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getfName() {
-        return fName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getlName() {
-        return lName;
+    public String getLastName() {
+        return lastName;
     }
 
     @Override
     public String toString() {
         return "{" +
-                "fName='" + fName + '\'' +
-                ", lName='" + lName + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 

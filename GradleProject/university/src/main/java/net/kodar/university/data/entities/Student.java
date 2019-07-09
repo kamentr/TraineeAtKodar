@@ -1,8 +1,12 @@
 package net.kodar.university.data.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.UUID;
 
+@Entity
 public class Student {
+
     private int ID;
     private String firstName;
     private String lastName;

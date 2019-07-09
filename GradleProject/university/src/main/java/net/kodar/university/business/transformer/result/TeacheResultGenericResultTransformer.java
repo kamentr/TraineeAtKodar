@@ -12,8 +12,8 @@ public class TeacheResultGenericResultTransformer implements
     @Override
     public TeacherResult apply(Teacher Teacher) {
         TeacherResult teacherResult = new TeacherResult();
-        teacherResult.setfName(Teacher.getfName());
-        teacherResult.setlName(Teacher.getlName());
+        teacherResult.setfName(Teacher.getFirstName());
+        teacherResult.setlName(Teacher.getLastName());
         teacherResult.setId(Teacher.getId());
 
         return teacherResult;
