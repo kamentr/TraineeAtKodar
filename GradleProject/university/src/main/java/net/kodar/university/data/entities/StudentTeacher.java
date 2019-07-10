@@ -1,12 +1,20 @@
 package net.kodar.university.data.entities;
 
+import javax.persistence.*;
 import java.util.UUID;
 
+@Entity
 public class StudentTeacher {
 
-    private Integer studentId;
-    private Integer teacherId;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
+
+    @JoinColumn(name = "ID")
+    private Integer studentId;
+
+    @JoinColumn(name = "id")
+    private Integer teacherId;
     private UUID identifier;
 
     public StudentTeacher(int id, int studentId, int teacherId) {
