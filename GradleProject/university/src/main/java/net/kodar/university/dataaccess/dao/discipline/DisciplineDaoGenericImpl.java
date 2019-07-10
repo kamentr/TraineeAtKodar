@@ -17,20 +17,20 @@ public class DisciplineDaoGenericImpl extends DisciplineDaoGeneric {
         return discipline.getId();
     }
 
-    @Override
-    protected Discipline getByIdentifier(Discipline discipline) {
-        Collection<Discipline> list = this.data.values();
-        return list
-                .stream()
-                .filter(ent -> getIdentifier(ent).equals(getIdentifier(discipline)))
-                .findFirst()
-                .get();
-    }
-
-    @Override
-    protected UUID getIdentifier(Discipline discipline) {
-        return discipline.getIdentifier();
-    }
+//    @Override
+//    protected Discipline getByIdentifier(Discipline discipline) {
+//        Collection<Discipline> list = this.data.values();
+//        return list
+//                .stream()
+//                .filter(ent -> getIdentifier(ent).equals(getIdentifier(discipline)))
+//                .findFirst()
+//                .get();
+//    }
+//
+//    @Override
+//    protected UUID getIdentifier(Discipline discipline) {
+//        return discipline.getIdentifier();
+//    }
 
     @Override
     protected Map<Integer, Discipline> getData() {

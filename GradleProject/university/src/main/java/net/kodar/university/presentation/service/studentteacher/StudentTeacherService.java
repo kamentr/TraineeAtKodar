@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value="studentteacher")
+@RequestMapping(value="/studentteacher")
 public class StudentTeacherService extends ServiceGeneric
         <StudentTeacherParam,
                 StudentTeacherResult,

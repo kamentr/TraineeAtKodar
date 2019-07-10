@@ -52,7 +52,7 @@ public class DisciplineParam {
         if (!(o instanceof Discipline)) return false;
         Discipline that = (Discipline) o;
         return id.equals(that.getId()) &&
-                disciplineName.equals(that.getDisciplineName());
+                disciplineName.equals(that.getName());
     }
 
     @Override

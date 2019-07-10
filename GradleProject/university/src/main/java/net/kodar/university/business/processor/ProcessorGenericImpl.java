@@ -86,6 +86,6 @@ public abstract class ProcessorGenericImpl
 
     @Override
     public void delete(int id) {
-        dao.delete(id);
+        dao.deleteById(id);
     }
 }

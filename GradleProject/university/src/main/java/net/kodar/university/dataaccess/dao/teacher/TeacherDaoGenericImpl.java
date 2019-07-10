@@ -16,20 +16,20 @@ public class TeacherDaoGenericImpl extends TeacherDaoGeneric {
         return teacher.getId();
     }
 
-    @Override
-    protected Teacher getByIdentifier(Teacher teacher) {
-        Collection<Teacher> list = this.data.values();
-        return list
-                .stream()
-                .filter(t -> getIdentifier(t).equals(getIdentifier(teacher)))
-                .findFirst()
-                .get();
-    }
-
-    @Override
-    protected UUID getIdentifier(Teacher teacher) {
-        return teacher.getIdentifier();
-    }
+//    @Override
+//    protected Teacher getByIdentifier(Teacher teacher) {
+//        Collection<Teacher> list = this.data.values();
+//        return list
+//                .stream()
+//                .filter(t -> getIdentifier(t).equals(getIdentifier(teacher)))
+//                .findFirst()
+//                .get();
+//    }
+//
+//    @Override
+//    protected UUID getIdentifier(Teacher teacher) {
+//        return teacher.getIdentifier();
+//    }
 
     @Override
     protected Map<Integer, Teacher> getData() {

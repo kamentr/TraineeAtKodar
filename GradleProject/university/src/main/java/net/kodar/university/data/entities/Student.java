@@ -12,28 +12,27 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int ID;
+    private int id;
     private String firstName;
     private String lastName;
-    private UUID identifier;
 
     public Student() {
-        this.setIdentifier(UUID.randomUUID());
+
     }
 
     public Student(int id, String firstName, String lastName) {
-        setID(id);
+        setId(id);
         setFirstName(firstName);
         setLastName(lastName);
-        this.setIdentifier(UUID.randomUUID());
+
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
     public void setFirstName(String firstName) {
@@ -52,17 +51,10 @@ public class Student {
         return lastName;
     }
 
-    public UUID getIdentifier() {
-        return identifier;
-    }
-
-    private void setIdentifier(UUID identifier) {
-        this.identifier = identifier;
-    }
 
     @Override
     public String toString() {
-        return "ID=" + ID +
+        return "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';

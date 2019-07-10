@@ -17,24 +17,24 @@ public class StudentDaoGenericImpl extends StudentDaoGeneric {
 
     @Override
     protected Integer getId(Student student) {
-        return student.getID();
+        return student.getId();
     }
 
-    @Override
-    protected Student getByIdentifier(Student student) {
-        Collection<Student> list = this.data.values();
-
-        return list
-                .stream()
-                .filter(s -> getIdentifier(s).equals(getIdentifier(student)))
-                .findFirst()
-                .get();
-    }
-
-    @Override
-    protected UUID getIdentifier(Student student) {
-        return student.getIdentifier();
-    }
+//    @Override
+//    protected Student getByIdentifier(Student student) {
+//        Collection<Student> list = this.data.values();
+//
+//        return list
+//                .stream()
+//                .filter(s -> getIdentifier(s).equals(getIdentifier(student)))
+//                .findFirst()
+//                .get();
+//    }
+//
+//    @Override
+//    protected UUID getIdentifier(Student student) {
+//        return student.getIdentifier();
+//    }
 
     @Override
     protected Map<Integer, Student> getData() {

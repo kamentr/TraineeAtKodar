@@ -19,27 +19,18 @@ public class StudentTeacherDiscipline {
 
     @JoinColumn(name = "id")
     private Integer disciplineId;
-    private UUID identifier;
 
     public StudentTeacherDiscipline(Integer studentId, Integer teacherId, Integer disciplineId, Integer id) {
         this.setStudentId(studentId);
         this.setTeacherId(teacherId);
         this.setDisciplineId(disciplineId);
         this.setId(id);
-        this.setIdentifier(UUID.randomUUID());
     }
 
     public StudentTeacherDiscipline() {
-        this.setIdentifier(UUID.randomUUID());
+
     }
 
-    public UUID getIdentifier() {
-        return identifier;
-    }
-
-    private void setIdentifier(UUID identifier) {
-        this.identifier = identifier;
-    }
 
     public Integer getStudentId() {
         return studentId;

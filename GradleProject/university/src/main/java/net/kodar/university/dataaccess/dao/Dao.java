@@ -2,17 +2,17 @@ package net.kodar.university.dataaccess.dao;
 
 import java.util.List;
 
-public interface Dao<T> {
+public interface Dao<ENT> {
 
-    T get(int id);
+    ENT get(Object id);
 
-    List<T> getAll();
+    List<ENT> getAll();
 
-    T save(T t);
+    ENT save(ENT t);
 
-    void update(T t);
+    void update(ENT t);
 
-    void delete(T t);
+    void delete(ENT t);
 
-    void delete(int id);
+    void deleteById(Object id);
 }

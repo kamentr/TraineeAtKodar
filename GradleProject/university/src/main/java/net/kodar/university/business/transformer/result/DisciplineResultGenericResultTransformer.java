@@ -11,7 +11,7 @@ public class DisciplineResultGenericResultTransformer implements GenericResultTr
     public DisciplineResult apply(Discipline discipline) {
         DisciplineResult disciplineResult = new DisciplineResult();
 
-        disciplineResult.setDisciplineName(discipline.getDisciplineName());
+        disciplineResult.setDisciplineName(discipline.getName());
         disciplineResult.setId(discipline.getId());
 
         return disciplineResult;

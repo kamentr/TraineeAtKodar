@@ -15,27 +15,18 @@ public class Teacher {
     private int id;
     private String firstName;
     private String lastName;
-    private UUID identifier;
 
 
     public Teacher(int id, String firstName, String lastName) {
         this.setId(id);
         this.setFirstName(firstName);
         this.setLastName(lastName);
-        this.setIdentifier(UUID.randomUUID());
     }
 
     public Teacher() {
-        this.setIdentifier(UUID.randomUUID());
+
     }
 
-    public UUID getIdentifier() {
-        return identifier;
-    }
-
-    private void setIdentifier(UUID identifier) {
-        this.identifier = identifier;
-    }
 
     public int getId() {
         return id;
@@ -69,16 +60,4 @@ public class Teacher {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Teacher)) return false;
-        Teacher teacher = (Teacher) o;
-        return identifier.equals(teacher.identifier);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(identifier);
-    }
 }

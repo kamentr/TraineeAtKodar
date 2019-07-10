@@ -1,17 +1,15 @@
 package net.kodar.university.presentation.service.student;
 
 import net.kodar.university.business.processor.student.StudentProcessorGenericImpl;
+import net.kodar.university.dataaccess.repository.StudentRepositiry;
 import net.kodar.university.presentation.depricated.parameter.StudentParam;
 import net.kodar.university.presentation.depricated.result.StudentResult;
 import net.kodar.university.presentation.service.ServiceGeneric;
-import org.springframework.http.MediaType;
-import org.springframework.security.access.annotation.Secured;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.security.RolesAllowed;
 import java.util.List;
-
 
 @RestController
 @RequestMapping(value = "/student")
