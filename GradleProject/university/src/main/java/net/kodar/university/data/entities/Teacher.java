@@ -4,18 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 public class Teacher {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String firstName;
     private String lastName;
-
 
     public Teacher(int id, String firstName, String lastName) {
         this.setId(id);
@@ -26,7 +23,6 @@ public class Teacher {
     public Teacher() {
 
     }
-
 
     public int getId() {
         return id;
@@ -59,5 +55,4 @@ public class Teacher {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
-
 }

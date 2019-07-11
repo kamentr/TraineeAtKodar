@@ -12,10 +12,10 @@ public class StudentTeacherDisciplineResultGenericResultTransformer implements G
 
         StudentTeacherDisciplineResult studentTeacherDisciplineResult = new StudentTeacherDisciplineResult();
 
-        studentTeacherDisciplineResult.setDisciplineId(studentTeacherDiscipline.getDisciplineId());
+        studentTeacherDisciplineResult.setDiscipline(studentTeacherDiscipline.getDiscipline());
         studentTeacherDisciplineResult.setId(studentTeacherDiscipline.getId());
-        studentTeacherDisciplineResult.setStudentId(studentTeacherDiscipline.getStudentId());
-        studentTeacherDisciplineResult.setTeacherId(studentTeacherDiscipline.getTeacherId());
+        studentTeacherDisciplineResult.setStudent(studentTeacherDiscipline.getStudent());
+        studentTeacherDisciplineResult.setTeacher(studentTeacherDiscipline.getTeacher());
 
         return studentTeacherDisciplineResult;
     }

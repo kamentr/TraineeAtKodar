@@ -1,5 +1,6 @@
 package net.kodar.university.dataaccess.dao;
 
+import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 
@@ -10,53 +11,58 @@ public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
 
     protected abstract PK getId(ENT entity);
 
-    protected abstract Map<PK, ENT> getData();
-
-    protected Map<PK, ENT> data = getData();
-
     @Autowired
     private CrudRepository<ENT, PK> repository;
 
     @Override
     public ENT get(Object id) {
-        return (ENT) repository.findById((PK) id);
-        //return data.get(id);
+        Optional<ENT> entity = repository.findById((PK) id);
+
+        return entity.orElse(null);
+
     }
 
     @Override
     public List<ENT> getAll() {
-        return (List<ENT>) repository.findAll();
-        //return new ArrayList<>(data.values());
+
+        Iterable<ENT> entList = repository.findAll();
+        return Lists.newArrayList(entList);
+
     }
 
     @Override
     public ENT save(ENT entity) {
         if (entity != null) {
 
-            //data.put(getId(entity), entity);
-            repository.save(entity);
-            return (ENT) repository.findById(getId(entity));
+            return repository.save(entity);
 
         }
         return null;
     }
 
-
     @Override
     public void update(ENT entity) {
-        //data.put(getId(entity), entity);
-        repository.save(entity);
+
+        Optional<ENT> entityToUpdate = repository.findById((PK) getId(entity));
+
+        if (entityToUpdate.isPresent()) {
+            repository.save(entity);
+        }
     }
 
     @Override
     public void delete(ENT entity) {
-        //data.remove(getId(entity));
-        repository.delete(entity);
+        if (entity != null) {
+            repository.delete(entity);
+        }
     }
 
     @Override
     public void deleteById(Object id) {
-        repository.deleteById((PK) id);
-        //data.remove(id);
+
+        Optional<ENT> entityToDelete = repository.findById((PK) id);
+        if (entityToDelete.isPresent()) {
+            repository.deleteById((PK) id);
+        }
     }
 }

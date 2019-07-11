@@ -5,7 +5,6 @@ import net.kodar.university.presentation.depricated.parameter.StudentParam;
 import org.springframework.stereotype.Component;
 
 import javax.validation.ValidationException;
-import javax.validation.Validator;
 
 @Component
 public class StudentGenericValidatorImpl extends GenericValidatorImpl<StudentParam> implements StudentGenericValidator {

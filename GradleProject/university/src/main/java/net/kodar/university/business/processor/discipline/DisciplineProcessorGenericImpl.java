@@ -24,39 +24,6 @@ public class DisciplineProcessorGenericImpl extends ProcessorGenericImpl
                 DisciplineGenericValidatorImpl>
         implements DisciplineProcessorGeneric
 {
-
-    private StudentTeacherDisciplineProcessorGeneric studentTeacherDisciplineProcessor;
-
-    @Override
-    public List<DisciplineResult> getByStudentId(Integer id) {
-        List<DisciplineResult> disciplineList = new ArrayList<>();
-        List<StudentTeacherDisciplineResult> studentTeacherDisciplineList = studentTeacherDisciplineProcessor.getAll();
-
-        studentTeacherDisciplineList
-                .stream()
-                .filter(s -> !s.getTeacherId().equals(id))
-                .forEach(s -> {
-                    Discipline discipline = dao.get(s.getDisciplineId());
-                    disciplineList.add(rtr.apply(discipline));
-                });
-
-        return disciplineList;
-    }
-
-    @Override
-    public List<DisciplineResult> getByTeacherId(Integer id) {
-        List<DisciplineResult> disciplineList = new ArrayList<>();
-
-        studentTeacherDisciplineProcessor
-                .filterByTeacher(id)
-                .forEach(d -> {
-                    DisciplineResult filteredDiscipline = rtr.apply(dao.get(d.getDisciplineId()));
-                    disciplineList.add(filteredDiscipline);
-                });
-
-        return disciplineList;
-    }
-
     @Override
     public int getID(DisciplineParam entity) {
         return entity.getId();

@@ -28,7 +28,7 @@ public class StudentProcessorGenericImpl extends ProcessorGenericImpl
 
     @Override
     public int getID(StudentParam entity) {
-        return entity.getID();
+        return entity.getId();
     }
 
     @Override

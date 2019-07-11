@@ -6,12 +6,13 @@ import javax.validation.constraints.Size;
 
 public class StudentParam {
 
-    @NotNull(message = "Id cannot be null")
     @Min(value = 0, message = "Id cannot be negative")
-    private int ID;
+    private Integer id;
+
     @NotNull
     @Size(min=2, max=20, message = "Name size should be between 2 and 30")
     private String firstName;
+
     @NotNull
     @Size(min=2, max=20, message = "Name size should be between 2 and 30")
     private String lastName;
@@ -20,18 +21,17 @@ public class StudentParam {
 
     }
 
-    public StudentParam(int id, String firstName, String lastName) {
-        setID(id);
-        setFirstName(firstName);
-        setLastName(lastName);
+    public StudentParam(String firstName, String lastName) {
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
     }
 
-    private void setID(int ID) {
-        this.ID = ID;
+    private void setId(int Integer) {
+        this.id = id;
     }
 
-    public int getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
     private void setFirstName(String firstName) {

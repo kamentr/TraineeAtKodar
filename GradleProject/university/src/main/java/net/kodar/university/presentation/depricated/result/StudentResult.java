@@ -1,36 +1,24 @@
 package net.kodar.university.presentation.depricated.result;
 
 public class StudentResult {
-    private int ID;
+
+    private Integer id;
     private String firstName;
     private String lastName;
-    private int identifier;
 
-    public int getIdentifier() {
-        return identifier;
-    }
+    public StudentResult() {}
 
-    public void setIdentifier(int identifier) {
-        this.identifier = identifier;
-    }
-
-
-    public StudentResult() {
-
-    }
-
-    public StudentResult(int id, String firstName, String lastName) {
-        setID(id);
+    public StudentResult(String firstName, String lastName) {
         setFirstName(firstName);
         setLastName(lastName);
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
     public void setFirstName(String firstName) {

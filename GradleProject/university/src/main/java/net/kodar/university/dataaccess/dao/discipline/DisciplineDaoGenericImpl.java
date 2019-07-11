@@ -5,9 +5,7 @@ import net.kodar.university.dataaccess.dao.discipline.DisciplineDaoGeneric;
 import net.kodar.university.dataaccess.dao.discipline.data.DisciplineData;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
 import java.util.Map;
-import java.util.UUID;
 
 @Component
 public class DisciplineDaoGenericImpl extends DisciplineDaoGeneric {
@@ -17,24 +15,4 @@ public class DisciplineDaoGenericImpl extends DisciplineDaoGeneric {
         return discipline.getId();
     }
 
-//    @Override
-//    protected Discipline getByIdentifier(Discipline discipline) {
-//        Collection<Discipline> list = this.data.values();
-//        return list
-//                .stream()
-//                .filter(ent -> getIdentifier(ent).equals(getIdentifier(discipline)))
-//                .findFirst()
-//                .get();
-//    }
-//
-//    @Override
-//    protected UUID getIdentifier(Discipline discipline) {
-//        return discipline.getIdentifier();
-//    }
-
-    @Override
-    protected Map<Integer, Discipline> getData() {
-        DisciplineData disciplineData = new DisciplineData();
-        return disciplineData.getDisciplineMapData();
-    }
 }

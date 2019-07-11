@@ -17,8 +17,8 @@ public class StudentTeacherParamGenericParamTransformer implements GenericParamT
             studentTeacher = new StudentTeacher();
             studentTeacher.setId(studentTeacher.getId());
         }
-        studentTeacher.setStudentId(studentTeacher.getStudentId());
-        studentTeacher.setTeacherId(studentTeacher.getTeacherId());
+        studentTeacher.setStudent(studentTeacher.getStudent());
+        studentTeacher.setTeacher(studentTeacher.getTeacher());
 
         return studentTeacher;
     }

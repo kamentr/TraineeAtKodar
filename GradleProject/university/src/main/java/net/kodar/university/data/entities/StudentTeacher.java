@@ -1,35 +1,46 @@
 package net.kodar.university.data.entities;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 public class StudentTeacher {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @JoinColumn(name = "ID")
-    private Integer studentId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id")
+    private Student student;
 
-    @JoinColumn(name = "id")
-    private Integer teacherId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
 
-    public StudentTeacher(int id, int studentId, int teacherId) {
-        this.setStudentId(studentId);
-        this.setTeacherId(teacherId);
-        this.setId(id);
-    }
-    public StudentTeacher(){
-
+    public StudentTeacher() {
     }
 
-    public StudentTeacher(int studentId, int teacherId) {
-        this.setStudentId(studentId);
-        this.setTeacherId(teacherId);
+    public StudentTeacher(Integer id, Student student, Teacher teacher) {
+        this.id = id;
+        this.student = student;
+        this.teacher = teacher;
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 
     public Integer getId() {
         return id;
@@ -39,19 +50,5 @@ public class StudentTeacher {
         this.id = id;
     }
 
-    public Integer getStudentId() {
-        return studentId;
-    }
 
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
-
-    public Integer getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
-    }
 }

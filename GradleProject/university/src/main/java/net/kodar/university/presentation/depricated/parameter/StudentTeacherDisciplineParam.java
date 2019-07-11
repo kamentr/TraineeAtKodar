@@ -1,61 +1,66 @@
 package net.kodar.university.presentation.depricated.parameter;
 
+import net.kodar.university.data.entities.Discipline;
+import net.kodar.university.data.entities.Student;
 import net.kodar.university.data.entities.StudentTeacherDiscipline;
+import net.kodar.university.data.entities.Teacher;
 
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class StudentTeacherDisciplineParam {
 
-    @NotNull(message = "Id cannot be null")
-    @Min(value = 0, message = "Id cannot be negative")
-    private Integer studentId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id")
+    private Student student;
 
-    @NotNull(message = "Id cannot be null")
-    @Min(value = 0, message = "Id cannot be negative")
-    private Integer teacherId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
 
-    @NotNull(message = "Id cannot be null")
-    @Min(value = 0, message = "Id cannot be negative")
-    private Integer disciplineId;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "discipline_id")
+    private Discipline discipline;
     @NotNull(message = "Id cannot be null")
     @Min(value = 0, message = "Id cannot be negative")
     private Integer id;
 
-    public StudentTeacherDisciplineParam(Integer studentId, Integer teacherId, Integer disciplineId, Integer id) {
-        this.studentId = studentId;
-        this.teacherId = teacherId;
-        this.disciplineId = disciplineId;
+    public StudentTeacherDisciplineParam(Student student, Teacher teacher, Discipline discipline, Integer id) {
+        this.student = student;
+        this.teacher = teacher;
+        this.discipline = discipline;
         this.id = id;
     }
 
     public StudentTeacherDisciplineParam() {
     }
 
-    public Integer getStudentId() {
-        return studentId;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    public Integer getTeacherId() {
-        return teacherId;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
-    public Integer getDisciplineId() {
-        return disciplineId;
+    public Discipline getDiscipline() {
+        return discipline;
     }
 
-    public void setDisciplineId(Integer disciplineId) {
-        this.disciplineId = disciplineId;
+    public void setDiscipline(Discipline discipline) {
+        this.discipline = discipline;
     }
 
     public Integer getId() {
@@ -66,28 +71,13 @@ public class StudentTeacherDisciplineParam {
         this.id = id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof StudentTeacherDiscipline)) return false;
-        StudentTeacherDiscipline that = (StudentTeacherDiscipline) o;
-        return Objects.equals(studentId, that.getTeacherId()) &&
-                Objects.equals(teacherId, that.getTeacherId()) &&
-                Objects.equals(disciplineId, that.getDisciplineId()) &&
-                Objects.equals(id, that.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(studentId, teacherId, disciplineId, id);
-    }
 
     @Override
     public String toString() {
         return "StudentTeacherDisciplineService{" +
-                "studentId=" + studentId +
-                ", teacherId=" + teacherId +
-                ", disciplineId=" + disciplineId +
+                "studentId=" + student.getId() +
+                ", teacherId=" + teacher.getId() +
+                ", disciplineId=" + discipline.getId() +
                 ", id=" + id +
                 '}';
     }

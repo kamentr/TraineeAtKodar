@@ -36,7 +36,7 @@ public class TeacherProcessorGenericImpl extends ProcessorGenericImpl
                 .filterByStudent(studentId)
                 .forEach(teacher -> {
 
-                    TeacherResult teacherToAdd = rtr.apply(dao.get(teacher.getTeacherId()));
+                    TeacherResult teacherToAdd = rtr.apply(dao.get(teacher.getTeacher().getId()));
                     teacherList.add(teacherToAdd);
 
                 });

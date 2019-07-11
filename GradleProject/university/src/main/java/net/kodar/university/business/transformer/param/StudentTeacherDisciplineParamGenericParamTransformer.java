@@ -17,9 +17,9 @@ public class StudentTeacherDisciplineParamGenericParamTransformer implements Gen
             studentTeacherDiscipline.setId(studentTeacherDisciplineParam.getId());
         }
 
-        studentTeacherDiscipline.setDisciplineId(studentTeacherDisciplineParam.getDisciplineId());
-        studentTeacherDiscipline.setStudentId(studentTeacherDisciplineParam.getStudentId());
-        studentTeacherDiscipline.setTeacherId(studentTeacherDisciplineParam.getTeacherId());
+        studentTeacherDiscipline.setDiscipline(studentTeacherDisciplineParam.getDiscipline());
+        studentTeacherDiscipline.setStudent(studentTeacherDisciplineParam.getStudent());
+        studentTeacherDiscipline.setTeacher(studentTeacherDisciplineParam.getTeacher());
 
         return studentTeacherDiscipline;
     }

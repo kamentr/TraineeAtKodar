@@ -1,49 +1,53 @@
 package net.kodar.university.presentation.depricated.result;
 
+import net.kodar.university.data.entities.Discipline;
+import net.kodar.university.data.entities.Student;
 import net.kodar.university.data.entities.StudentTeacherDiscipline;
+import net.kodar.university.data.entities.Teacher;
 
 import java.util.Objects;
 
 public class StudentTeacherDisciplineResult {
 
-    private Integer studentId;
-    private Integer teacherId;
-    private Integer disciplineId;
+    private Student student;
+    private Teacher teacher;
+    private Discipline discipline;
     private Integer id;
 
-    public StudentTeacherDisciplineResult(Integer studentId, Integer teacherId, Integer disciplineId, Integer id) {
-        this.studentId = studentId;
-        this.teacherId = teacherId;
-        this.disciplineId = disciplineId;
+
+    public StudentTeacherDisciplineResult(Student student, Teacher teacher, Discipline discipline, Integer id) {
+        this.student = student;
+        this.teacher = teacher;
+        this.discipline = discipline;
         this.id = id;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public Discipline getDiscipline() {
+        return discipline;
+    }
+
+    public void setDiscipline(Discipline discipline) {
+        this.discipline = discipline;
     }
 
     public StudentTeacherDisciplineResult() {
 
-    }
-
-    public Integer getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
-
-    public Integer getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public Integer getDisciplineId() {
-        return disciplineId;
-    }
-
-    public void setDisciplineId(Integer disciplineId) {
-        this.disciplineId = disciplineId;
     }
 
     public Integer getId() {
@@ -52,31 +56,5 @@ public class StudentTeacherDisciplineResult {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof StudentTeacherDiscipline)) return false;
-        StudentTeacherDiscipline that = (StudentTeacherDiscipline) o;
-        return Objects.equals(studentId, that.getTeacherId()) &&
-                Objects.equals(teacherId, that.getTeacherId()) &&
-                Objects.equals(disciplineId, that.getDisciplineId()) &&
-                Objects.equals(id, that.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(studentId, teacherId, disciplineId, id);
-    }
-
-    @Override
-    public String toString() {
-        return "StudentTeacherDisciplineService{" +
-                "studentId=" + studentId +
-                ", teacherId=" + teacherId +
-                ", disciplineId=" + disciplineId +
-                ", id=" + id +
-                '}';
     }
 }

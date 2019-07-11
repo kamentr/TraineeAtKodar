@@ -12,7 +12,4 @@ public interface StudentTeacherProcessorGeneric extends Processor<StudentTeacher
 
     List<StudentTeacherResult> filterByTeacher(Integer id);
 
-    void deleteStudent(int id);
-
-    void deleteTeacher(int id);
 }

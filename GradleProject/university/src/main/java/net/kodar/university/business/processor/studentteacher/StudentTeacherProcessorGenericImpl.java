@@ -31,7 +31,7 @@ public class StudentTeacherProcessorGenericImpl extends ProcessorGenericImpl
     public List<StudentTeacherResult> filterByStudent(Integer id) {
         return studentTeacherList
                 .stream()
-                .filter(student -> student.getStudentId().equals(id))
+                .filter(student -> student.getStudent().equals(id))
                 .map(st -> rtr.apply(st))
                 .collect(Collectors.toList());
     }
@@ -40,28 +40,10 @@ public class StudentTeacherProcessorGenericImpl extends ProcessorGenericImpl
     public List<StudentTeacherResult> filterByTeacher(Integer id) {
         return studentTeacherList
                 .stream()
-                .filter(teacher -> teacher.getTeacherId().equals(id))
+                .filter(teacher -> teacher.getTeacher().equals(id))
                 .map(st -> rtr.apply(st))
                 .collect(Collectors.toList());
 
-    }
-
-    @Override
-    public void deleteStudent(int id) {
-        studentTeacherList = studentTeacherList
-                .stream()
-                .filter(st -> st.getStudentId() != id)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public void deleteTeacher(int id) {
-        List<StudentTeacher> filteredList = studentTeacherList
-                .stream()
-                .filter(st -> st.getTeacherId() == id)
-                .collect(Collectors.toList());
-
-        studentTeacherList = filteredList;
     }
 
     @Override

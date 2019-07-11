@@ -10,7 +10,5 @@ import java.util.List;
 
 public interface DisciplineProcessorGeneric extends Processor<DisciplineParam, DisciplineResult>
  {
-    List<DisciplineResult> getByStudentId(Integer id);
 
-    List<DisciplineResult> getByTeacherId(Integer id);
  }
