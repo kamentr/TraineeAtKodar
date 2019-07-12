@@ -1,11 +1,17 @@
 package net.kodar.university.presentation.depricated.result;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import net.kodar.university.data.entities.Student;
 import net.kodar.university.data.entities.Teacher;
 
 public class StudentTeacherResult {
+
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Student student;
+
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Teacher teacher;
+
     private Integer id;
 
     public StudentTeacherResult(Student student, Teacher teacher, Integer id) {

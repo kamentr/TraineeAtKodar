@@ -2,7 +2,6 @@ package net.kodar.university.presentation.depricated.parameter;
 
 import net.kodar.university.data.entities.Discipline;
 import net.kodar.university.data.entities.Student;
-import net.kodar.university.data.entities.StudentTeacherDiscipline;
 import net.kodar.university.data.entities.Teacher;
 
 import javax.persistence.FetchType;
@@ -10,7 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
 
 public class StudentTeacherDisciplineParam {
 

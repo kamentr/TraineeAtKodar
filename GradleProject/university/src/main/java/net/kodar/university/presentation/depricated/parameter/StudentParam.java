@@ -26,7 +26,7 @@ public class StudentParam {
         this.setLastName(lastName);
     }
 
-    private void setId(int Integer) {
+    private void setId(Integer id) {
         this.id = id;
     }
 

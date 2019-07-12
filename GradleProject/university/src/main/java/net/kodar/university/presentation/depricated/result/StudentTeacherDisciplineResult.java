@@ -2,10 +2,7 @@ package net.kodar.university.presentation.depricated.result;
 
 import net.kodar.university.data.entities.Discipline;
 import net.kodar.university.data.entities.Student;
-import net.kodar.university.data.entities.StudentTeacherDiscipline;
 import net.kodar.university.data.entities.Teacher;
-
-import java.util.Objects;
 
 public class StudentTeacherDisciplineResult {
 

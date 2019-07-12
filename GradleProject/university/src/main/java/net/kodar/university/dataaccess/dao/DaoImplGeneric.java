@@ -43,7 +43,7 @@ public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
     @Override
     public void update(ENT entity) {
 
-        Optional<ENT> entityToUpdate = repository.findById((PK) getId(entity));
+        Optional<ENT> entityToUpdate = repository.findById(getId(entity));
 
         if (entityToUpdate.isPresent()) {
             repository.save(entity);

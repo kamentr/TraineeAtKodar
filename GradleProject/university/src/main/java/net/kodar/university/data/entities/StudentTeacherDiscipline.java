@@ -1,7 +1,6 @@
 package net.kodar.university.data.entities;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 public class StudentTeacherDiscipline {
@@ -10,15 +9,15 @@ public class StudentTeacherDiscipline {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id")
     private Student student;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "discipline_id")
     private Discipline discipline;
 
