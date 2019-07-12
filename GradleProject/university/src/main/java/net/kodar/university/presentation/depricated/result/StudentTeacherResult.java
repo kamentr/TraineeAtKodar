@@ -41,4 +41,13 @@ public class StudentTeacherResult {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "StudentTeacherResult{" +
+                "student=" + student.getId() +
+                ", teacher=" + teacher.getId() +
+                ", id=" + id +
+                '}';
+    }
 }

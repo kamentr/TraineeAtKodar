@@ -37,4 +37,12 @@ public class StudentResult {
         return lastName;
     }
 
+    @Override
+    public String toString() {
+        return "StudentResult{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }

@@ -50,5 +50,12 @@ public class StudentTeacher {
         this.id = id;
     }
 
-
+    @Override
+    public String toString() {
+        return "StudentTeacher{" +
+                "id=" + id +
+                ", student=" + student.getId() +
+                ", teacher=" + teacher.getId() +
+                '}';
+    }
 }
