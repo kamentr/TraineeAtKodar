@@ -1,6 +1,7 @@
 package net.kodar.university.dataaccess.dao;
 
 import com.google.common.collect.Lists;
+import net.bytebuddy.dynamic.scaffold.FieldLocator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 
@@ -54,6 +55,8 @@ public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
     public void delete(ENT entity) {
         if (entity != null) {
             repository.delete(entity);
+        }else {
+            throw new IllegalArgumentException();
         }
     }
 

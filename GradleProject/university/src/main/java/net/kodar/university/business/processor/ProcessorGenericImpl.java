@@ -77,11 +77,9 @@ public abstract class ProcessorGenericImpl
 
     @Override
     public void delete(IN param) throws ValidationException {
-
-        ENT entity = dao.get(getID(param));
-
-        ENT entToDelete = ptr.apply(param, entity);
-        dao.delete(entToDelete);
+            ENT entity = dao.get(getID(param));
+            ENT entToDelete = ptr.apply(param, entity);
+            dao.delete(entToDelete);
     }
 
     @Override

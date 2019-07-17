@@ -21,10 +21,17 @@ public class StudentParam {
 
     }
 
+    public StudentParam(Integer id, String firstName, String lastName) {
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.setId(id);
+    }
+
     public StudentParam(String firstName, String lastName) {
         this.setFirstName(firstName);
         this.setLastName(lastName);
     }
+
 
     private void setId(Integer id) {
         this.id = id;
