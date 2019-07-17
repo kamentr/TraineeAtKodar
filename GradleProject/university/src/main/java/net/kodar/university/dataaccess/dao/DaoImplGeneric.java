@@ -19,8 +19,12 @@ public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
     public ENT get(Object id) {
         Optional<ENT> entity = repository.findById((PK) id);
 
-        return entity.orElse(null);
-
+        ENT ent = entity.orElse(null);
+        if(ent == null){
+            throw new IllegalArgumentException();
+        }else {
+            return ent;
+        }
     }
 
     @Override

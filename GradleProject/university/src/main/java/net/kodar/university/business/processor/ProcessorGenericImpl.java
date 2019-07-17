@@ -32,9 +32,8 @@ public abstract class ProcessorGenericImpl
 
     @Override
     public OUT get(int id) {
-        OUT out = rtr.apply(dao.get(id));
-
-        return out;
+            OUT out = rtr.apply(dao.get(id));
+            return out;
     }
 
     @Override
