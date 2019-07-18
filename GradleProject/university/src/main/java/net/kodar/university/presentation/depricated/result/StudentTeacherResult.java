@@ -1,6 +1,5 @@
 package net.kodar.university.presentation.depricated.result;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import net.kodar.university.data.entities.Student;
 import net.kodar.university.data.entities.Teacher;
 

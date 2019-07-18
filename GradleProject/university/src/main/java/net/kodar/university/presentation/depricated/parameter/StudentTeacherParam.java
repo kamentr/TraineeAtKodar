@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 public class StudentTeacherParam {
 
-    @NotNull(message = "Student id cannot be null")
+    @NotNull(message = "student id cannot be null")
     @Min(value = 0, message = "Id cannot be negative")
     private Student student;
 

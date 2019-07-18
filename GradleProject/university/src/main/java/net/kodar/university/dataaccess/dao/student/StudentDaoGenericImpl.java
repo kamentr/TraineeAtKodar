@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class StudentDaoGenericImpl extends StudentDaoGeneric {
 
     @Override
-    protected Integer getId(Student student) {
+    public Integer getId(Student student) {
         return student.getId();
     }
 

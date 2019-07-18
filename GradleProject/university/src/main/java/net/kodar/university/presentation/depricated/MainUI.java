@@ -32,7 +32,7 @@
 //    }
 //
 //    private void printMenu() throws ValidationException {
-//        System.out.println("--------Student Manager--------");
+//        System.out.println("--------student Manager--------");
 //        System.out.println("1. Print list of students");
 //        System.out.println("2. Add new student");
 //        System.out.println("3. Remove a student by ID");

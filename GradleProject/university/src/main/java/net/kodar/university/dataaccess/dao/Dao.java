@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Dao<ENT> {
 
-    ENT get(Object id);
+    ENT get(Object id) throws Exception;
 
     List<ENT> getAll();
 

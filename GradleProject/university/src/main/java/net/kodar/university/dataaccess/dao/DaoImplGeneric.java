@@ -1,7 +1,6 @@
 package net.kodar.university.dataaccess.dao;
 
 import com.google.common.collect.Lists;
-import net.bytebuddy.dynamic.scaffold.FieldLocator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 
@@ -13,17 +12,16 @@ public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
     protected abstract PK getId(ENT entity);
 
     @Autowired
-    private CrudRepository<ENT, PK> repository;
+    protected CrudRepository<ENT, PK> repository;
 
     @Override
-    public ENT get(Object id) {
+    public ENT get(Object id){
         Optional<ENT> entity = repository.findById((PK) id);
 
-        ENT ent = entity.orElse(null);
-        if(ent == null){
-            throw new IllegalArgumentException();
+        if(entity.isPresent()){
+            return entity.get();
         }else {
-            return ent;
+            throw new IllegalArgumentException("Incorrect id");
         }
     }
 
@@ -50,26 +48,29 @@ public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
 
         Optional<ENT> entityToUpdate = repository.findById(getId(entity));
 
-        if (entityToUpdate.isPresent()) {
-            repository.save(entity);
-        }
+        entityToUpdate.ifPresent(ent -> repository.save(entity));
     }
 
     @Override
     public void delete(ENT entity) {
-        if (entity != null) {
-            repository.delete(entity);
+        if(entity!=null) {
+            if (repository.existsById(getId(entity))) {
+                repository.delete(entity);
+            } else {
+                throw new IllegalArgumentException(entity.getClass().toString() + " could not be deleted");
+            }
         }else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Cannot delete null");
         }
     }
 
     @Override
     public void deleteById(Object id) {
 
-        Optional<ENT> entityToDelete = repository.findById((PK) id);
-        if (entityToDelete.isPresent()) {
+        if (repository.existsById((PK)id)) {
             repository.deleteById((PK) id);
+        }else {
+            throw new IllegalArgumentException("Object could not be deleted");
         }
     }
 }

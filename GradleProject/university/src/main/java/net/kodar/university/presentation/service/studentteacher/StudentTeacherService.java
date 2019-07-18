@@ -1,11 +1,14 @@
 package net.kodar.university.presentation.service.studentteacher;
 
 import net.kodar.university.business.processor.studentteacher.StudentTeacherProcessorGenericImpl;
+import net.kodar.university.data.entities.StudentTeacher;
 import net.kodar.university.presentation.depricated.parameter.StudentTeacherParam;
 import net.kodar.university.presentation.depricated.result.StudentTeacherResult;
 import net.kodar.university.presentation.service.ServiceGeneric;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value="/studentteacher")
@@ -18,4 +21,10 @@ public class StudentTeacherService extends ServiceGeneric
     protected int getId(StudentTeacherParam param) {
         return param.getId();
     }
+
+    @RequestMapping("/relations")
+    protected List<StudentTeacherResult> getRelations(){
+        return this.getRelations();
+    }
+
 }

@@ -1,12 +1,8 @@
-package net.kodar.university;
+package net.kodar.university.service;
 
 
-import javassist.NotFoundException;
-import net.kodar.university.business.processor.Processor;
-import net.kodar.university.business.processor.ProcessorGenericImpl;
 import net.kodar.university.business.processor.student.StudentProcessorGenericImpl;
 import net.kodar.university.data.entities.Student;
-import net.kodar.university.dataaccess.repository.StudentRepository;
 import net.kodar.university.presentation.depricated.parameter.StudentParam;
 import net.kodar.university.presentation.depricated.result.StudentResult;
 import net.kodar.university.presentation.service.student.StudentService;
@@ -16,24 +12,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 
-import javax.xml.validation.Validator;
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)

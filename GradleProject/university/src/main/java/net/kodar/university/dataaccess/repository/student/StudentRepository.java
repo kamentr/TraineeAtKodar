@@ -1,4 +1,4 @@
-package net.kodar.university.dataaccess.repository;
+package net.kodar.university.dataaccess.repository.student;
 
 import net.kodar.university.data.entities.Student;
 import org.springframework.data.repository.CrudRepository;
