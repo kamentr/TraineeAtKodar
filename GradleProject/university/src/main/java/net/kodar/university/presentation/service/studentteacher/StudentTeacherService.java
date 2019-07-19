@@ -22,9 +22,5 @@ public class StudentTeacherService extends ServiceGeneric
         return param.getId();
     }
 
-    @RequestMapping("/relations")
-    protected List<StudentTeacherResult> getRelations(){
-        return this.getRelations();
-    }
 
 }

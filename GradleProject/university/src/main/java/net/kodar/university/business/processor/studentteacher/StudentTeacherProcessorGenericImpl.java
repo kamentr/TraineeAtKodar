@@ -25,24 +25,7 @@ public class StudentTeacherProcessorGenericImpl extends ProcessorGenericImpl
                 StudentTeacherGenericValidatorImpl>
         implements StudentTeacherProcessorGeneric {
 
-    @Override
-    public List<StudentTeacherResult> filterByStudent(Integer id) {
-        return this.dao.getAll()
-                .stream()
-                .filter(student -> student.getStudent().getId().equals(id))
-                .map(st -> rtr.apply(st))
-                .collect(Collectors.toList());
-    }
 
-    @Override
-    public List<StudentTeacherResult> filterByTeacher(Integer id) {
-        return this.dao.getAll()
-                .stream()
-                .filter(teacher -> teacher.getTeacher().getId()==(id))
-                .map(st -> rtr.apply(st))
-                .collect(Collectors.toList());
-
-    }
 
     @Override
     public int getID(StudentTeacherParam entity) {

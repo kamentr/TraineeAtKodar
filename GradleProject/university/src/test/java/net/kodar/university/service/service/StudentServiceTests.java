@@ -1,4 +1,4 @@
-package net.kodar.university.service;
+package net.kodar.university.service.service;
 
 
 import net.kodar.university.business.processor.student.StudentProcessorGenericImpl;
@@ -18,6 +18,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -77,7 +78,7 @@ public class StudentServiceTests {
 
     @Test
     public void getAll_givenTwoStudents_shouldReturnTwoStudents() {
-        List<StudentResult> studentList = List.of(VALID_STUDENT_RESULT, VALID_STUDENT_RESULT);
+        List<StudentResult> studentList =  Arrays.asList(VALID_STUDENT_RESULT, VALID_STUDENT_RESULT);
 
         when(studentProcessor.getAll()).thenReturn(studentList);
 

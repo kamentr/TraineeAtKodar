@@ -8,8 +8,4 @@ import java.util.List;
 
 public interface StudentTeacherProcessorGeneric extends Processor<StudentTeacherParam, StudentTeacherResult> {
 
-    List<StudentTeacherResult> filterByStudent(Integer id);
-
-    List<StudentTeacherResult> filterByTeacher(Integer id);
-
 }

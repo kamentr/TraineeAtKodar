@@ -16,6 +16,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.xml.validation.Validator;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,7 +69,7 @@ public class StudentDaoTests {
 
     @Test
     public void getAll_whenInvoked_ShouldInvokeStudentRepositoryFindAll() {
-        when(studentRepository.findAll()).thenReturn(List.of(VALID_STUDENT));
+        when(studentRepository.findAll()).thenReturn( Arrays.asList(VALID_STUDENT));
 
         studentDao.getAll();
 

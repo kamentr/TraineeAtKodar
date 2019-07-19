@@ -1,4 +1,4 @@
-package net.kodar.university.service;
+package net.kodar.university.service.service;
 
 
 import net.kodar.university.business.processor.discipline.DisciplineProcessorGenericImpl;
@@ -18,6 +18,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -77,7 +78,7 @@ public class DisciplineServiceTests{
 
     @Test
     public void getAll_givenTwoDisciplines_shouldReturnTwoDisciplines() {
-        List<DisciplineResult> disciplineList = List.of(VALID_DISCIPLINE_RESULT, VALID_DISCIPLINE_RESULT);
+        List<DisciplineResult> disciplineList =  Arrays.asList(VALID_DISCIPLINE_RESULT, VALID_DISCIPLINE_RESULT);
 
         when(disciplineProcessor.getAll()).thenReturn(disciplineList);
 

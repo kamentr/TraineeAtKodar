@@ -30,18 +30,8 @@ public class TeacherProcessorGenericImpl extends ProcessorGenericImpl
 
     @Override
     public List<TeacherResult> getTeachersByStudentId(Integer studentId) {
-        List<TeacherResult> teacherList = new ArrayList<>();
 
-        studentTeacherProcessor
-                .filterByStudent(studentId)
-                .forEach(teacher -> {
-
-                    TeacherResult teacherToAdd = rtr.apply(dao.get(teacher.getTeacher().getId()));
-                    teacherList.add(teacherToAdd);
-
-                });
-
-        return teacherList;
+        return null;
     }
 
     @Override

@@ -22,7 +22,7 @@ INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (21, 'Cordia', 'J
 INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (22, 'Everette', 'Schaefer');
 INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (23, 'Mack', 'Rosenbaum');
 INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (24, 'Chloe', 'Reichel');
-INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (25, 'Laverna', 'O\'Kon');
+INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (25, 'Laverna', 'Kon');
 INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (26, 'Allan', 'Mills');
 INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (27, 'Sandra', 'Heller');
 INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (28, 'Trudie', 'Greenfelder');
@@ -49,7 +49,7 @@ INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (48, 'Athena', 'B
 INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (49, 'Akeem', 'Ryan');
 INSERT INTO `student` (`id`, `first_name`, `last_name`) VALUES (50, 'Anna', 'Howe');
 
-INSERT INTO university.teacher VALUES
+INSERT INTO teacher VALUES
 ('1','Daphne','Grimes'),
 ('2','Caleigh','Aufderhar'),
 ('3','Myrtle','Schmidt'),
@@ -76,7 +76,7 @@ INSERT INTO university.teacher VALUES
 ('24','Nathen','Leffler'),
 ('25','Selmer','Altenwerth');
 
-INSERT INTO university.discipline
+INSERT INTO discipline
 (name)
 VALUES('Maths'),
 ('Biology'),
@@ -85,7 +85,7 @@ VALUES('Maths'),
 ('Computer Science'),
 ('Database');
 
-INSERT INTO university.student_teacher
+INSERT INTO student_teacher
 (student_id, teacher_id)
 VALUES
 (1, 1),
