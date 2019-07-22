@@ -1,31 +1,29 @@
 package net.kodar.university.data.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Objects;
-import java.util.UUID;
 
+@Entity
 public class Discipline {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    private String disciplineName;
-    private UUID identifier;
+    private String name;
 
-    public Discipline(Integer id, String disciplineName) {
+
+    public Discipline(Integer id, String name) {
         setId(id);
-        setDisciplineName(disciplineName);
-        setIdentifier(UUID.randomUUID());
+        setName(name);
     }
 
     public Discipline(){
-        setIdentifier(UUID.randomUUID());
+
     }
 
-    public UUID getIdentifier() {
-        return identifier;
-    }
-
-    private void setIdentifier(UUID identifier) {
-        this.identifier = identifier;
-    }
 
     public Integer getId() {
         return id;
@@ -35,17 +33,17 @@ public class Discipline {
         this.id = id;
     }
 
-    public String getDisciplineName() {
-        return disciplineName;
+    public String getName() {
+        return name;
     }
 
-    public void setDisciplineName(String disciplineName) {
-        this.disciplineName = disciplineName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return "Discipline{ " + disciplineName +
+        return "Discipline{ " + name +
                 " }";
     }
 
@@ -55,11 +53,11 @@ public class Discipline {
         if (!(o instanceof Discipline)) return false;
         Discipline that = (Discipline) o;
         return id.equals(that.id) &&
-                disciplineName.equals(that.disciplineName);
+                name.equals(that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, disciplineName);
+        return Objects.hash(id, name);
     }
 }

@@ -5,12 +5,6 @@ import net.kodar.university.presentation.depricated.parameter.DisciplineParam;
 import net.kodar.university.presentation.depricated.result.DisciplineResult;
 
 
-import java.util.List;
+interface DisciplineProcessorGeneric extends Processor<DisciplineParam, DisciplineResult> {
 
-
-public interface DisciplineProcessorGeneric extends Processor<DisciplineParam, DisciplineResult>
- {
-    List<DisciplineResult> getByStudentId(Integer id);
-
-    List<DisciplineResult> getByTeacherId(Integer id);
- }
+}

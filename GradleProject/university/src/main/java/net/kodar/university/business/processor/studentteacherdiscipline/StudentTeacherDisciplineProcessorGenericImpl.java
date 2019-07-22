@@ -20,7 +20,7 @@ public class StudentTeacherDisciplineProcessorGenericImpl extends ProcessorGener
                 StudentTeacherDisciplineResult,
                 Integer,
                 StudentTeacherDiscipline,
-                StudentTeacherDisciplineDaoGeneric,
+                StudentTeacherDisciplineDaoGenericImpl,
                 StudentTeacherDisciplineParamGenericParamTransformer,
                 StudentTeacherDisciplineResultGenericResultTransformer,
                 StudentTeacherDisciplineGenericValidatorImpl> implements StudentTeacherDisciplineProcessorGeneric {
@@ -33,7 +33,7 @@ public class StudentTeacherDisciplineProcessorGenericImpl extends ProcessorGener
 
         return studentTeacherDisciplineList
                 .stream()
-                .filter(std -> std.getTeacherId().equals(teacherId))
+                .filter(std -> std.getTeacher().getId()==(teacherId))
                 .map(std -> rtr.apply(std))
                 .collect(Collectors.toList());
     }
@@ -44,7 +44,7 @@ public class StudentTeacherDisciplineProcessorGenericImpl extends ProcessorGener
 
         return studentTeacherDisciplines
                 .stream()
-                .filter(std -> std.getStudentId().equals(studentId))
+                .filter(std -> std.getStudent().getId().equals(studentId))
                 .map(std -> rtr.apply(std))
                 .collect(Collectors.toList());
     }
@@ -54,7 +54,7 @@ public class StudentTeacherDisciplineProcessorGenericImpl extends ProcessorGener
         studentTeacherDisciplineDao.getAll()
                 .forEach(studentTeacherDiscipline ->
                 {
-                    if (studentTeacherDiscipline.getStudentId() == id) {
+                    if (studentTeacherDiscipline.getStudent().getId() == id) {
                         studentTeacherDisciplineDao
                                 .getAll()
                                 .remove(studentTeacherDiscipline);
@@ -67,7 +67,7 @@ public class StudentTeacherDisciplineProcessorGenericImpl extends ProcessorGener
         studentTeacherDisciplineDao.getAll()
                 .forEach(studentTeacherDiscipline ->
                 {
-                    if (studentTeacherDiscipline.getTeacherId() == id) {
+                    if (studentTeacherDiscipline.getTeacher().getId() == id) {
                         studentTeacherDisciplineDao
                                 .getAll()
                                 .remove(studentTeacherDiscipline);

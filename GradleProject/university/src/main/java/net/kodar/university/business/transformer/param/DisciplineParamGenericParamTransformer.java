@@ -16,8 +16,7 @@ public class DisciplineParamGenericParamTransformer implements GenericParamTrans
             discipline = new Discipline();
             discipline.setId(disciplineParam.getId());
         }
-        discipline.setId(disciplineParam.getId());
-        discipline.setDisciplineName(disciplineParam.getDisciplineName());
+        discipline.setName(disciplineParam.getName());
 
         return discipline;
     }

@@ -10,8 +10,7 @@ public class DisciplineResultGenericResultTransformer implements GenericResultTr
     @Override
     public DisciplineResult apply(Discipline discipline) {
         DisciplineResult disciplineResult = new DisciplineResult();
-
-        disciplineResult.setDisciplineName(discipline.getDisciplineName());
+        disciplineResult.setName(discipline.getName());
         disciplineResult.setId(discipline.getId());
 
         return disciplineResult;

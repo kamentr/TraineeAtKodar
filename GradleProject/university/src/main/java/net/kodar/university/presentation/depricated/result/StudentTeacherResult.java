@@ -1,27 +1,42 @@
 package net.kodar.university.presentation.depricated.result;
 
-import java.util.UUID;
+import net.kodar.university.data.entities.Student;
+import net.kodar.university.data.entities.Teacher;
 
 public class StudentTeacherResult {
-    private Integer studentId;
-    private Integer teacherId;
-    private Integer id;
-    private UUID identifier;
 
-    public StudentTeacherResult(int id, int studentId, int teacherId) {
-        this.studentId = studentId;
-        this.teacherId = teacherId;
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Student student;
+
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Teacher teacher;
+
+    private Integer id;
+
+    public StudentTeacherResult(Student student, Teacher teacher, Integer id) {
+        this.student = student;
+        this.teacher = teacher;
         this.id = id;
     }
 
-    public StudentTeacherResult(int studentId, int teacherId) {
-        this.studentId = studentId;
-        this.teacherId = teacherId;
-    }
-
-
     public StudentTeacherResult() {
 
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     public Integer getId() {
@@ -32,19 +47,12 @@ public class StudentTeacherResult {
         this.id = id;
     }
 
-    public Integer getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
-
-    public Integer getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
+    @Override
+    public String toString() {
+        return "StudentTeacherResult{" +
+                "student=" + student.getId() +
+                ", teacher=" + teacher.getId() +
+                ", id=" + id +
+                '}';
     }
 }

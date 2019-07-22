@@ -17,8 +17,8 @@ public class TeacherParamGenericParamTransformer implements GenericParamTransfor
             teacher = new Teacher();
             teacher.setId(teacherParam.getId());
         }
-        teacher.setfName(teacherParam.getfName());
-        teacher.setlName(teacherParam.getlName());
+        teacher.setFirstName(teacherParam.getFirstName());
+        teacher.setLastName(teacherParam.getLastName());
 
         return teacher;
     }

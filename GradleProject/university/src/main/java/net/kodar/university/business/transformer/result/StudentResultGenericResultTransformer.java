@@ -18,7 +18,7 @@ public class StudentResultGenericResultTransformer implements
         StudentResult studentResult = new StudentResult();
 
         studentResult.setFirstName(student.getFirstName());
-        studentResult.setID(student.getID());
+        studentResult.setId(student.getId());
         studentResult.setLastName(student.getLastName());
 
         return studentResult;

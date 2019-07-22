@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@RequestMapping(produces = "application/json")
 public abstract class ServiceGeneric<IN, OUT,
         PR extends Processor<IN, OUT>> {
 

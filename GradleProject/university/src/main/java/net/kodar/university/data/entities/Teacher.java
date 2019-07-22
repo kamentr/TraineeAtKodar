@@ -1,33 +1,27 @@
 package net.kodar.university.data.entities;
 
-import java.util.Objects;
-import java.util.UUID;
+import javax.persistence.*;
 
+@Entity
 public class Teacher {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String fName;
-    private String lName;
-    private UUID identifier;
 
+    private String firstName;
 
-    public Teacher(int id, String fName, String lName) {
+    private String lastName;
+
+    public Teacher(int id, String firstName, String lastName) {
         this.setId(id);
-        this.setfName(fName);
-        this.setlName(lName);
-        this.setIdentifier(UUID.randomUUID());
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
     }
 
     public Teacher() {
-        this.setIdentifier(UUID.randomUUID());
-    }
 
-    public UUID getIdentifier() {
-        return identifier;
-    }
-
-    private void setIdentifier(UUID identifier) {
-        this.identifier = identifier;
     }
 
     public int getId() {
@@ -38,40 +32,27 @@ public class Teacher {
         this.id = id;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getfName() {
-        return fName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getlName() {
-        return lName;
+    public String getLastName() {
+        return lastName;
     }
 
     @Override
     public String toString() {
         return "{" +
-                "fName='" + fName + '\'' +
-                ", lName='" + lName + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Teacher)) return false;
-        Teacher teacher = (Teacher) o;
-        return identifier.equals(teacher.identifier);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(identifier);
     }
 }

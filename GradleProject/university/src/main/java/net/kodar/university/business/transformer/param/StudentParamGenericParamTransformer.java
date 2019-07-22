@@ -17,7 +17,7 @@ public class StudentParamGenericParamTransformer implements
 
         if (student == null) {
             student = new Student();
-            student.setID(studentParam.getID());
+             student.setId(studentParam.getId());
         }
         student.setFirstName(studentParam.getFirstName());
         student.setLastName(studentParam.getLastName());

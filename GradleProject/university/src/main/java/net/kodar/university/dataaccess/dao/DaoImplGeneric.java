@@ -1,5 +1,9 @@
 package net.kodar.university.dataaccess.dao;
 
+import com.google.common.collect.Lists;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
+
 import java.util.*;
 
 public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
@@ -7,49 +11,66 @@ public abstract class DaoImplGeneric<PK, ENT> implements Dao<ENT> {
 
     protected abstract PK getId(ENT entity);
 
-    protected abstract ENT getByIdentifier(ENT entity);
-
-    protected abstract UUID getIdentifier(ENT entity);
-
-    protected abstract Map<PK, ENT> getData();
-
-    protected Map<PK, ENT> data = getData();
-
+    @Autowired
+    protected CrudRepository<ENT, PK> repository;
 
     @Override
-    public ENT get(int id) {
-        return data.get(id);
+    public ENT get(Object id){
+        Optional<ENT> entity = repository.findById((PK) id);
+
+        if(entity.isPresent()){
+            return entity.get();
+        }else {
+            throw new IllegalArgumentException("Incorrect id");
+        }
     }
 
     @Override
     public List<ENT> getAll() {
-        return new ArrayList<>(data.values());
+
+        Iterable<ENT> entList = repository.findAll();
+        return Lists.newArrayList(entList);
+
     }
 
     @Override
     public ENT save(ENT entity) {
         if (entity != null) {
 
-            data.put(getId(entity), entity);
-            return getByIdentifier(entity);
+            return repository.save(entity);
 
         }
         return null;
     }
 
-
     @Override
     public void update(ENT entity) {
-        data.put(getId(entity), entity);
+
+        Optional<ENT> entityToUpdate = repository.findById(getId(entity));
+
+        entityToUpdate.ifPresent(ent -> repository.save(entity));
     }
 
     @Override
     public void delete(ENT entity) {
-        data.remove(getId(entity));
+        if(entity!=null) {
+            if (repository.existsById(getId(entity))) {
+                repository.delete(entity);
+            } else {
+                throw new IllegalArgumentException(entity.getClass().toString() + " could not be deleted");
+            }
+        }else {
+            throw new IllegalArgumentException("Cannot delete null");
+        }
     }
 
     @Override
-    public void delete(int id) {
-        data.remove(id);
+    public void deleteById(Object id) {
+
+        if (repository.existsById((PK)id)) {
+            repository.deleteById((PK) id);
+        }else {
+            throw new IllegalArgumentException("Object could not be deleted");
+        }
     }
 }

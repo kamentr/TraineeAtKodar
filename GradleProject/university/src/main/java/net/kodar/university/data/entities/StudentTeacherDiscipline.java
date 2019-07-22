@@ -1,58 +1,59 @@
 package net.kodar.university.data.entities;
 
-import java.util.Objects;
-import java.util.UUID;
+import javax.persistence.*;
 
+@Entity
 public class StudentTeacherDiscipline {
 
-    private Integer studentId;
-    private Integer teacherId;
-    private Integer disciplineId;
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    private UUID identifier;
 
-    public StudentTeacherDiscipline(Integer studentId, Integer teacherId, Integer disciplineId, Integer id) {
-        this.setStudentId(studentId);
-        this.setTeacherId(teacherId);
-        this.setDisciplineId(disciplineId);
-        this.setId(id);
-        this.setIdentifier(UUID.randomUUID());
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "student_id")
+    private Student student;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "discipline_id")
+    private Discipline discipline;
+
+    public StudentTeacherDiscipline(Integer id, Student student, Teacher teacher, Discipline discipline) {
+        this.id = id;
+        this.student = student;
+        this.teacher = teacher;
+        this.discipline = discipline;
     }
 
     public StudentTeacherDiscipline() {
-        this.setIdentifier(UUID.randomUUID());
+
     }
 
-    public UUID getIdentifier() {
-        return identifier;
+    public Student getStudent() {
+        return student;
     }
 
-    private void setIdentifier(UUID identifier) {
-        this.identifier = identifier;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    public Integer getStudentId() {
-        return studentId;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
-    public Integer getTeacherId() {
-        return teacherId;
+    public Discipline getDiscipline() {
+        return discipline;
     }
 
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
-    }
-
-    public Integer getDisciplineId() {
-        return disciplineId;
-    }
-
-    public void setDisciplineId(Integer disciplineId) {
-        this.disciplineId = disciplineId;
+    public void setDiscipline(Discipline discipline) {
+        this.discipline = discipline;
     }
 
     public Integer getId() {
@@ -63,28 +64,13 @@ public class StudentTeacherDiscipline {
         this.id = id;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof StudentTeacherDiscipline)) return false;
-        StudentTeacherDiscipline that = (StudentTeacherDiscipline) o;
-        return Objects.equals(studentId, that.studentId) &&
-                Objects.equals(teacherId, that.teacherId) &&
-                Objects.equals(disciplineId, that.disciplineId) &&
-                Objects.equals(id, that.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(studentId, teacherId, disciplineId, id);
-    }
 
     @Override
     public String toString() {
         return "StudentTeacherDisciplineService{" +
-                "studentId=" + studentId +
-                ", teacherId=" + teacherId +
-                ", disciplineId=" + disciplineId +
+                "studentId=" + student.getId() +
+                ", teacherId=" + teacher.getId() +
+                ", disciplineId=" + discipline.getId() +
                 ", id=" + id +
                 '}';
     }

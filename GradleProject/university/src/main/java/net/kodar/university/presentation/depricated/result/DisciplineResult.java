@@ -7,15 +7,13 @@ import java.util.Objects;
 public class DisciplineResult {
 
     private Integer id;
-    private String disciplineName;
+    private String name;
 
-    public DisciplineResult(Integer id, String disciplineName) {
-        this.setDisciplineName(disciplineName);
+    public DisciplineResult(String name) {
+        this.setName(name);
     }
 
-    public DisciplineResult() {
-
-    }
+    public DisciplineResult() {}
 
     public Integer getId() {
         return id;
@@ -25,17 +23,17 @@ public class DisciplineResult {
         this.id = id;
     }
 
-    public String getDisciplineName() {
-        return disciplineName;
+    public String getName() {
+        return name;
     }
 
-    public void setDisciplineName(String disciplineName) {
-        this.disciplineName = disciplineName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
-        return "Discipline{ " + disciplineName +
+        return "Discipline{ " + name +
                 " }";
     }
 
@@ -45,12 +43,12 @@ public class DisciplineResult {
         if (!(o instanceof Discipline)) return false;
         Discipline that = (Discipline) o;
         return id.equals(that.getId()) &&
-                disciplineName.equals(that.getDisciplineName());
+                name.equals(that.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, disciplineName);
+        return Objects.hash(id, name);
     }
 }
 

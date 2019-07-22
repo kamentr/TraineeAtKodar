@@ -1,15 +1,19 @@
 package net.kodar.university.dataaccess.dao.teacher;
 
 import net.kodar.university.data.entities.Teacher;
-import net.kodar.university.dataaccess.dao.teacher.data.TeacherDataMap;
+import net.kodar.university.dataaccess.dao.DaoImplGeneric;
+import net.kodar.university.dataaccess.repository.teacher.TeacherRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
-public class TeacherDaoGenericImpl extends TeacherDaoGeneric {
+public class TeacherDaoGenericImpl extends DaoImplGeneric<Integer, Teacher> implements TeacherDaoGeneric {
+
+    @Autowired
+    private TeacherRepository teacherRepository;
 
     @Override
     protected Integer getId(Teacher teacher) {
@@ -17,23 +21,7 @@ public class TeacherDaoGenericImpl extends TeacherDaoGeneric {
     }
 
     @Override
-    protected Teacher getByIdentifier(Teacher teacher) {
-        Collection<Teacher> list = this.data.values();
-        return list
-                .stream()
-                .filter(t -> getIdentifier(t).equals(getIdentifier(teacher)))
-                .findFirst()
-                .get();
-    }
-
-    @Override
-    protected UUID getIdentifier(Teacher teacher) {
-        return teacher.getIdentifier();
-    }
-
-    @Override
-    protected Map<Integer, Teacher> getData() {
-        TeacherDataMap teacherDataMap = new TeacherDataMap();
-        return teacherDataMap.getTeacherMap();
+    public List<Teacher> getTeachersByStudentId(Integer studentId){
+        return new ArrayList<>(this.teacherRepository.getTeachersByStudentId(studentId));
     }
 }

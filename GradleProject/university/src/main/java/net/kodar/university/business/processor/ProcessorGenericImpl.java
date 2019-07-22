@@ -32,9 +32,8 @@ public abstract class ProcessorGenericImpl
 
     @Override
     public OUT get(int id) {
-        OUT out = rtr.apply(dao.get(id));
-
-        return out;
+            OUT out = rtr.apply(dao.get(id)); // throws exception if id is invalid
+            return out;
     }
 
     @Override
@@ -71,23 +70,19 @@ public abstract class ProcessorGenericImpl
             ENT entToUpdate = ptr.apply(param, entity);
             dao.update(entToUpdate);
         } else {
-            //exception
+            throw new NullPointerException();
         }
     }
 
     @Override
     public void delete(IN param) throws ValidationException {
-
-        val.validate(param);
-
-        ENT entity = dao.get(getID(param));
-
-        ENT entToDelete = ptr.apply(param, entity);
-        dao.delete(entToDelete);
+            ENT entity = dao.get(getID(param));
+            ENT entToDelete = ptr.apply(param, entity);
+            dao.delete(entToDelete);
     }
 
     @Override
     public void delete(int id) {
-        dao.delete(id);
+        dao.deleteById(id);
     }
 }

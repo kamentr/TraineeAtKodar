@@ -12,8 +12,8 @@ public class StudentTeacherResultGenericResultTransformer implements GenericResu
     public StudentTeacherResult apply(StudentTeacher studentTeacher) {
         StudentTeacherResult studentTeacherResult = new StudentTeacherResult();
         studentTeacherResult.setId(studentTeacher.getId());
-        studentTeacherResult.setStudentId(studentTeacher.getStudentId());
-        studentTeacherResult.setTeacherId(studentTeacher.getTeacherId());
+        studentTeacherResult.setStudent(studentTeacher.getStudent());
+        studentTeacherResult.setTeacher(studentTeacher.getTeacher());
 
         return studentTeacherResult;
     }

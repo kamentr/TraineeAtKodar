@@ -6,22 +6,20 @@ import javax.validation.constraints.Size;
 
 public class TeacherParam {
 
-    @NotNull(message = "Id cannot be null")
     @Min(value = 0, message = "Id cannot be negative")
     private int id;
 
     @NotNull
     @Size(min=2, max=20, message = "Name size should be between 2 and 30")
-    private String fName;
+    private String firstName;
 
     @NotNull
     @Size(min=2, max=20, message = "Name size should be between 2 and 30")
-    private String lName;
+    private String lastName;
 
-    public TeacherParam(int id, String fName, String lName) {
-        setId(id);
-        setfName(fName);
-        setlName(lName);
+    public TeacherParam(String firstName, String lastName) {
+        setFirstName(firstName);
+        setLastName(lastName);
     }
 
     public TeacherParam() {
@@ -32,31 +30,31 @@ public class TeacherParam {
         return id;
     }
 
-    private void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    private void setfName(String fName) {
-        this.fName = fName;
+    private void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    private void setlName(String lName) {
-        this.lName = lName;
+    private void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getfName() {
-        return fName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getlName() {
-        return lName;
+    public String getLastName() {
+        return lastName;
     }
 
     @Override
     public String toString() {
         return "{" +
-                "fName='" + fName + '\'' +
-                ", lName='" + lName + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 }

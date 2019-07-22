@@ -12,8 +12,8 @@ import net.kodar.university.presentation.depricated.parameter.StudentParam;
 import net.kodar.university.presentation.depricated.result.StudentResult;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentProcessorGenericImpl extends ProcessorGenericImpl
@@ -28,24 +28,16 @@ public class StudentProcessorGenericImpl extends ProcessorGenericImpl
 
     @Override
     public int getID(StudentParam entity) {
-        val.validate(entity);
-        return entity.getID();
+        return entity.getId();
     }
 
     @Override
     public List<StudentResult> getStudentsByTeacherId(Integer teacherId) {
-        List<StudentResult> studentList = new ArrayList<>();
-
-        studentTeacherProcessor
-                .filterByTeacher(teacherId)
-                .forEach(student -> {
-
-                    StudentResult studentToAdd = rtr.apply(dao.get(student.getId()));
-                    studentList.add(studentToAdd);
-
-                });
-
-        return studentList;
+        List<Student> studentsById = this.dao.getStudentById(teacherId);
+        return studentsById
+                .stream()
+                .map(student -> this.rtr.apply(student))
+                .collect(Collectors.toList());
     }
 
 }

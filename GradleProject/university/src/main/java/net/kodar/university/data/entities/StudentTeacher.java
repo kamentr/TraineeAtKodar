@@ -1,36 +1,45 @@
 package net.kodar.university.data.entities;
 
-import java.util.UUID;
+import javax.persistence.*;
 
+@Entity
 public class StudentTeacher {
 
-    private Integer studentId;
-    private Integer teacherId;
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    private UUID identifier;
 
-    public StudentTeacher(int id, int studentId, int teacherId) {
-        this.setStudentId(studentId);
-        this.setTeacherId(teacherId);
-        this.setId(id);
-        this.setIdentifier(UUID.randomUUID());
-    }
-    public StudentTeacher(){
-        this.setIdentifier(UUID.randomUUID());
-    }
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "student_id")
+    private Student student;
 
-    public StudentTeacher(int studentId, int teacherId) {
-        this.setStudentId(studentId);
-        this.setTeacherId(teacherId);
-        this.setIdentifier(UUID.randomUUID());
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
+
+    public StudentTeacher() {
     }
 
-    public UUID getIdentifier() {
-        return identifier;
+    public StudentTeacher(Integer id, Student student, Teacher teacher) {
+        this.id = id;
+        this.student = student;
+        this.teacher = teacher;
     }
 
-    private void setIdentifier(UUID identifier) {
-        this.identifier = identifier;
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     public Integer getId() {
@@ -41,19 +50,12 @@ public class StudentTeacher {
         this.id = id;
     }
 
-    public Integer getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
-
-    public Integer getTeacherId() {
-        return teacherId;
-    }
-
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
+    @Override
+    public String toString() {
+        return "StudentTeacher{" +
+                "id=" + id +
+                ", student=" + student.getId() +
+                ", teacher=" + teacher.getId() +
+                '}';
     }
 }

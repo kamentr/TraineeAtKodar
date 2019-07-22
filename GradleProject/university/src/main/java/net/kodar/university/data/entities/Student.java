@@ -1,30 +1,32 @@
 package net.kodar.university.data.entities;
 
-import java.util.UUID;
+import javax.persistence.*;
 
+@Entity
 public class Student {
-    private int ID;
+
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer id;
+
     private String firstName;
+
     private String lastName;
-    private UUID identifier;
 
-    public Student() {
-        this.setIdentifier(UUID.randomUUID());
+    public Student() {}
+
+    public Student(String firstName, String lastName) {
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
     }
 
-    public Student(int id, String firstName, String lastName) {
-        setID(id);
-        setFirstName(firstName);
-        setLastName(lastName);
-        this.setIdentifier(UUID.randomUUID());
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public int getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
     public void setFirstName(String firstName) {
@@ -43,17 +45,10 @@ public class Student {
         return lastName;
     }
 
-    public UUID getIdentifier() {
-        return identifier;
-    }
-
-    private void setIdentifier(UUID identifier) {
-        this.identifier = identifier;
-    }
 
     @Override
     public String toString() {
-        return "ID=" + ID +
+        return "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';

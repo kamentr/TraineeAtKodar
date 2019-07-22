@@ -2,20 +2,20 @@ package net.kodar.university.presentation.depricated.result;
 
 public class TeacherResult {
     private int id;
-    private String fName;
-    private String lName;
+    private String firstName;
+    private String lastName;
 
 
-    public TeacherResult(String fName, String lName) {
-        this.fName = fName;
-        this.lName = lName;
+    public TeacherResult(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
 
     }
 
-    public TeacherResult(String fName, String lName, int id) {
+    public TeacherResult(int id, String firstName, String lastName) {
         setId(id);
-        setfName(fName);
-        setlName(lName);
+        setFirstName(firstName);
+        setLastName(lastName);
     }
 
     public TeacherResult() {
@@ -30,27 +30,28 @@ public class TeacherResult {
         this.id = id;
     }
 
-    public void setfName(String fName) {
-        this.fName = fName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setlName(String lName) {
-        this.lName = lName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getfName() {
-        return fName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getlName() {
-        return lName;
+    public String getLastName() {
+        return lastName;
     }
 
     @Override
     public String toString() {
         return "{" +
-                "fName='" + fName + '\'' +
-                ", lName='" + lName + '\'' +
+                "id= " + id + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 }

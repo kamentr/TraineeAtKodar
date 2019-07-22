@@ -1,26 +1,44 @@
 package net.kodar.university.presentation.depricated.parameter;
 
+import net.kodar.university.data.entities.Student;
+import net.kodar.university.data.entities.Teacher;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 public class StudentTeacherParam {
 
-    @NotNull(message = "Id cannot be null")
+    @NotNull(message = "student id cannot be null")
     @Min(value = 0, message = "Id cannot be negative")
-    private Integer studentId;
+    private Student student;
 
     @NotNull(message = "Id cannot be null")
     @Min(value = 0, message = "Id cannot be negative")
-    private Integer teacherId;
+    private Teacher teacher;
 
-    @NotNull(message = "Id cannot be null")
     @Min(value = 0, message = "Id cannot be negative")
     private Integer id;
 
-    public StudentTeacherParam(int id, int studentId, int teacherId) {
-        this.setStudentId(studentId);
-        this.setTeacherId(teacherId);
-        this.setId(id);
+    public StudentTeacherParam(Student student, Teacher teacher, Integer id) {
+        this.student = student;
+        this.teacher = teacher;
+        this.id = id;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     public StudentTeacherParam() {
@@ -34,19 +52,4 @@ public class StudentTeacherParam {
         this.id = id;
     }
 
-    public Integer getStudentId() {
-        return studentId;
-    }
-
-    private void setStudentId(Integer studentId) {
-        this.studentId = studentId;
-    }
-
-    public Integer getTeacherId() {
-        return teacherId;
-    }
-
-    private void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
-    }
 }

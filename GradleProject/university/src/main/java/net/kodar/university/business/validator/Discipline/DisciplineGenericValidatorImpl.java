@@ -10,6 +10,5 @@ public class DisciplineGenericValidatorImpl extends GenericValidatorImpl<Discipl
     @Override
     public void validate(DisciplineParam obj){
         super.validate(obj);
-
     }
 }
