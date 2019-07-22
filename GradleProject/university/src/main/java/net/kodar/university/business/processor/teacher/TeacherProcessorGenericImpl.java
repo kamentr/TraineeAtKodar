@@ -12,8 +12,8 @@ import net.kodar.university.presentation.depricated.parameter.TeacherParam;
 import net.kodar.university.presentation.depricated.result.TeacherResult;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TeacherProcessorGenericImpl extends ProcessorGenericImpl
@@ -30,8 +30,10 @@ public class TeacherProcessorGenericImpl extends ProcessorGenericImpl
 
     @Override
     public List<TeacherResult> getTeachersByStudentId(Integer studentId) {
-
-        return null;
+        return this.dao.getTeachersByStudentId(studentId)
+                .stream()
+                .map(t -> this.rtr.apply(t))
+                .collect(Collectors.toList());
     }
 
     @Override

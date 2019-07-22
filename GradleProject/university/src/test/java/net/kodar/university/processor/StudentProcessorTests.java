@@ -11,19 +11,15 @@ import net.kodar.university.presentation.depricated.result.StudentResult;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.validation.constraints.Null;
-
 import java.util.Arrays;
-import java.util.List;
+import java.util.Collections;
 
-import static junit.framework.TestCase.assertEquals;
 import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
@@ -91,7 +87,7 @@ public class StudentProcessorTests {
 
     @Test
     public void getAll_whenInvoked_shouldInvokeDaoGetAll() {
-        when(studentDao.getAll()).thenReturn( Arrays.asList(VALID_STUDENT));
+        when(studentDao.getAll()).thenReturn(Collections.singletonList(VALID_STUDENT));
 
         studentProcessor.getAll();
 
@@ -100,7 +96,7 @@ public class StudentProcessorTests {
 
     @Test
     public void getAll_whenInvoked_shouldInvokeResultTransormer() {
-        when(studentDao.getAll()).thenReturn( Arrays.asList(VALID_STUDENT));
+        when(studentDao.getAll()).thenReturn(Collections.singletonList(VALID_STUDENT));
         when(studentResultTransformer.apply(VALID_STUDENT)).thenReturn(VALID_RESULT_STUDENT);
 
         studentProcessor.getAll();

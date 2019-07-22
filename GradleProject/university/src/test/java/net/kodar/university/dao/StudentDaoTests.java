@@ -2,22 +2,18 @@ package net.kodar.university.dao;
 
 import net.kodar.university.data.entities.Student;
 import net.kodar.university.dataaccess.dao.student.StudentDaoGenericImpl;
-import net.kodar.university.presentation.depricated.parameter.StudentParam;
-import net.kodar.university.presentation.depricated.result.StudentResult;
+import net.kodar.university.dataaccess.repository.student.StudentRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.xml.validation.Validator;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Collections;
 import java.util.Optional;
 
 import static junit.framework.TestCase.assertEquals;
@@ -30,10 +26,10 @@ import static org.mockito.Mockito.*;
 public class StudentDaoTests {
 
     @Autowired
-    StudentDaoGenericImpl studentDao;
+    private StudentDaoGenericImpl studentDao;
 
     @MockBean
-    CrudRepository<Student, Integer> studentRepository;
+    private StudentRepository studentRepository;
 
     private static Student VALID_STUDENT;
 
@@ -69,7 +65,7 @@ public class StudentDaoTests {
 
     @Test
     public void getAll_whenInvoked_ShouldInvokeStudentRepositoryFindAll() {
-        when(studentRepository.findAll()).thenReturn( Arrays.asList(VALID_STUDENT));
+        when(studentRepository.findAll()).thenReturn(Collections.singletonList(VALID_STUDENT));
 
         studentDao.getAll();
 

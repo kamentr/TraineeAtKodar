@@ -5,13 +5,10 @@ import net.kodar.university.business.transformer.param.StudentTeacherParamGeneri
 import net.kodar.university.business.transformer.result.StudentTeacherResultGenericResultTransformer;
 import net.kodar.university.business.validator.StudentTeacher.StudentTeacherGenericValidatorImpl;
 import net.kodar.university.data.entities.StudentTeacher;
-import net.kodar.university.dataaccess.dao.studenteacher.StudentTeacherDaoGeneric;
+import net.kodar.university.dataaccess.dao.studenteacher.StudentTeacherDaoGenericImpl;
 import net.kodar.university.presentation.depricated.parameter.StudentTeacherParam;
 import net.kodar.university.presentation.depricated.result.StudentTeacherResult;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class StudentTeacherProcessorGenericImpl extends ProcessorGenericImpl
@@ -19,7 +16,7 @@ public class StudentTeacherProcessorGenericImpl extends ProcessorGenericImpl
                 StudentTeacherResult,
                 Integer,
                 StudentTeacher,
-                StudentTeacherDaoGeneric,
+                StudentTeacherDaoGenericImpl,
                 StudentTeacherParamGenericParamTransformer,
                 StudentTeacherResultGenericResultTransformer,
                 StudentTeacherGenericValidatorImpl>

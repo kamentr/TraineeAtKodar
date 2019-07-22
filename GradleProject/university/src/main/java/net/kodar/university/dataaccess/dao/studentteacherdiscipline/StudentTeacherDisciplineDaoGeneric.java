@@ -1,7 +1,7 @@
 package net.kodar.university.dataaccess.dao.studentteacherdiscipline;
 
 import net.kodar.university.data.entities.StudentTeacherDiscipline;
-import net.kodar.university.dataaccess.dao.DaoImplGeneric;
+import net.kodar.university.dataaccess.dao.Dao;
 
-public abstract class StudentTeacherDisciplineDaoGeneric extends DaoImplGeneric<Integer, StudentTeacherDiscipline> {
+public interface StudentTeacherDisciplineDaoGeneric extends Dao<StudentTeacherDiscipline> {
 }

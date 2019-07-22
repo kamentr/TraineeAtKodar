@@ -1,6 +1,5 @@
 package net.kodar.university.service.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import net.kodar.university.data.entities.Student;
 import net.kodar.university.presentation.depricated.parameter.StudentParam;
 import net.kodar.university.presentation.depricated.result.StudentResult;
@@ -8,15 +7,17 @@ import net.kodar.university.presentation.service.student.StudentService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.nio.charset.Charset;
 import java.util.Arrays;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -33,10 +34,11 @@ public class StudentControllerTests {
     @Autowired
     private MockMvc mvc;
 
+    @Captor
+    ArgumentCaptor<StudentParam> studentParamCaptor;
+
     @MockBean
     private StudentService service;
-
-    private static final ObjectMapper mapper = new ObjectMapper();
 
     private static final Integer VALID_ID = 1;
 
@@ -47,6 +49,14 @@ public class StudentControllerTests {
     private static StudentResult VALID_STUDENT_RESULT;
 
     private static StudentParam VALID_STUDENT_PARAM;
+
+    private static final MediaType APPLICATION_JSON_UTF8 = new MediaType(MediaType.APPLICATION_JSON.getType(), MediaType.APPLICATION_JSON.getSubtype(), Charset.forName("utf8"));
+
+    private static final String REQUEST_BODY = "{" +
+            "\"id\": 1,\n" +
+            "\"firstName\": \"Test\",\n" +
+            "\"lastName\": \"Test\"\n" +
+            "}";
 
     @Before
     public void setUp() throws Exception {
@@ -96,9 +106,23 @@ public class StudentControllerTests {
         when(service.save(VALID_STUDENT_PARAM)).thenReturn(VALID_STUDENT_RESULT);
 
         mvc.perform(post("/student")
-                .content(mapper.writeValueAsString(VALID_STUDENT_PARAM)))
+                .contentType(APPLICATION_JSON_UTF8)
+                .content(REQUEST_BODY))
                 .andExpect(status().isOk());
 
-        verify(service, times(1)).save(VALID_STUDENT_PARAM);
+        verify(service, times(1)).save(studentParamCaptor.capture());
     }
+
+    @Test
+    public void update_givenValidParams_shouldInvokeServiceUpdate() throws Exception {
+        doNothing().when(service).update(VALID_ID, VALID_STUDENT_PARAM);
+
+        mvc.perform(put("/student/" + VALID_ID)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(REQUEST_BODY))
+                .andExpect(status().isOk());
+
+    }
+
 }

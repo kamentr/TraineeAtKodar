@@ -1,17 +1,17 @@
 package net.kodar.university.data.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Teacher {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String firstName;
+
     private String lastName;
 
     public Teacher(int id, String firstName, String lastName) {

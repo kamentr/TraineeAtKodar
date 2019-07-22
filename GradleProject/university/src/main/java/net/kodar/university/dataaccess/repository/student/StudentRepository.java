@@ -1,19 +1,20 @@
 package net.kodar.university.dataaccess.repository.student;
 
 import net.kodar.university.data.entities.Student;
-import net.kodar.university.presentation.depricated.result.StudentResult;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface StudentRepository extends CrudRepository<Student, Integer> {
+@Repository
+public interface StudentRepository extends CrudRepository<Student, Integer>{
 
-    @Query(value =
-            "select university.student.first_name, university.student.last_name, university.teacher.first_name, university.teacher.last_name\n" +
-            "FROM student \n" +
-            "  JOIN student_teacher on student.id = student_teacher.student_id\n" +
-            "  JOIN teacher on teacher.id = student_teacher.teacher_id", nativeQuery = true)
-    List<Student> getStudentByTeacherId(@Param("teacher.id")Integer id);
+    @Query(value ="select s.*\n" +
+            "FROM student s\n" +
+            "  JOIN student_teacher st on s.id = st.student_id\n" +
+            "  JOIN teacher t on t.id = st.teacher_id\n" +
+            "  where t.id = ?1"
+            , nativeQuery = true)
+    List<Student> getStudentByTeacherId(Integer id);
 }

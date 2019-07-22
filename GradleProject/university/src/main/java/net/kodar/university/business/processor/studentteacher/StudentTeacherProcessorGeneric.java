@@ -4,8 +4,6 @@ import net.kodar.university.business.processor.Processor;
 import net.kodar.university.presentation.depricated.parameter.StudentTeacherParam;
 import net.kodar.university.presentation.depricated.result.StudentTeacherResult;
 
-import java.util.List;
-
 public interface StudentTeacherProcessorGeneric extends Processor<StudentTeacherParam, StudentTeacherResult> {
 
 }

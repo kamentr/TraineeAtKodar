@@ -20,7 +20,7 @@ public class StudentTeacherDisciplineProcessorGenericImpl extends ProcessorGener
                 StudentTeacherDisciplineResult,
                 Integer,
                 StudentTeacherDiscipline,
-                StudentTeacherDisciplineDaoGeneric,
+                StudentTeacherDisciplineDaoGenericImpl,
                 StudentTeacherDisciplineParamGenericParamTransformer,
                 StudentTeacherDisciplineResultGenericResultTransformer,
                 StudentTeacherDisciplineGenericValidatorImpl> implements StudentTeacherDisciplineProcessorGeneric {

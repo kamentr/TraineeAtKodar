@@ -12,7 +12,6 @@ import net.kodar.university.presentation.depricated.parameter.StudentParam;
 import net.kodar.university.presentation.depricated.result.StudentResult;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
