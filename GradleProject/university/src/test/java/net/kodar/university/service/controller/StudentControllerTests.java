@@ -19,6 +19,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.Charset;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
@@ -122,7 +124,19 @@ public class StudentControllerTests {
                 .accept(MediaType.APPLICATION_JSON)
                 .content(REQUEST_BODY))
                 .andExpect(status().isOk());
-
     }
 
+    @Test
+    public void byteacher_givenTeacherId_shouldReturnListOfStudents() throws Exception {
+        List<StudentResult> studentResultList = Collections.singletonList(VALID_STUDENT_RESULT);
+
+        when(service.byTeacher(VALID_ID)).thenReturn(studentResultList);
+
+        mvc.perform(get("/student/byteacher/" + VALID_ID))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].firstName", is(VALID_STUDENT.getFirstName())))
+                .andExpect(jsonPath("$[0].lastName", is(VALID_STUDENT.getLastName())));
+
+        verify(service, times(1)).byTeacher(VALID_ID);
+    }
 }

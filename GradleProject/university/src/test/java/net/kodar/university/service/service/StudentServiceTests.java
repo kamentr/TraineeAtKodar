@@ -3,8 +3,10 @@ package net.kodar.university.service.service;
 
 import net.kodar.university.business.processor.student.StudentProcessorGenericImpl;
 import net.kodar.university.data.entities.Student;
+import net.kodar.university.data.entities.Teacher;
 import net.kodar.university.presentation.depricated.parameter.StudentParam;
 import net.kodar.university.presentation.depricated.result.StudentResult;
+import net.kodar.university.presentation.depricated.result.TeacherResult;
 import net.kodar.university.presentation.service.student.StudentService;
 
 import org.junit.Before;
@@ -19,6 +21,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
@@ -120,5 +124,16 @@ public class StudentServiceTests {
         verify(studentProcessor, times(1)).save(studentParamCaptor.capture());
     }
 
+    @Test
+    public void byteacher_givenTeacher_shouldReturnListOfStudents() {
 
+        List<StudentResult> studentResults = Collections.singletonList(VALID_STUDENT_RESULT);
+
+        when(studentProcessor.getStudentsByTeacherId(VALID_ID)).thenReturn(studentResults);
+
+        studentService.byTeacher(VALID_ID);
+
+        verify(studentProcessor, times(1)).getStudentsByTeacherId(VALID_ID);
+        assertEquals(studentProcessor.getStudentsByTeacherId(VALID_ID), studentResults);
+    }
 }
