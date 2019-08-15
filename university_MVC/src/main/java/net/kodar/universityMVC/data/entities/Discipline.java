@@ -12,16 +12,16 @@ public class Discipline {
     private String name;
 
     @Column(name="is_deleted", columnDefinition = "boolean default false")
-    private Boolean isDeleted = false;
+    private boolean isDeleted;
 
     public Discipline() {
     }
 
-    public Boolean getDeleted() {
+    public boolean getDeleted() {
         return isDeleted;
     }
 
-    public void setDeleted(Boolean deleted) {
+    public void setDeleted(boolean deleted) {
         isDeleted = deleted;
     }
 

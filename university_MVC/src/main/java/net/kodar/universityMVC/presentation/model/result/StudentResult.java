@@ -1,38 +1,18 @@
-package net.kodar.universityMVC.data.entities;
+package net.kodar.universityMVC.presentation.model.result;
 
-import javax.persistence.*;
+public class StudentResult {
 
-@Entity
-public class Student {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name="first_name")
     private String firstName;
-
-    @Column(name="last_name")
     private String lastName;
 
-    @Column(name="is_deleted", columnDefinition = "boolean default false")
-    private boolean isDeleted;
+    public StudentResult() {}
 
-    public Student() {}
-
-    public boolean isDeleted() {
-        return isDeleted;
-    }
-
-    public void setDeleted(boolean deleted) {
-        isDeleted = deleted;
-    }
-
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
@@ -52,13 +32,12 @@ public class Student {
         return lastName;
     }
 
-
     @Override
     public String toString() {
-        return "id=" + id +
+        return "StudentResult{" +
+                "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
-
 }

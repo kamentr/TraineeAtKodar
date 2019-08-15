@@ -17,4 +17,10 @@ public class UniversityMvcApplication {
 		ModelMapper modelMapper = new ModelMapper();
 		return modelMapper;
 	}
+
+//	@Bean
+//	public StudentDetailsViewMapper studentDetailsViewMapper(){
+//		StudentDetailsViewMapper studentDetailsViewMapper = new StudentDetailsViewMapper();
+//		return studentDetailsViewMapper;
+//	}
 }

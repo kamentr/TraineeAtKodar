@@ -1,9 +1,10 @@
 package net.kodar.universityMVC.presentation.controller.student;
 
-import net.kodar.universityMVC.business.service.student.StudentService;
-import net.kodar.universityMVC.presentation.model.binding.StudentBinding;
-import net.kodar.universityMVC.presentation.model.view.StudentDetailsView;
-import net.kodar.universityMVC.presentation.model.view.StudentView;
+import net.kodar.universityMVC.business.processor.student.StudentProcessor;
+import net.kodar.universityMVC.business.transformer.mapper.Mapper;
+import net.kodar.universityMVC.business.transformer.mapper.StudentDetailsViewMapper;
+import net.kodar.universityMVC.presentation.model.param.StudentParam;
+import net.kodar.universityMVC.presentation.model.result.StudentResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,23 +19,27 @@ import java.util.List;
 @RequestMapping("student")
 public class StudentController {
 
-    private StudentService service;
+    private StudentProcessor service;
 
     @Autowired
-    public StudentController(StudentService service) {
+    private Mapper studentDetailsViewMapper;
+
+    @Autowired
+    public StudentController(StudentProcessor service, StudentDetailsViewMapper studentDetailsViewMapper) {
         this.service = service;
+        this.studentDetailsViewMapper = studentDetailsViewMapper;
     }
 
     @GetMapping("form")
     public String saveform(Model student) {
 
-        student.addAttribute("student", new StudentBinding());
+        student.addAttribute("student", new StudentParam());
 
         return "studentform";
     }
 
     @PostMapping("form")
-    public String save(@Valid @ModelAttribute("student") StudentBinding student, Model model, BindingResult bindingResult) {
+    public String save(@Valid @ModelAttribute("student") StudentParam student, Model model, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "studentform";
@@ -50,7 +55,7 @@ public class StudentController {
     @RequestMapping("view")
     public ModelAndView showStudents(ModelAndView modelAndView) {
 
-        List<StudentView> list = service.getAll();
+        List<StudentResult> list = service.getAll();
 
         modelAndView.setViewName("studentview");
         modelAndView.addObject("list", list);
@@ -60,13 +65,14 @@ public class StudentController {
 
     @RequestMapping("details/{id}")
     public ModelAndView details(@PathVariable(name = "id") int id, ModelAndView modelAndView) {
+//        StudentDetailsView studentDetailsView = service.getDetailsByStudentId(id); //modelMapper.map(id, StudentDetailsView.class);
+//
+//        modelAndView.setViewName("studentdetails");
+//        modelAndView.addObject("student", studentDetailsView.getStudent());
+//        modelAndView.addObject("teacherList", studentDetailsView.getTeacherList());
+//        modelAndView.addObject("disciplineList", studentDetailsView.getDisciplineList());
 
-        StudentDetailsView studentDetailsView = service.getDetailsByStudentId(id); //modelMapper.map(id, StudentDetailsView.class);
-
-        modelAndView.setViewName("studentdetails");
-        modelAndView.addObject("student", studentDetailsView.getStudent());
-        modelAndView.addObject("teacherList", studentDetailsView.getTeacherList());
-        modelAndView.addObject("disciplineList", studentDetailsView.getDisciplineList());
+        studentDetailsViewMapper.map(modelAndView, id);
 
         return modelAndView;
     }
@@ -80,13 +86,13 @@ public class StudentController {
     @GetMapping(value = "update/{id}")
     public String updateform(Model student){
 
-        student.addAttribute("student", new StudentBinding());
+        student.addAttribute("student", new StudentParam());
 
         return "studentupdateform";
     }
 
     @PostMapping("update/{id}")
-    public String update(@PathVariable("id") int id, @Valid @ModelAttribute("student") StudentBinding student, Model model){
+    public String update(@PathVariable("id") int id, @Valid @ModelAttribute("student") StudentParam student, Model model){
 
         student.setId(id);
         service.update(student);

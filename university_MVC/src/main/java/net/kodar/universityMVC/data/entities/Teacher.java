@@ -14,16 +14,16 @@ public class Teacher {
     private String lastName;
 
     @Column(name="is_deleted", columnDefinition = "boolean default false")
-    private Boolean isDeleted = false;
+    private boolean isDeleted;
 
     public Teacher() {
     }
 
-    public Boolean getDeleted() {
+    public boolean getDeleted() {
         return isDeleted;
     }
 
-    public void setDeleted(Boolean deleted) {
+    public void setDeleted(boolean deleted) {
         isDeleted = deleted;
     }
 

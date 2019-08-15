@@ -1,6 +1,6 @@
 package net.kodar.universityMVC.presentation.controller;
 
-import net.kodar.universityMVC.business.service.Service;
+import net.kodar.universityMVC.business.processor.Processor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 @RequestMapping(produces = "application/json")
 public abstract class ControllerGeneric<IN, OUT,
-        PR extends Service<IN, OUT>> {
+        PR extends Processor<IN, OUT>> {
 
     @Autowired
     protected PR processor;

@@ -1,7 +1,7 @@
 package net.kodar.universityMVC.business.validator.StudentTeacherDiscipline;
 
 import net.kodar.universityMVC.business.validator.GenericValidatorImpl;
-import net.kodar.universityMVC.presentation.model.binding.StudentTeacherDisciplineParam;
+import net.kodar.universityMVC.presentation.model.param.StudentTeacherDisciplineParam;
 import org.springframework.stereotype.Component;
 
 @Component
