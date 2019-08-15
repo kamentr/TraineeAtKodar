@@ -1,8 +1,8 @@
 package net.kodar.university.dataaccess.dao.teacher;
 
-import net.kodar.university.data.entities.Teacher;
 import net.kodar.university.dataaccess.dao.DaoImplGeneric;
 import net.kodar.university.dataaccess.repository.teacher.TeacherRepository;
+import net.kodar.university.entities.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

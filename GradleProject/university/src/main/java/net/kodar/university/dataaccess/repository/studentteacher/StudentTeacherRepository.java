@@ -1,6 +1,6 @@
 package net.kodar.university.dataaccess.repository.studentteacher;
 
-import net.kodar.university.data.entities.StudentTeacher;
+import net.kodar.university.entities.StudentTeacher;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

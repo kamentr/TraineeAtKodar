@@ -1,8 +1,8 @@
 package net.kodar.university.presentation.depricated.parameter;
 
-import net.kodar.university.data.entities.Discipline;
-import net.kodar.university.data.entities.Student;
-import net.kodar.university.data.entities.Teacher;
+import net.kodar.university.entities.Discipline;
+import net.kodar.university.entities.Student;
+import net.kodar.university.entities.Teacher;
 
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;

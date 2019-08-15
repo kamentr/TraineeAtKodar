@@ -1,7 +1,5 @@
 package net.kodar.university.presentation.depricated.result;
 
-import net.kodar.university.data.entities.Discipline;
-
 import java.util.Objects;
 
 public class DisciplineResult {
@@ -37,19 +35,6 @@ public class DisciplineResult {
                 " }";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Discipline)) return false;
-        Discipline that = (Discipline) o;
-        return id.equals(that.getId()) &&
-                name.equals(that.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
-    }
 }
 
 

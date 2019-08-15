@@ -1,7 +1,8 @@
 package net.kodar.university.presentation.depricated.result;
 
-import net.kodar.university.data.entities.Student;
-import net.kodar.university.data.entities.Teacher;
+
+import net.kodar.university.entities.Student;
+import net.kodar.university.entities.Teacher;
 
 public class StudentTeacherResult {
 

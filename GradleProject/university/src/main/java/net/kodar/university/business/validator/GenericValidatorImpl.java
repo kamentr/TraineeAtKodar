@@ -8,6 +8,7 @@ public class GenericValidatorImpl<T> implements GenericValidator<T>{
 
     @Autowired
     protected Validator validator;
+
     public void validate(T obj){
 
         this.validator.validate(obj);

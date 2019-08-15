@@ -1,8 +1,8 @@
 package net.kodar.university.dataaccess.dao.discipline;
 
-import net.kodar.university.data.entities.Discipline;
+
 import net.kodar.university.dataaccess.dao.DaoImplGeneric;
-import net.kodar.university.dataaccess.dao.discipline.DisciplineDaoGeneric;
+import net.kodar.university.entities.Discipline;
 import org.springframework.stereotype.Component;
 
 @Component

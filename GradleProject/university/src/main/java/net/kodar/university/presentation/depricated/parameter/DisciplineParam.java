@@ -1,7 +1,5 @@
 package net.kodar.university.presentation.depricated.parameter;
 
-import net.kodar.university.data.entities.Discipline;
-
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,7 +11,7 @@ public class DisciplineParam {
     private Integer id;
 
     @NotNull
-    @Size(min=2, max=20, message = "Name size should be between 2 and 20")
+    @Size(min = 2, max = 20, message = "Name size should be between 2 and 20")
     private String name;
 
     public DisciplineParam(String name) {
@@ -43,19 +41,5 @@ public class DisciplineParam {
     public String toString() {
         return "Discipline{ " + name +
                 " }";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Discipline)) return false;
-        Discipline that = (Discipline) o;
-        return id.equals(that.getId()) &&
-                name.equals(that.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
     }
 }

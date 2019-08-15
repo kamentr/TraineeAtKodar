@@ -1,7 +1,7 @@
 package net.kodar.university.business.transformer.param;
 
 import net.kodar.university.business.transformer.GenericParamTransformer;
-import net.kodar.university.data.entities.StudentTeacherDiscipline;
+import net.kodar.university.entities.StudentTeacherDiscipline;
 import net.kodar.university.presentation.depricated.parameter.StudentTeacherDisciplineParam;
 import org.springframework.stereotype.Component;
 

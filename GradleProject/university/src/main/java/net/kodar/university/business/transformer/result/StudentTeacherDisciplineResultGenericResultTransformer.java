@@ -1,7 +1,7 @@
 package net.kodar.university.business.transformer.result;
 
 import net.kodar.university.business.transformer.GenericResultTransformer;
-import net.kodar.university.data.entities.StudentTeacherDiscipline;
+import net.kodar.university.entities.StudentTeacherDiscipline;
 import net.kodar.university.presentation.depricated.result.StudentTeacherDisciplineResult;
 import org.springframework.stereotype.Component;
 

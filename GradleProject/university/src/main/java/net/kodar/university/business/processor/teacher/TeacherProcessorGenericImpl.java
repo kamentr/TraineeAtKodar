@@ -6,8 +6,8 @@ import net.kodar.university.business.processor.studentteacher.StudentTeacherProc
 import net.kodar.university.business.transformer.param.TeacherParamGenericParamTransformer;
 import net.kodar.university.business.transformer.result.TeacheResultGenericResultTransformer;
 import net.kodar.university.business.validator.Teacher.TeacherGenericValidatorImpl;
-import net.kodar.university.data.entities.Teacher;
 import net.kodar.university.dataaccess.dao.teacher.TeacherDaoGenericImpl;
+import net.kodar.university.entities.Teacher;
 import net.kodar.university.presentation.depricated.parameter.TeacherParam;
 import net.kodar.university.presentation.depricated.result.TeacherResult;
 import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@ public class TeacherProcessorGenericImpl extends ProcessorGenericImpl
                 TeacherDaoGenericImpl,
                 TeacherParamGenericParamTransformer,
                 TeacheResultGenericResultTransformer,
-                TeacherGenericValidatorImpl> implements TeacherProcessorGeneric{
+                TeacherGenericValidatorImpl> implements TeacherProcessorGeneric {
 
     private StudentTeacherProcessorGeneric studentTeacherProcessor = new StudentTeacherProcessorGenericImpl();
 

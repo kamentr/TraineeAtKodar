@@ -1,9 +1,9 @@
-package net.kodar.university.data.entities;
+package net.kodar.university.entities;
 
 import javax.persistence.*;
 
 @Entity
-public class StudentTeacherDiscipline {
+public class StudentTeacher {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -17,19 +17,13 @@ public class StudentTeacherDiscipline {
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "discipline_id")
-    private Discipline discipline;
+    public StudentTeacher() {
+    }
 
-    public StudentTeacherDiscipline(Integer id, Student student, Teacher teacher, Discipline discipline) {
+    public StudentTeacher(Integer id, Student student, Teacher teacher) {
         this.id = id;
         this.student = student;
         this.teacher = teacher;
-        this.discipline = discipline;
-    }
-
-    public StudentTeacherDiscipline() {
-
     }
 
     public Student getStudent() {
@@ -48,14 +42,6 @@ public class StudentTeacherDiscipline {
         this.teacher = teacher;
     }
 
-    public Discipline getDiscipline() {
-        return discipline;
-    }
-
-    public void setDiscipline(Discipline discipline) {
-        this.discipline = discipline;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -64,14 +50,12 @@ public class StudentTeacherDiscipline {
         this.id = id;
     }
 
-
     @Override
     public String toString() {
-        return "StudentTeacherDisciplineService{" +
-                "studentId=" + student.getId() +
-                ", teacherId=" + teacher.getId() +
-                ", disciplineId=" + discipline.getId() +
-                ", id=" + id +
+        return "StudentTeacher{" +
+                "id=" + id +
+                ", student=" + student.getId() +
+                ", teacher=" + teacher.getId() +
                 '}';
     }
 }

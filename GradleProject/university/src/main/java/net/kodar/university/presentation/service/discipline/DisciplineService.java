@@ -1,6 +1,5 @@
 package net.kodar.university.presentation.service.discipline;
 
-import net.kodar.university.business.processor.discipline.DisciplineProcessorGenericImpl;
 import net.kodar.university.presentation.depricated.parameter.DisciplineParam;
 import net.kodar.university.presentation.depricated.result.DisciplineResult;
 import net.kodar.university.presentation.service.ServiceGeneric;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DisciplineService extends ServiceGeneric
         <DisciplineParam,
                 DisciplineResult,
-                DisciplineProcessorGenericImpl> {
+                net.kodar.university.business.processor.discipline.DisciplineProcessorGenericImpl> {
 
     @Override
     protected int getId(DisciplineParam param) {
