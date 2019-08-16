@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Saving student</title>
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'First Name: ' + ${student.firstName}"></p>
+<p th:text="'Last Name: ' + ${student.lastName}"></p>
+<a href="/student/form">Submit another student</a>
+<a href="/student/view">See all students</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Update</title>
+</head>
+<body>
+
+<h1>Result</h1>
+<h3>Success</h3>
+<p th:text="'First Name: ' + ${student.firstName}"></p>
+<p th:text="'Last Name: ' + ${student.lastName}"></p>
+
+<a href="/student/view">See all students</a>
+</body>
+</html>
